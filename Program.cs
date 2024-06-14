@@ -12,6 +12,8 @@ namespace PABMS
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new mainpanel1());
+            //Application.Run(new PaymentForm());
+
         }
     }
 }

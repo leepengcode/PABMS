@@ -22,41 +22,468 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+
         private void InitializeComponent()
         {
+            panel1 = new Panel();
+            splitContainer1 = new SplitContainer();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            TBSearch = new TextBox();
+            LBPayment = new ListBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label2 = new Label();
+            TBStaffName = new TextBox();
             label1 = new Label();
+            TBStaffID = new TextBox();
+            label3 = new Label();
+            TBCusPhone = new TextBox();
+            label4 = new Label();
+            label5 = new Label();
+            TBCustomerID = new TextBox();
+            label6 = new Label();
+            TBTicketID = new TextBox();
+            label7 = new Label();
+            TBPaymentNo = new TextBox();
+            TBCustomerName = new TextBox();
+            label8 = new Label();
+            DTPPayDate = new DateTimePicker();
+            panel2 = new Panel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
+            button4 = new Button();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
+            splitContainer1.Panel1.SuspendLayout();
+            splitContainer1.Panel2.SuspendLayout();
+            splitContainer1.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(splitContainer1);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(tableLayoutPanel3);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1303, 751);
+            panel1.TabIndex = 0;
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.BorderStyle = BorderStyle.FixedSingle;
+            splitContainer1.Dock = DockStyle.Fill;
+            splitContainer1.Location = new Point(0, 101);
+            splitContainer1.Margin = new Padding(3, 4, 3, 4);
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(tableLayoutPanel1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(tableLayoutPanel2);
+            splitContainer1.Size = new Size(1303, 562);
+            splitContainer1.SplitterDistance = 434;
+            splitContainer1.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(TBSearch, 0, 0);
+            tableLayoutPanel1.Controls.Add(LBPayment, 0, 1);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.Padding = new Padding(0, 0, 5, 0);
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 18.54305F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 81.45695F));
+            tableLayoutPanel1.Size = new Size(432, 560);
+            tableLayoutPanel1.TabIndex = 0;
+            // 
+            // TBSearch
+            // 
+            TBSearch.Anchor = AnchorStyles.None;
+            TBSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBSearch.Location = new Point(79, 34);
+            TBSearch.Margin = new Padding(3, 4, 3, 4);
+            TBSearch.Name = "TBSearch";
+            TBSearch.Size = new Size(269, 34);
+            TBSearch.TabIndex = 20;
+            // 
+            // LBPayment
+            // 
+            LBPayment.Dock = DockStyle.Fill;
+            LBPayment.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            LBPayment.FormattingEnabled = true;
+            LBPayment.ItemHeight = 29;
+            LBPayment.Location = new Point(3, 107);
+            LBPayment.Margin = new Padding(3, 4, 3, 4);
+            LBPayment.Name = "LBPayment";
+            LBPayment.Size = new Size(421, 449);
+            LBPayment.TabIndex = 21;
+            LBPayment.SelectedIndexChanged += LBPayment_SelectedIndexChanged;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 47.0437F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 52.9563F));
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Controls.Add(TBStaffName, 1, 7);
+            tableLayoutPanel2.Controls.Add(label1, 0, 1);
+            tableLayoutPanel2.Controls.Add(TBStaffID, 1, 6);
+            tableLayoutPanel2.Controls.Add(label3, 0, 2);
+            tableLayoutPanel2.Controls.Add(TBCusPhone, 1, 5);
+            tableLayoutPanel2.Controls.Add(label4, 0, 3);
+            tableLayoutPanel2.Controls.Add(label5, 0, 4);
+            tableLayoutPanel2.Controls.Add(TBCustomerID, 1, 3);
+            tableLayoutPanel2.Controls.Add(label6, 0, 5);
+            tableLayoutPanel2.Controls.Add(TBTicketID, 1, 2);
+            tableLayoutPanel2.Controls.Add(label7, 0, 6);
+            tableLayoutPanel2.Controls.Add(TBPaymentNo, 1, 0);
+            tableLayoutPanel2.Controls.Add(TBCustomerName, 1, 4);
+            tableLayoutPanel2.Controls.Add(label8, 0, 7);
+            tableLayoutPanel2.Controls.Add(DTPPayDate, 1, 1);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 8;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
+            tableLayoutPanel2.Size = new Size(863, 560);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.Anchor = AnchorStyles.Right;
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(238, 20);
+            label2.Name = "label2";
+            label2.Padding = new Padding(0, 0, 20, 0);
+            label2.Size = new Size(164, 29);
+            label2.TabIndex = 32;
+            label2.Text = "Payment No";
+            // 
+            // TBStaffName
+            // 
+            TBStaffName.Anchor = AnchorStyles.Left;
+            TBStaffName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBStaffName.Location = new Point(408, 508);
+            TBStaffName.Margin = new Padding(3, 4, 3, 4);
+            TBStaffName.Name = "TBStaffName";
+            TBStaffName.Size = new Size(322, 34);
+            TBStaffName.TabIndex = 7;
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.None;
+            label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(498, 273);
+            label1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(273, 90);
             label1.Name = "label1";
-            label1.Size = new Size(161, 46);
-            label1.TabIndex = 2;
-            label1.Text = "Payment";
+            label1.Padding = new Padding(0, 0, 20, 0);
+            label1.Size = new Size(129, 29);
+            label1.TabIndex = 31;
+            label1.Text = "Pay Date";
+            // 
+            // TBStaffID
+            // 
+            TBStaffID.Anchor = AnchorStyles.Left;
+            TBStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBStaffID.Location = new Point(408, 438);
+            TBStaffID.Margin = new Padding(3, 4, 3, 4);
+            TBStaffID.Name = "TBStaffID";
+            TBStaffID.Size = new Size(322, 34);
+            TBStaffID.TabIndex = 6;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(274, 160);
+            label3.Name = "label3";
+            label3.Padding = new Padding(0, 0, 20, 0);
+            label3.Size = new Size(128, 29);
+            label3.TabIndex = 30;
+            label3.Text = "Ticket ID";
+            // 
+            // TBCusPhone
+            // 
+            TBCusPhone.Anchor = AnchorStyles.Left;
+            TBCusPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBCusPhone.Location = new Point(408, 368);
+            TBCusPhone.Margin = new Padding(3, 4, 3, 4);
+            TBCusPhone.Name = "TBCusPhone";
+            TBCusPhone.Size = new Size(322, 34);
+            TBCusPhone.TabIndex = 5;
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(236, 230);
+            label4.Name = "label4";
+            label4.Padding = new Padding(0, 0, 20, 0);
+            label4.Size = new Size(166, 29);
+            label4.TabIndex = 29;
+            label4.Text = "Customer ID";
+            // 
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(194, 300);
+            label5.Name = "label5";
+            label5.Padding = new Padding(0, 0, 20, 0);
+            label5.Size = new Size(208, 29);
+            label5.TabIndex = 28;
+            label5.Text = "Customer Name";
+            // 
+            // TBCustomerID
+            // 
+            TBCustomerID.Anchor = AnchorStyles.Left;
+            TBCustomerID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBCustomerID.Location = new Point(408, 228);
+            TBCustomerID.Margin = new Padding(3, 4, 3, 4);
+            TBCustomerID.Name = "TBCustomerID";
+            TBCustomerID.Size = new Size(322, 34);
+            TBCustomerID.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.Anchor = AnchorStyles.Right;
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(102, 370);
+            label6.Name = "label6";
+            label6.Padding = new Padding(0, 0, 20, 0);
+            label6.Size = new Size(300, 29);
+            label6.TabIndex = 27;
+            label6.Text = "Cusomer Phone Number";
+            // 
+            // TBTicketID
+            // 
+            TBTicketID.Anchor = AnchorStyles.Left;
+            TBTicketID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBTicketID.Location = new Point(408, 158);
+            TBTicketID.Margin = new Padding(3, 4, 3, 4);
+            TBTicketID.Name = "TBTicketID";
+            TBTicketID.Size = new Size(322, 34);
+            TBTicketID.TabIndex = 2;
+            // 
+            // label7
+            // 
+            label7.Anchor = AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(293, 440);
+            label7.Name = "label7";
+            label7.Padding = new Padding(0, 0, 20, 0);
+            label7.Size = new Size(109, 29);
+            label7.TabIndex = 26;
+            label7.Text = "Staff ID";
+            // 
+            // TBPaymentNo
+            // 
+            TBPaymentNo.Anchor = AnchorStyles.Left;
+            TBPaymentNo.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBPaymentNo.Location = new Point(408, 18);
+            TBPaymentNo.Margin = new Padding(3, 4, 3, 4);
+            TBPaymentNo.Name = "TBPaymentNo";
+            TBPaymentNo.Size = new Size(322, 34);
+            TBPaymentNo.TabIndex = 0;
+            // 
+            // TBCustomerName
+            // 
+            TBCustomerName.Anchor = AnchorStyles.Left;
+            TBCustomerName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            TBCustomerName.Location = new Point(408, 298);
+            TBCustomerName.Margin = new Padding(3, 4, 3, 4);
+            TBCustomerName.Name = "TBCustomerName";
+            TBCustomerName.Size = new Size(322, 34);
+            TBCustomerName.TabIndex = 4;
+            // 
+            // label8
+            // 
+            label8.Anchor = AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.Location = new Point(251, 510);
+            label8.Name = "label8";
+            label8.Padding = new Padding(0, 0, 20, 0);
+            label8.Size = new Size(151, 29);
+            label8.TabIndex = 26;
+            label8.Text = "Staff Name";
+            // 
+            // DTPPayDate
+            // 
+            DTPPayDate.Anchor = AnchorStyles.Left;
+            DTPPayDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            DTPPayDate.Location = new Point(408, 88);
+            DTPPayDate.Margin = new Padding(3, 4, 3, 4);
+            DTPPayDate.Name = "DTPPayDate";
+            DTPPayDate.Size = new Size(322, 34);
+            DTPPayDate.TabIndex = 33;
+            DTPPayDate.UseWaitCursor = true;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.ForestGreen;
+            panel2.Dock = DockStyle.Top;
+            panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1303, 101);
+            panel2.TabIndex = 0;
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.ColumnCount = 4;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableLayoutPanel3.Controls.Add(button1, 0, 0);
+            tableLayoutPanel3.Controls.Add(button2, 1, 0);
+            tableLayoutPanel3.Controls.Add(button3, 2, 0);
+            tableLayoutPanel3.Controls.Add(button4, 3, 0);
+            tableLayoutPanel3.Dock = DockStyle.Bottom;
+            tableLayoutPanel3.Location = new Point(0, 663);
+            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 1;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Size = new Size(1303, 88);
+            tableLayoutPanel3.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.None;
+            button1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(95, 10);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(134, 68);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Anchor = AnchorStyles.None;
+            button2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button2.Location = new Point(420, 10);
+            button2.Margin = new Padding(3, 4, 3, 4);
+            button2.Name = "button2";
+            button2.Size = new Size(134, 68);
+            button2.TabIndex = 0;
+            button2.Text = "button1";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Anchor = AnchorStyles.None;
+            button3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button3.Location = new Point(745, 10);
+            button3.Margin = new Padding(3, 4, 3, 4);
+            button3.Name = "button3";
+            button3.Size = new Size(134, 68);
+            button3.TabIndex = 0;
+            button3.Text = "button1";
+            button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            button4.Anchor = AnchorStyles.None;
+            button4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button4.Location = new Point(1072, 10);
+            button4.Margin = new Padding(3, 4, 3, 4);
+            button4.Name = "button4";
+            button4.Size = new Size(134, 68);
+            button4.TabIndex = 0;
+            button4.Text = "button1";
+            button4.UseVisualStyleBackColor = true;
             // 
             // PaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1112, 593);
-            Controls.Add(label1);
+            ClientSize = new Size(1303, 751);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "PaymentForm";
-            Text = "PaymentForm";
+            Text = "Form1";
+            WindowState = FormWindowState.Maximized;
+            FormClosing += PaymentForm_FormClosing;
+            Load += PaymentForm_Load;
+            SizeChanged += PaymentForm_SizeChanged;
+            panel1.ResumeLayout(false);
+            splitContainer1.Panel1.ResumeLayout(false);
+            splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
+            splitContainer1.ResumeLayout(false);
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TextBox TBSearch;
+        private System.Windows.Forms.ListBox LBPayment;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox TBStaffName;
+        private System.Windows.Forms.TextBox TBStaffID;
+        private System.Windows.Forms.TextBox TBCusPhone;
+        private System.Windows.Forms.TextBox TBCustomerName;
+        private System.Windows.Forms.TextBox TBCustomerID;
+        private System.Windows.Forms.TextBox TBTicketID;
+        private System.Windows.Forms.TextBox TBPaymentNo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DateTimePicker DTPPayDate;
     }
+
 }
