@@ -28,36 +28,111 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            Nation = new DataGridViewTextBoxColumn();
+            Price = new DataGridViewTextBoxColumn();
+            SeatNo = new DataGridViewTextBoxColumn();
+            DepartureTime = new DataGridViewTextBoxColumn();
+            Date = new DataGridViewTextBoxColumn();
+            Trip = new DataGridViewTextBoxColumn();
+            TicketNo = new DataGridViewTextBoxColumn();
+            TiketID = new DataGridViewTextBoxColumn();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Nation
             // 
-            label1.Anchor = AnchorStyles.None;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(468, 276);
-            label1.Name = "label1";
-            label1.Size = new Size(117, 46);
-            label1.TabIndex = 1;
-            label1.Text = "Ticket";
+            Nation.HeaderText = "Nation";
+            Nation.MinimumWidth = 6;
+            Nation.Name = "Nation";
+            Nation.Width = 125;
+            // 
+            // Price
+            // 
+            Price.HeaderText = "Price";
+            Price.MinimumWidth = 6;
+            Price.Name = "Price";
+            Price.Width = 125;
+            // 
+            // SeatNo
+            // 
+            SeatNo.HeaderText = "SeatNo";
+            SeatNo.MinimumWidth = 6;
+            SeatNo.Name = "SeatNo";
+            SeatNo.Width = 125;
+            // 
+            // DepartureTime
+            // 
+            DepartureTime.HeaderText = "DepartureTime";
+            DepartureTime.MinimumWidth = 6;
+            DepartureTime.Name = "DepartureTime";
+            DepartureTime.Width = 125;
+            // 
+            // Date
+            // 
+            Date.HeaderText = "Date";
+            Date.MinimumWidth = 6;
+            Date.Name = "Date";
+            Date.Width = 125;
+            // 
+            // Trip
+            // 
+            Trip.HeaderText = "Trip";
+            Trip.MinimumWidth = 6;
+            Trip.Name = "Trip";
+            Trip.Width = 125;
+            // 
+            // TicketNo
+            // 
+            TicketNo.HeaderText = "TicketNo";
+            TicketNo.MinimumWidth = 6;
+            TicketNo.Name = "TicketNo";
+            TicketNo.Width = 125;
+            // 
+            // TiketID
+            // 
+            TiketID.HeaderText = "TiketID";
+            TiketID.MinimumWidth = 6;
+            TiketID.Name = "TiketID";
+            TiketID.ReadOnly = true;
+            TiketID.Width = 125;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { TiketID, TicketNo, Trip, Date, DepartureTime, SeatNo, Price, Nation });
+            dataGridView1.Location = new Point(57, 310);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(861, 305);
+            dataGridView1.TabIndex = 1;
             // 
             // TicketForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1115, 600);
-            Controls.Add(label1);
+            ClientSize = new Size(941, 626);
+            Controls.Add(dataGridView1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "TicketForm";
             Text = "TicketForm";
+            TopMost = true;
+            WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private Label label1;
+        private DataGridViewTextBoxColumn Nation;
+        private DataGridViewTextBoxColumn Price;
+        private DataGridViewTextBoxColumn SeatNo;
+        private DataGridViewTextBoxColumn DepartureTime;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn Trip;
+        private DataGridViewTextBoxColumn TicketNo;
+        private DataGridViewTextBoxColumn TiketID;
+        private DataGridView dataGridView1;
     }
 }

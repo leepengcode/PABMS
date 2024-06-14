@@ -57,8 +57,8 @@
             panel3 = new Panel();
             button1 = new Button();
             btnDashboard = new Button();
-            mainpanel = new Panel();
             sidbarTransition = new System.Windows.Forms.Timer(components);
+            mainpanel = new Panel();
             panel1.SuspendLayout();
             panel10.SuspendLayout();
             panel2.SuspendLayout();
@@ -81,7 +81,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1032, 44);
+            panel1.Size = new Size(988, 44);
             panel1.TabIndex = 0;
             // 
             // panel10
@@ -108,16 +108,18 @@
             // panel2
             // 
             panel2.Controls.Add(button2);
-            panel2.Location = new Point(975, 2);
+            panel2.Dock = DockStyle.Right;
+            panel2.Location = new Point(935, 0);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(53, 40);
+            panel2.Size = new Size(53, 44);
             panel2.TabIndex = 4;
+            panel2.Paint += panel2_Paint;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Location = new Point(-11, -10);
+            button2.Location = new Point(-9, -6);
             button2.Margin = new Padding(3, 2, 3, 2);
             button2.Name = "button2";
             button2.Size = new Size(78, 58);
@@ -140,7 +142,7 @@
             sidbar.Location = new Point(0, 44);
             sidbar.Margin = new Padding(3, 2, 3, 2);
             sidbar.Name = "sidbar";
-            sidbar.Size = new Size(233, 416);
+            sidbar.Size = new Size(233, 440);
             sidbar.TabIndex = 1;
             sidbar.Paint += panel_Paint;
             // 
@@ -418,32 +420,33 @@
             btnDashboard.UseVisualStyleBackColor = true;
             btnDashboard.Click += btnDashboard_Click;
             // 
-            // mainpanel
-            // 
-            mainpanel.Dock = DockStyle.Right;
-            mainpanel.Location = new Point(232, 44);
-            mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(800, 416);
-            mainpanel.TabIndex = 2;
-            mainpanel.Paint += mainpanel_Paint;
-            // 
             // sidbarTransition
             // 
             sidbarTransition.Interval = 10;
             sidbarTransition.Tick += timer1_Tick;
             // 
+            // mainpanel
+            // 
+            mainpanel.Dock = DockStyle.Fill;
+            mainpanel.Location = new Point(233, 44);
+            mainpanel.Name = "mainpanel";
+            mainpanel.Size = new Size(755, 440);
+            mainpanel.TabIndex = 2;
+            // 
             // mainpanel1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1032, 460);
+            ClientSize = new Size(988, 484);
             Controls.Add(mainpanel);
             Controls.Add(sidbar);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "mainpanel1";
             Text = "Form1";
+            TopMost = true;
+            WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel10.ResumeLayout(false);
@@ -467,7 +470,6 @@
         private Button btnDashboard;
         private Panel panel2;
         private Button button2;
-        private Panel mainpanel;
         private Button button1;
         private Panel panel4;
         private Button btnTicket;
@@ -490,5 +492,6 @@
         private Panel panel10;
         private Button button3;
         private System.Windows.Forms.Timer sidbarTransition;
+        private Panel mainpanel;
     }
 }
