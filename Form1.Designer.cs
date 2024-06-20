@@ -51,7 +51,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.ForestGreen;
+            panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(btnMenu);
             panel1.Controls.Add(button2);
             panel1.Dock = DockStyle.Top;
@@ -59,10 +59,11 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1179, 59);
             panel1.TabIndex = 0;
+            panel1.Click += panel1_Click;
             // 
             // btnMenu
             // 
-            btnMenu.BackColor = Color.ForestGreen;
+            btnMenu.BackColor = Color.Transparent;
             btnMenu.Dock = DockStyle.Left;
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatStyle = FlatStyle.Flat;
@@ -78,7 +79,7 @@
             // 
             // button2
             // 
-            button2.BackColor = Color.ForestGreen;
+            button2.BackColor = Color.Transparent;
             button2.Dock = DockStyle.Right;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
@@ -110,6 +111,7 @@
             PanelForm.Name = "PanelForm";
             PanelForm.Size = new Size(945, 554);
             PanelForm.TabIndex = 6;
+            PanelForm.SizeChanged += PanelForm_SizeChanged;
             // 
             // sideBar
             // 
@@ -135,6 +137,7 @@
             sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             sideBar.Size = new Size(234, 554);
             sideBar.TabIndex = 5;
+            sideBar.SizeChanged += sideBar_SizeChanged;
             // 
             // btnDashboard
             // 
