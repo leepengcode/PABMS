@@ -1,7 +1,10 @@
+using System.Data.SqlClient;
 namespace PABMS
 {
     public partial class mainpanel1 : Form
     {
+        SqlConnection cnn = new SqlConnection();
+
         public mainpanel1()
         {
             InitializeComponent();
