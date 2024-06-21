@@ -57,12 +57,12 @@
             label9 = new Label();
             label10 = new Label();
             txtFullName = new TextBox();
-            dtpStoppedDate = new DateTimePicker();
-            dtpDateBirth = new DateTimePicker();
+            dtpBirthDate = new DateTimePicker();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            chkStoppedWork = new CheckBox();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -394,8 +394,8 @@
             tableLayoutPanel2.Controls.Add(label10, 0, 9);
             tableLayoutPanel2.Controls.Add(txtFullName, 1, 1);
             tableLayoutPanel2.Controls.Add(dtpHiredDate, 1, 8);
-            tableLayoutPanel2.Controls.Add(dtpStoppedDate, 1, 9);
-            tableLayoutPanel2.Controls.Add(dtpDateBirth, 1, 3);
+            tableLayoutPanel2.Controls.Add(dtpBirthDate, 1, 3);
+            tableLayoutPanel2.Controls.Add(chkStoppedWork, 1, 9);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(0, 126);
             tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
@@ -449,27 +449,16 @@
             txtFullName.Size = new Size(322, 34);
             txtFullName.TabIndex = 7;
             // 
-            // dtpStoppedDate
+            // dtpBirthDate
             // 
-            dtpStoppedDate.Anchor = AnchorStyles.Left;
-            dtpStoppedDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpStoppedDate.Location = new Point(346, 420);
-            dtpStoppedDate.Margin = new Padding(3, 4, 3, 4);
-            dtpStoppedDate.Name = "dtpStoppedDate";
-            dtpStoppedDate.Size = new Size(322, 34);
-            dtpStoppedDate.TabIndex = 34;
-            dtpStoppedDate.UseWaitCursor = true;
-            // 
-            // dtpDateBirth
-            // 
-            dtpDateBirth.Anchor = AnchorStyles.Left;
-            dtpDateBirth.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpDateBirth.Location = new Point(346, 144);
-            dtpDateBirth.Margin = new Padding(3, 4, 3, 4);
-            dtpDateBirth.Name = "dtpDateBirth";
-            dtpDateBirth.Size = new Size(322, 34);
-            dtpDateBirth.TabIndex = 35;
-            dtpDateBirth.UseWaitCursor = true;
+            dtpBirthDate.Anchor = AnchorStyles.Left;
+            dtpBirthDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpBirthDate.Location = new Point(346, 144);
+            dtpBirthDate.Margin = new Padding(3, 4, 3, 4);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(322, 34);
+            dtpBirthDate.TabIndex = 35;
+            dtpBirthDate.UseWaitCursor = true;
             // 
             // panel3
             // 
@@ -515,6 +504,16 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1347, 101);
             panel2.TabIndex = 0;
+            // 
+            // chkStoppedWork
+            // 
+            chkStoppedWork.AutoSize = true;
+            chkStoppedWork.Location = new Point(346, 417);
+            chkStoppedWork.Name = "chkStoppedWork";
+            chkStoppedWork.Size = new Size(101, 24);
+            chkStoppedWork.TabIndex = 36;
+            chkStoppedWork.Text = "checkBox1";
+            chkStoppedWork.UseVisualStyleBackColor = true;
             // 
             // StaffForm
             // 
@@ -579,7 +578,7 @@
         private TextBox textBox2;
         private Panel panel3;
         private PictureBox pictureBox1;
-        private DateTimePicker dtpStoppedDate;
-        private DateTimePicker dtpDateBirth;
+        private DateTimePicker dtpBirthDate;
+        private CheckBox chkStoppedWork;
     }
 }

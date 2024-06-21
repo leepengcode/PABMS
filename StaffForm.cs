@@ -8,13 +8,12 @@ namespace PABMS
 {
     public partial class StaffForm : Form
     {
-        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=PABMS_DB;Integrated Security=True;";
+        private string connectionString = "Server=LAPTOP-2O9AK3I7\\SQLISADE5;Database=ISAD;Integrated Security=True;";
 
         public StaffForm()
         {
             InitializeComponent();
             LoadNextStaffID(); // Load the next available StaffID when the form is initialized
-
         }
 
         private void LoadNextStaffID()
@@ -52,34 +51,32 @@ namespace PABMS
             // Validate all fields before saving
             if (ValidateFields())
             {
-                string staffID = txtStaffID.Text;
                 string fullName = txtFullName.Text;
                 string sex = txtSex.Text; // Assuming txtSex is the TextBox for Sex
-                DateTime dateBirth = dtpDateBirth.Value;
-                string position = txtPosition.Text;
-                string address = txtAddress.Text;
-                string phone = txtPhone.Text;
+                DateTime birthDate = dtpBirthDate.Value;
+                string staffPosition = txtPosition.Text;
+                string staffAddress = txtAddress.Text;
+                string phoneNumber = txtPhone.Text;
                 decimal salary = decimal.Parse(txtSalary.Text);
                 DateTime hiredDate = dtpHiredDate.Value;
-                DateTime? stoppedDate = dtpStoppedDate.Checked ? dtpStoppedDate.Value : (DateTime?)null;
+                bool stoppedWork = chkStoppedWork.Checked;
 
-                string query = "INSERT INTO tbStaff (StaffID, FullName, Sex, DateBirth, Position, Address, Phone, Salary, HiredDate, StopedDate) " +
-                               "VALUES (@StaffID, @FullName, @Sex, @DateBirth, @Position, @Address, @Phone, @Salary, @HiredDate, @StopedDate)";
+                string query = "INSERT INTO tbStaff (FullName, Sex, BirthDate, StaffPosition, StaffAddress, PhoneNumber, Salary, HiredDate, StoppedWork) " +
+                               "VALUES (@FullName, @Sex, @BirthDate, @StaffPosition, @StaffAddress, @PhoneNumber, @Salary, @HiredDate, @StoppedWork)";
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@StaffID", staffID);
                         command.Parameters.AddWithValue("@FullName", fullName);
                         command.Parameters.AddWithValue("@Sex", sex);
-                        command.Parameters.AddWithValue("@DateBirth", dateBirth);
-                        command.Parameters.AddWithValue("@Position", position);
-                        command.Parameters.AddWithValue("@Address", address);
-                        command.Parameters.AddWithValue("@Phone", phone);
+                        command.Parameters.AddWithValue("@BirthDate", birthDate);
+                        command.Parameters.AddWithValue("@StaffPosition", staffPosition);
+                        command.Parameters.AddWithValue("@StaffAddress", staffAddress);
+                        command.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                         command.Parameters.AddWithValue("@Salary", salary);
                         command.Parameters.AddWithValue("@HiredDate", hiredDate);
-                        command.Parameters.AddWithValue("@StopedDate", stoppedDate);
+                        command.Parameters.AddWithValue("@StoppedWork", stoppedWork);
 
                         try
                         {
@@ -87,15 +84,7 @@ namespace PABMS
                             command.ExecuteNonQuery();
                             MessageBox.Show("Staff data saved successfully!");
                             LoadNextStaffID(); // Load the next available StaffID after saving
-                            txtFullName.Text = "";
-                            txtSex.Text = "";
-                            dtpDateBirth.Value = DateTime.Now; // Set to current date as an example
-                            txtPosition.Text = "";
-                            txtAddress.Text = "";
-                            txtPhone.Text = "";
-                            txtSalary.Text = "";
-                            dtpHiredDate.Value = DateTime.Now; // Set to current date as an example
-                            dtpStoppedDate.Value = DateTime.Now;
+                            ClearFields();
                         }
                         catch (Exception ex)
                         {
@@ -114,7 +103,7 @@ namespace PABMS
         {
             if (string.IsNullOrWhiteSpace(txtFullName.Text) ||
                 string.IsNullOrWhiteSpace(txtSex.Text) ||
-                dtpDateBirth.Value == DateTime.MinValue ||
+                dtpBirthDate.Value == DateTime.MinValue ||
                 string.IsNullOrWhiteSpace(txtPosition.Text) ||
                 string.IsNullOrWhiteSpace(txtAddress.Text) ||
                 string.IsNullOrWhiteSpace(txtPhone.Text) ||
@@ -155,16 +144,13 @@ namespace PABMS
                                 // Staff found, populate the form fields for editing
                                 txtFullName.Text = reader["FullName"].ToString();
                                 txtSex.Text = reader["Sex"].ToString();
-                                dtpDateBirth.Value = (DateTime)reader["DateBirth"];
-                                txtPosition.Text = reader["Position"].ToString();
-                                txtAddress.Text = reader["Address"].ToString();
-                                txtPhone.Text = reader["Phone"].ToString();
+                                dtpBirthDate.Value = (DateTime)reader["BirthDate"];
+                                txtPosition.Text = reader["StaffPosition"].ToString();
+                                txtAddress.Text = reader["StaffAddress"].ToString();
+                                txtPhone.Text = reader["PhoneNumber"].ToString();
                                 txtSalary.Text = reader["Salary"].ToString();
                                 dtpHiredDate.Value = (DateTime)reader["HiredDate"];
-                                if (reader["StopedDate"] != DBNull.Value)
-                                    dtpStoppedDate.Value = (DateTime)reader["StopedDate"];
-                                else
-                                    dtpStoppedDate.Value = DateTime.Now; // Set default if stopped date is null
+                                chkStoppedWork.Checked = (bool)reader["StoppedWork"];
 
                                 // Change button text and functionality to "Update"
                                 btnSearchUpdate.Text = "Update";
@@ -191,24 +177,24 @@ namespace PABMS
                 {
                     string fullName = txtFullName.Text;
                     string sex = txtSex.Text;
-                    DateTime dateBirth = dtpDateBirth.Value;
-                    string position = txtPosition.Text;
-                    string address = txtAddress.Text;
-                    string phone = txtPhone.Text;
+                    DateTime birthDate = dtpBirthDate.Value;
+                    string staffPosition = txtPosition.Text;
+                    string staffAddress = txtAddress.Text;
+                    string phoneNumber = txtPhone.Text;
                     decimal salary = decimal.Parse(txtSalary.Text);
                     DateTime hiredDate = dtpHiredDate.Value;
-                    DateTime? stoppedDate = dtpStoppedDate.Checked ? dtpStoppedDate.Value : (DateTime?)null;
+                    bool stoppedWork = chkStoppedWork.Checked;
 
                     string updateQuery = "UPDATE tbStaff SET " +
                                          "FullName = @FullName, " +
                                          "Sex = @Sex, " +
-                                         "DateBirth = @DateBirth, " +
-                                         "Position = @Position, " +
-                                         "Address = @Address, " +
-                                         "Phone = @Phone, " +
+                                         "BirthDate = @BirthDate, " +
+                                         "StaffPosition = @StaffPosition, " +
+                                         "StaffAddress = @StaffAddress, " +
+                                         "PhoneNumber = @PhoneNumber, " +
                                          "Salary = @Salary, " +
                                          "HiredDate = @HiredDate, " +
-                                         "StopedDate = @StopedDate " +
+                                         "StoppedWork = @StoppedWork " +
                                          "WHERE StaffID = @StaffID";
 
                     using (SqlConnection connection = new SqlConnection(connectionString))
@@ -218,13 +204,13 @@ namespace PABMS
                             updateCommand.Parameters.AddWithValue("@StaffID", staffID);
                             updateCommand.Parameters.AddWithValue("@FullName", fullName);
                             updateCommand.Parameters.AddWithValue("@Sex", sex);
-                            updateCommand.Parameters.AddWithValue("@DateBirth", dateBirth);
-                            updateCommand.Parameters.AddWithValue("@Position", position);
-                            updateCommand.Parameters.AddWithValue("@Address", address);
-                            updateCommand.Parameters.AddWithValue("@Phone", phone);
+                            updateCommand.Parameters.AddWithValue("@BirthDate", birthDate);
+                            updateCommand.Parameters.AddWithValue("@StaffPosition", staffPosition);
+                            updateCommand.Parameters.AddWithValue("@StaffAddress", staffAddress);
+                            updateCommand.Parameters.AddWithValue("@PhoneNumber", phoneNumber);
                             updateCommand.Parameters.AddWithValue("@Salary", salary);
                             updateCommand.Parameters.AddWithValue("@HiredDate", hiredDate);
-                            updateCommand.Parameters.AddWithValue("@StopedDate", stoppedDate);
+                            updateCommand.Parameters.AddWithValue("@StoppedWork", stoppedWork);
 
                             try
                             {
@@ -254,21 +240,19 @@ namespace PABMS
                 }
             }
         }
-        
+
         private void ClearFields()
         {
             txtFullName.Text = "";
             txtSex.Text = "";
-            dtpDateBirth.Value = DateTime.Now; // Set to current date as an example
+            dtpBirthDate.Value = DateTime.Now; // Set to current date as an example
             txtPosition.Text = "";
             txtAddress.Text = "";
             txtPhone.Text = "";
             txtSalary.Text = "";
             dtpHiredDate.Value = DateTime.Now; // Set to current date as an example
-            dtpStoppedDate.Value = DateTime.Now; // Set to current date as an example
+            chkStoppedWork.Checked = false;
         }
-
-
 
         private void StaffForm_SizeChanged(object sender, EventArgs e)
         {
