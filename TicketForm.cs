@@ -16,5 +16,20 @@ namespace PABMS
         {
             InitializeComponent();
         }
+
+        private void dtpBirthDate_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtSalary_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
