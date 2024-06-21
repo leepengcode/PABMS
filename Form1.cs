@@ -48,7 +48,7 @@ namespace PABMS
 
         private void btnVehicle_Click(object sender, EventArgs e)
         {
-            loadForm(new VehicleForm());
+            loadForm(new DriverForm());
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
