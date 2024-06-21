@@ -8,7 +8,8 @@ namespace PABMS
 {
     public partial class StaffForm : Form
     {
-        private string connectionString = "Server=LAPTOP-2O9AK3I7\\SQLISADE5;Database=ISAD;Integrated Security=True;";
+        //private string connectionString = "Server=LAPTOP-2O9AK3I7\\SQLISADE5;Database=ISAD;Integrated Security=True;";
+        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=PABMS_DBS;Integrated Security=True;";
 
         public StaffForm()
         {
