@@ -30,7 +30,6 @@ namespace PABMS
         {
             TicketForm f = new TicketForm();
             loadForm(f);
-            f.changeSize();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -52,7 +51,9 @@ namespace PABMS
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            loadForm(new StaffForm());
+            StaffForm f = new StaffForm();
+            loadForm(f);
+            f.changeSize();
         }
 
         private void btnUser_Click(object sender, EventArgs e)

@@ -9,12 +9,18 @@ namespace PABMS
     public partial class StaffForm : Form
     {
         //private string connectionString = "Server=LAPTOP-2O9AK3I7\\SQLISADE5;Database=ISAD;Integrated Security=True;";
-        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=PABMS_DBS;Integrated Security=True;";
+        //private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=PABMS_DBS;Integrated Security=True;";
+        private string connectionString = "";
 
         public StaffForm()
         {
             InitializeComponent();
             LoadNextStaffID(); // Load the next available StaffID when the form is initialized
+            panel1.Dock = DockStyle.None;
+            panelTitle.Dock = DockStyle.None;
+            splitMain.Dock = DockStyle.None;
+            tlpButtons.Dock = DockStyle.None;
+            //this.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void LoadNextStaffID()
@@ -257,7 +263,7 @@ namespace PABMS
 
         private void StaffForm_SizeChanged(object sender, EventArgs e)
         {
-            panel1.Size = new Size(
+            /*panel1.Size = new Size(
                 this.Width - Convert.ToInt16(this.Width * 0.2),
                 this.Height - Convert.ToInt16(this.Height * 0.2)
             );
@@ -265,7 +271,14 @@ namespace PABMS
             panel1.Location = new Point(
                 this.Width / 2 - panel1.Width / 2,
                 this.Height / 2 - panel1.Height / 2
-            );
+            );*/
+
+            if (this.Width > 1680)
+                return;
+            panel1.Width = this.Width;
+            panelTitle.Width = this.Width;
+            splitMain.Width = this.Width;
+            tlpButtons.Width = this.Width;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -276,6 +289,20 @@ namespace PABMS
         private void bntLoad_Click(object sender, EventArgs e)
         {
             SearchAndUpdateStaff();
+        }
+
+        public void changeSize()
+        {
+            panel1.Width = this.Width;
+            panelTitle.Width = this.Width;
+            splitMain.Width = this.Width;
+            tlpButtons.Width = this.Width;
+        }
+
+        private void StaffForm_ResizeEnd(object sender, EventArgs e)
+        {
+            
+            //MessageBox.Show("");
         }
     }
 }

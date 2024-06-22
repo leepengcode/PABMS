@@ -16,29 +16,6 @@ namespace PABMS
         {
             InitializeComponent();
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void TicketForm_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void TicketForm_DockChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        public void changeSize()
-        {
-            panel1.Width = this.Width;
-            panelTitle.Width = this.Width;
-            splitMain.Width = this.Width;
-            tlpButtons.Width = this.Width;
-        }
-
         private void TicketForm_SizeChanged(object sender, EventArgs e)
         {
             if (this.Width > 1680)
@@ -50,9 +27,12 @@ namespace PABMS
 
         }
 
-        private void splitMain_Panel2_Paint(object sender, PaintEventArgs e)
+        private void TicketForm_Load(object sender, EventArgs e)
         {
-
+            panel1.Width = this.Width;
+            panelTitle.Width = this.Width;
+            splitMain.Width = this.Width;
+            tlpButtons.Width = this.Width;
         }
     }
 }

@@ -113,7 +113,6 @@
             splitMain.Panel2.Controls.Add(label6);
             splitMain.Panel2.Controls.Add(label8);
             splitMain.Panel2.Controls.Add(label2);
-            splitMain.Panel2.Paint += splitMain_Panel2_Paint;
             splitMain.Size = new Size(1397, 685);
             splitMain.SplitterDistance = 462;
             splitMain.TabIndex = 2;
@@ -384,7 +383,6 @@
             panelTitle.Name = "panelTitle";
             panelTitle.Size = new Size(1397, 101);
             panelTitle.TabIndex = 0;
-            panelTitle.Paint += panel2_Paint;
             // 
             // tlpButtons
             // 
@@ -464,8 +462,8 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "TicketForm";
             Text = "TicketForm";
+            WindowState = FormWindowState.Maximized;
             Load += TicketForm_Load;
-            DockChanged += TicketForm_DockChanged;
             SizeChanged += TicketForm_SizeChanged;
             panel1.ResumeLayout(false);
             splitMain.Panel1.ResumeLayout(false);

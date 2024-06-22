@@ -72,6 +72,7 @@
             // panelMain
             // 
             panelMain.Controls.Add(textBox4);
+            panelMain.Controls.Add(btnSearchUpdate);
             panelMain.Controls.Add(listBox1);
             panelMain.Controls.Add(txtBusID);
             panelMain.Controls.Add(txtRouteID);
@@ -92,7 +93,7 @@
             // 
             textBox4.Anchor = AnchorStyles.None;
             textBox4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(112, 130);
+            textBox4.Location = new Point(22, 130);
             textBox4.Margin = new Padding(3, 4, 3, 4);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(269, 34);
@@ -229,7 +230,6 @@
             tlpButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tlpButtons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tlpButtons.Controls.Add(btnSave, 0, 0);
-            tlpButtons.Controls.Add(btnSearchUpdate, 1, 0);
             tlpButtons.Controls.Add(button3, 2, 0);
             tlpButtons.Controls.Add(button4, 3, 0);
             tlpButtons.Location = new Point(0, 634);
@@ -256,10 +256,10 @@
             // 
             btnSearchUpdate.Anchor = AnchorStyles.None;
             btnSearchUpdate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearchUpdate.Location = new Point(446, 10);
+            btnSearchUpdate.Location = new Point(337, 130);
             btnSearchUpdate.Margin = new Padding(3, 4, 3, 4);
             btnSearchUpdate.Name = "btnSearchUpdate";
-            btnSearchUpdate.Size = new Size(134, 68);
+            btnSearchUpdate.Size = new Size(134, 39);
             btnSearchUpdate.TabIndex = 0;
             btnSearchUpdate.Text = "Search";
             btnSearchUpdate.UseVisualStyleBackColor = true;
