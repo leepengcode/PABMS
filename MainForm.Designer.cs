@@ -1,6 +1,6 @@
 ﻿namespace PABMS
 {
-    partial class mainpanel1
+    partial class MainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainpanel1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
             btnMenu = new Button();
             button2 = new Button();
@@ -107,9 +107,9 @@
             // PanelForm
             // 
             PanelForm.Dock = DockStyle.Fill;
-            PanelForm.Location = new Point(234, 0);
+            PanelForm.Location = new Point(238, 0);
             PanelForm.Name = "PanelForm";
-            PanelForm.Size = new Size(945, 554);
+            PanelForm.Size = new Size(941, 554);
             PanelForm.TabIndex = 6;
             PanelForm.SizeChanged += PanelForm_SizeChanged;
             // 
@@ -135,7 +135,7 @@
             sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
-            sideBar.Size = new Size(234, 554);
+            sideBar.Size = new Size(238, 554);
             sideBar.TabIndex = 5;
             sideBar.SizeChanged += sideBar_SizeChanged;
             // 
@@ -249,18 +249,18 @@
             sideBarTransition.Interval = 10;
             sideBarTransition.Tick += timer1_Tick;
             // 
-            // mainpanel1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1179, 613);
             Controls.Add(mainpanel);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
-            Name = "mainpanel1";
+            Name = "MainForm";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
-            Load += Form1_Load;
+            Load += MainForm_Load;
+            SizeChanged += MainPanel_SizeChanged;
             panel1.ResumeLayout(false);
             mainpanel.ResumeLayout(false);
             sideBar.ResumeLayout(false);

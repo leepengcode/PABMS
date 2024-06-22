@@ -33,8 +33,9 @@
             splitContainer1 = new SplitContainer();
             tableLayoutPanel1 = new TableLayoutPanel();
             txtSearchID = new TextBox();
-            LBPayment = new ListBox();
+            lstDriver = new ListBox();
             tableLayoutPanel2 = new TableLayoutPanel();
+            txtSalary = new TextBox();
             label2 = new Label();
             label1 = new Label();
             label3 = new Label();
@@ -43,13 +44,15 @@
             label5 = new Label();
             label6 = new Label();
             txtSex = new TextBox();
-            txtStaffID = new TextBox();
+            txtDriverD = new TextBox();
             txtDriverAddress = new TextBox();
+            txtFullName = new TextBox();
+            dtpBirthDate = new DateTimePicker();
             label8 = new Label();
             label9 = new Label();
-            txtFullName = new TextBox();
+            label7 = new Label();
+            chkStoppedWork = new CheckBox();
             dtpHiredDate = new DateTimePicker();
-            dtpBirthDate = new DateTimePicker();
             panel3 = new Panel();
             picDriver = new PictureBox();
             panel2 = new Panel();
@@ -58,9 +61,6 @@
             btnSearchUpdate = new Button();
             button3 = new Button();
             button4 = new Button();
-            label7 = new Label();
-            chkStoppedWork = new CheckBox();
-            txtSalary = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -111,7 +111,7 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(txtSearchID, 0, 0);
-            tableLayoutPanel1.Controls.Add(LBPayment, 0, 1);
+            tableLayoutPanel1.Controls.Add(lstDriver, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -133,17 +133,17 @@
             txtSearchID.Size = new Size(269, 34);
             txtSearchID.TabIndex = 20;
             // 
-            // LBPayment
+            // lstDriver
             // 
-            LBPayment.Dock = DockStyle.Fill;
-            LBPayment.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LBPayment.FormattingEnabled = true;
-            LBPayment.ItemHeight = 29;
-            LBPayment.Location = new Point(3, 109);
-            LBPayment.Margin = new Padding(3, 4, 3, 4);
-            LBPayment.Name = "LBPayment";
-            LBPayment.Size = new Size(452, 455);
-            LBPayment.TabIndex = 21;
+            lstDriver.Dock = DockStyle.Fill;
+            lstDriver.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            lstDriver.FormattingEnabled = true;
+            lstDriver.ItemHeight = 29;
+            lstDriver.Location = new Point(3, 109);
+            lstDriver.Margin = new Padding(3, 4, 3, 4);
+            lstDriver.Name = "lstDriver";
+            lstDriver.Size = new Size(452, 455);
+            lstDriver.TabIndex = 21;
             // 
             // tableLayoutPanel2
             // 
@@ -159,7 +159,7 @@
             tableLayoutPanel2.Controls.Add(label5, 0, 4);
             tableLayoutPanel2.Controls.Add(label6, 0, 5);
             tableLayoutPanel2.Controls.Add(txtSex, 1, 2);
-            tableLayoutPanel2.Controls.Add(txtStaffID, 1, 0);
+            tableLayoutPanel2.Controls.Add(txtDriverD, 1, 0);
             tableLayoutPanel2.Controls.Add(txtDriverAddress, 1, 4);
             tableLayoutPanel2.Controls.Add(txtFullName, 1, 1);
             tableLayoutPanel2.Controls.Add(dtpBirthDate, 1, 3);
@@ -186,6 +186,16 @@
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanel2.Size = new Size(935, 442);
             tableLayoutPanel2.TabIndex = 0;
+            // 
+            // txtSalary
+            // 
+            txtSalary.Anchor = AnchorStyles.Left;
+            txtSalary.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSalary.Location = new Point(361, 301);
+            txtSalary.Margin = new Padding(3, 4, 3, 4);
+            txtSalary.Name = "txtSalary";
+            txtSalary.Size = new Size(322, 34);
+            txtSalary.TabIndex = 37;
             // 
             // label2
             // 
@@ -250,12 +260,12 @@
             label5.Anchor = AnchorStyles.Right;
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(169, 206);
+            label5.Location = new Point(163, 206);
             label5.Name = "label5";
             label5.Padding = new Padding(0, 0, 20, 0);
-            label5.Size = new Size(186, 29);
+            label5.Size = new Size(192, 29);
             label5.TabIndex = 28;
-            label5.Text = "DriverAddress";
+            label5.Text = "Driver Address";
             // 
             // label6
             // 
@@ -279,15 +289,15 @@
             txtSex.Size = new Size(322, 34);
             txtSex.TabIndex = 2;
             // 
-            // txtStaffID
+            // txtDriverD
             // 
-            txtStaffID.Anchor = AnchorStyles.Left;
-            txtStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtStaffID.Location = new Point(361, 7);
-            txtStaffID.Margin = new Padding(3, 4, 3, 4);
-            txtStaffID.Name = "txtStaffID";
-            txtStaffID.Size = new Size(322, 34);
-            txtStaffID.TabIndex = 0;
+            txtDriverD.Anchor = AnchorStyles.Left;
+            txtDriverD.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDriverD.Location = new Point(361, 7);
+            txtDriverD.Margin = new Padding(3, 4, 3, 4);
+            txtDriverD.Name = "txtDriverD";
+            txtDriverD.Size = new Size(322, 34);
+            txtDriverD.TabIndex = 0;
             // 
             // txtDriverAddress
             // 
@@ -298,6 +308,27 @@
             txtDriverAddress.Name = "txtDriverAddress";
             txtDriverAddress.Size = new Size(322, 34);
             txtDriverAddress.TabIndex = 4;
+            // 
+            // txtFullName
+            // 
+            txtFullName.Anchor = AnchorStyles.Left;
+            txtFullName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFullName.Location = new Point(361, 56);
+            txtFullName.Margin = new Padding(3, 4, 3, 4);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(322, 34);
+            txtFullName.TabIndex = 7;
+            // 
+            // dtpBirthDate
+            // 
+            dtpBirthDate.Anchor = AnchorStyles.Left;
+            dtpBirthDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpBirthDate.Location = new Point(361, 154);
+            dtpBirthDate.Margin = new Padding(3, 4, 3, 4);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(322, 34);
+            dtpBirthDate.TabIndex = 35;
+            dtpBirthDate.UseWaitCursor = true;
             // 
             // label8
             // 
@@ -323,15 +354,27 @@
             label9.TabIndex = 26;
             label9.Text = "Hired Date";
             // 
-            // txtFullName
+            // label7
             // 
-            txtFullName.Anchor = AnchorStyles.Left;
-            txtFullName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtFullName.Location = new Point(361, 56);
-            txtFullName.Margin = new Padding(3, 4, 3, 4);
-            txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(322, 34);
-            txtFullName.TabIndex = 7;
+            label7.Anchor = AnchorStyles.Right;
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(168, 402);
+            label7.Name = "label7";
+            label7.Padding = new Padding(0, 0, 20, 0);
+            label7.Size = new Size(187, 29);
+            label7.TabIndex = 26;
+            label7.Text = "Stopped Work";
+            // 
+            // chkStoppedWork
+            // 
+            chkStoppedWork.AutoSize = true;
+            chkStoppedWork.Location = new Point(361, 395);
+            chkStoppedWork.Name = "chkStoppedWork";
+            chkStoppedWork.Size = new Size(101, 24);
+            chkStoppedWork.TabIndex = 36;
+            chkStoppedWork.Text = "checkBox1";
+            chkStoppedWork.UseVisualStyleBackColor = true;
             // 
             // dtpHiredDate
             // 
@@ -343,17 +386,6 @@
             dtpHiredDate.Size = new Size(322, 34);
             dtpHiredDate.TabIndex = 33;
             dtpHiredDate.UseWaitCursor = true;
-            // 
-            // dtpBirthDate
-            // 
-            dtpBirthDate.Anchor = AnchorStyles.Left;
-            dtpBirthDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpBirthDate.Location = new Point(361, 154);
-            dtpBirthDate.Margin = new Padding(3, 4, 3, 4);
-            dtpBirthDate.Name = "dtpBirthDate";
-            dtpBirthDate.Size = new Size(322, 34);
-            dtpBirthDate.TabIndex = 35;
-            dtpBirthDate.UseWaitCursor = true;
             // 
             // panel3
             // 
@@ -455,38 +487,6 @@
             button4.Text = "button1";
             button4.UseVisualStyleBackColor = true;
             // 
-            // label7
-            // 
-            label7.Anchor = AnchorStyles.Right;
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(168, 402);
-            label7.Name = "label7";
-            label7.Padding = new Padding(0, 0, 20, 0);
-            label7.Size = new Size(187, 29);
-            label7.TabIndex = 26;
-            label7.Text = "Stopped Work";
-            // 
-            // chkStoppedWork
-            // 
-            chkStoppedWork.AutoSize = true;
-            chkStoppedWork.Location = new Point(361, 395);
-            chkStoppedWork.Name = "chkStoppedWork";
-            chkStoppedWork.Size = new Size(101, 24);
-            chkStoppedWork.TabIndex = 36;
-            chkStoppedWork.Text = "checkBox1";
-            chkStoppedWork.UseVisualStyleBackColor = true;
-            // 
-            // txtSalary
-            // 
-            txtSalary.Anchor = AnchorStyles.Left;
-            txtSalary.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSalary.Location = new Point(361, 301);
-            txtSalary.Margin = new Padding(3, 4, 3, 4);
-            txtSalary.Name = "txtSalary";
-            txtSalary.Size = new Size(322, 34);
-            txtSalary.TabIndex = 37;
-            // 
             // DriverForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -517,7 +517,7 @@
         private SplitContainer splitContainer1;
         private TableLayoutPanel tableLayoutPanel1;
         private TextBox txtSearchID;
-        private ListBox LBPayment;
+        private ListBox lstDriver;
         private TableLayoutPanel tableLayoutPanel2;
         private Label label2;
         private Label label1;
@@ -527,7 +527,7 @@
         private Label label5;
         private Label label6;
         private TextBox txtSex;
-        private TextBox txtStaffID;
+        private TextBox txtDriverD;
         private TextBox txtDriverAddress;
         private Label label8;
         private Label label9;

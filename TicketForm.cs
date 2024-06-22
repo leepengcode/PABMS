@@ -17,17 +17,40 @@ namespace PABMS
             InitializeComponent();
         }
 
-        private void dtpBirthDate_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void txtSalary_TextChanged(object sender, EventArgs e)
+        private void TicketForm_Load(object sender, EventArgs e)
+        {
+        }
+
+        private void TicketForm_DockChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void changeSize()
+        {
+            panel1.Width = this.Width;
+            panelTitle.Width = this.Width;
+            splitMain.Width = this.Width;
+            tlpButtons.Width = this.Width;
+        }
+
+        private void TicketForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.Width > 1680)
+                return;
+            panel1.Width = this.Width;
+            panelTitle.Width = this.Width;
+            splitMain.Width = this.Width;
+            tlpButtons.Width = this.Width;
+
+        }
+
+        private void splitMain_Panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

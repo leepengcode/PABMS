@@ -42,7 +42,7 @@
             txtAddress = new TextBox();
             label4 = new Label();
             txtSearchID = new TextBox();
-            LBPayment = new ListBox();
+            lstStaff = new ListBox();
             label5 = new Label();
             label6 = new Label();
             txtSex = new TextBox();
@@ -58,11 +58,11 @@
             label10 = new Label();
             txtFullName = new TextBox();
             dtpBirthDate = new DateTimePicker();
+            chkStoppedWork = new CheckBox();
             panel3 = new Panel();
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel2 = new Panel();
-            chkStoppedWork = new CheckBox();
             tableLayoutPanel3.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
@@ -233,17 +233,17 @@
             txtSearchID.Size = new Size(269, 34);
             txtSearchID.TabIndex = 20;
             // 
-            // LBPayment
+            // lstStaff
             // 
-            LBPayment.Dock = DockStyle.Fill;
-            LBPayment.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            LBPayment.FormattingEnabled = true;
-            LBPayment.ItemHeight = 29;
-            LBPayment.Location = new Point(3, 116);
-            LBPayment.Margin = new Padding(3, 4, 3, 4);
-            LBPayment.Name = "LBPayment";
-            LBPayment.Size = new Size(433, 486);
-            LBPayment.TabIndex = 21;
+            lstStaff.Dock = DockStyle.Fill;
+            lstStaff.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            lstStaff.FormattingEnabled = true;
+            lstStaff.ItemHeight = 29;
+            lstStaff.Location = new Point(3, 116);
+            lstStaff.Margin = new Padding(3, 4, 3, 4);
+            lstStaff.Name = "lstStaff";
+            lstStaff.Size = new Size(433, 486);
+            lstStaff.TabIndex = 21;
             // 
             // label5
             // 
@@ -339,7 +339,7 @@
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(txtSearchID, 0, 0);
-            tableLayoutPanel1.Controls.Add(LBPayment, 0, 1);
+            tableLayoutPanel1.Controls.Add(lstStaff, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
@@ -460,6 +460,16 @@
             dtpBirthDate.TabIndex = 35;
             dtpBirthDate.UseWaitCursor = true;
             // 
+            // chkStoppedWork
+            // 
+            chkStoppedWork.AutoSize = true;
+            chkStoppedWork.Location = new Point(346, 417);
+            chkStoppedWork.Name = "chkStoppedWork";
+            chkStoppedWork.Size = new Size(101, 24);
+            chkStoppedWork.TabIndex = 36;
+            chkStoppedWork.Text = "checkBox1";
+            chkStoppedWork.UseVisualStyleBackColor = true;
+            // 
             // panel3
             // 
             panel3.Controls.Add(pictureBox1);
@@ -505,16 +515,6 @@
             panel2.Size = new Size(1347, 101);
             panel2.TabIndex = 0;
             // 
-            // chkStoppedWork
-            // 
-            chkStoppedWork.AutoSize = true;
-            chkStoppedWork.Location = new Point(346, 417);
-            chkStoppedWork.Name = "chkStoppedWork";
-            chkStoppedWork.Size = new Size(101, 24);
-            chkStoppedWork.TabIndex = 36;
-            chkStoppedWork.Text = "checkBox1";
-            chkStoppedWork.UseVisualStyleBackColor = true;
-            // 
             // StaffForm
             // 
             AccessibleRole = AccessibleRole.None;
@@ -556,7 +556,7 @@
         private TextBox txtAddress;
         private Label label4;
         private TextBox txtSearchID;
-        private ListBox LBPayment;
+        private ListBox lstStaff;
         private Label label5;
         private TextBox TBCustomerID;
         private Label label6;

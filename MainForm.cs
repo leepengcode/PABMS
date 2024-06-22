@@ -1,11 +1,11 @@
 using System.Data.SqlClient;
 namespace PABMS
 {
-    public partial class mainpanel1 : Form
+    public partial class MainForm : Form
     {
         SqlConnection cnn = new SqlConnection();
 
-        public mainpanel1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -22,23 +22,22 @@ namespace PABMS
             f.Show();
 
         }
-
-        private void Form1_Load(object Form, EventArgs e)
-        {
-
-        }
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         private void btnTicket_Click(object sender, EventArgs e)
         {
-            loadForm(new TicketForm());
+            TicketForm f = new TicketForm();
+            loadForm(f);
+            f.changeSize();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            loadForm(new DashboardForm());
+            Form2 f = new Form2(69);
+            loadForm(f);
+            f.changeSize();
         }
 
         private void btnBagage_Click(object sender, EventArgs e)
@@ -54,8 +53,6 @@ namespace PABMS
         private void btnStaff_Click(object sender, EventArgs e)
         {
             loadForm(new StaffForm());
-            //this.PanelForm.MaximumSize = new Size(this.PanelForm.Width, sideBar.Height);
-            //this.PanelForm.Size = new Size(this.Width - sideBar.Width, sideBar.Height);
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -74,8 +71,6 @@ namespace PABMS
         {
             if (sideBarExpand)
             {
-                this.PanelForm.Dock = DockStyle.None;
-
                 sideBar.Width -= 10;
 
                 btnDashboard.Text = removeChar(btnDashboard.Text);
@@ -89,8 +84,6 @@ namespace PABMS
                 if (sideBar.Width < 85)
                 {
                     sideBarExpand = false;
-                    this.PanelForm.Dock = DockStyle.Fill;
-                    this.PanelForm.Show();
                     sideBarTransition.Stop();
                     i++;
                 }
@@ -98,8 +91,6 @@ namespace PABMS
             }
             else
             {
-                this.PanelForm.Dock = DockStyle.None;
-
                 sideBar.Width += 10;
 
                 if (sideBar.Width > 200)
@@ -116,8 +107,6 @@ namespace PABMS
                 if (sideBar.Width > 235)
                 {
                     sideBarExpand = true;
-                    this.PanelForm.Dock = DockStyle.Fill;
-                    this.PanelForm.Show();
                     sideBarTransition.Stop();
                     j++;
                 }
@@ -127,9 +116,8 @@ namespace PABMS
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-            this.PanelForm.Hide();
             sideBarTransition.Start();
-
+            
         }
 
         private string removeChar(string text)
@@ -155,7 +143,18 @@ namespace PABMS
 
         private void panel1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("" + i + " " + j); 
+            MessageBox.Show("" + i + " " + j);
+        }
+
+        private void MainPanel_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+            //PanelForm.Location = new Point(sideBar.Right + 10, sideBar.Height);
+
         }
     }
 }
