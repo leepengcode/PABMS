@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace PABMS
 {
-    public partial class StaffForm : Form
+    public partial class PaymentPackageForm : Form
     {
-        public StaffForm()
+        public PaymentPackageForm()
         {
             InitializeComponent();
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

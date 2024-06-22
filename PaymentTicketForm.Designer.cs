@@ -1,6 +1,6 @@
 ﻿namespace PABMS
 {
-    partial class BagageForm
+    partial class PaymentTicketForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +36,22 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(500, 271);
+            label1.Location = new Point(498, 273);
             label1.Name = "label1";
-            label1.Size = new Size(140, 46);
+            label1.Size = new Size(267, 46);
             label1.TabIndex = 2;
-            label1.Text = "Bagage";
+            label1.Text = "Payment Ticket";
             // 
-            // BagageForm
+            // PaymentTicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1116, 589);
+            ClientSize = new Size(1112, 593);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "BagageForm";
-            Text = "BagageForm";
+            Name = "PaymentTicketForm";
+            Text = "PaymentForm";
+            WindowState = FormWindowState.Maximized;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,6 +1,6 @@
 ﻿namespace PABMS
 {
-    partial class VehicleForm
+    partial class PaymentPackageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +36,21 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label1.Location = new Point(481, 272);
+            label1.Location = new Point(498, 273);
             label1.Name = "label1";
-            label1.Size = new Size(137, 46);
+            label1.Size = new Size(161, 46);
             label1.TabIndex = 2;
-            label1.Text = "Vehicle";
+            label1.Text = "Payment";
             // 
-            // VehicleForm
+            // PaymentForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1079, 591);
+            ClientSize = new Size(1112, 593);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "VehicleForm";
-            Text = "VehicleForm";
+            Name = "PaymentForm";
+            Text = "PaymentForm";
             ResumeLayout(false);
             PerformLayout();
         }

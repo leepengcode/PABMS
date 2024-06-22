@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PABMS
 {
-    public partial class PaymentForm : Form
+    public partial class PackageForm : Form
     {
-        public PaymentForm()
+        public PackageForm()
         {
             InitializeComponent();
         }

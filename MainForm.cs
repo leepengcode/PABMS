@@ -34,26 +34,23 @@ namespace PABMS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            //Form2 f = new Form2(69);
-            //loadForm(f);
-            //f.changeSize();
+            loadForm(new DashboardForm());
         }
 
         private void btnBagage_Click(object sender, EventArgs e)
         {
-            loadForm(new BagageForm());
+            loadForm(new PackageForm());
         }
 
         private void btnVehicle_Click(object sender, EventArgs e)
         {
-            //loadForm(new DriverForm());
+            loadForm(new StaffForm());
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            StaffForm f = new StaffForm();
-            loadForm(f);
-            //f.changeSize();
+            loadForm(new BusForm());
+
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -63,7 +60,7 @@ namespace PABMS
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            loadForm(new PaymentForm());
+            loadForm(new TruckForm());
         }
 
         bool sideBarExpand = true;
@@ -81,8 +78,11 @@ namespace PABMS
                 btnVehicle.Text = removeChar(btnVehicle.Text);
                 btnTicket.Text = removeChar(btnTicket.Text);
                 btnPayment.Text = removeChar(btnPayment.Text);
+                btnCus.Text = removeChar(btnCus.Text);
+                btnPayTicket.Text = removeChar(btnPayTicket.Text);
+                btnPayPackage.Text = removeChar(btnPayPackage.Text);
 
-                if (sideBar.Width < 85)
+                if (sideBar.Width < 101)
                 {
                     sideBarExpand = false;
                     sideBarTransition.Stop();
@@ -103,9 +103,12 @@ namespace PABMS
                     btnVehicle.Text = "Vehicle";
                     btnTicket.Text = "Ticket";
                     btnPayment.Text = "Payment";
+                    btnCus.Text = "Customer";
+                    btnPayPackage.Text = "Payment Package";
+                    btnPayTicket.Text = "Payment Ticket";
                 }
 
-                if (sideBar.Width > 235)
+                if (sideBar.Width > 319)
                 {
                     sideBarExpand = true;
                     sideBarTransition.Stop();
@@ -155,6 +158,26 @@ namespace PABMS
         private async void MainForm_Load(object sender, EventArgs e)
         {
             //PanelForm.Location = new Point(sideBar.Right + 10, sideBar.Height);
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            loadForm(new PaymentPackageForm());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            loadForm(new CustomerForm());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadForm(new PaymentTicketForm());
+        }
+
+        private void sideBar_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }

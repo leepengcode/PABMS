@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PABMS
 {
-    public partial class VehicleForm : Form
+    public partial class TruckForm : Form
     {
-        public VehicleForm()
+        public TruckForm()
         {
             InitializeComponent();
         }
