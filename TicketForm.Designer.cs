@@ -412,6 +412,7 @@
             button3.TabIndex = 23;
             button3.Text = "UPDATE";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -422,6 +423,7 @@
             button4.TabIndex = 24;
             button4.Text = "NEW";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // label14
             // 
@@ -450,11 +452,11 @@
             // DataTicket
             // 
             DataTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTicket.Location = new Point(282, 599);
+            DataTicket.Location = new Point(261, 599);
             DataTicket.Name = "DataTicket";
             DataTicket.RowHeadersWidth = 51;
             DataTicket.RowTemplate.Height = 29;
-            DataTicket.Size = new Size(1029, 321);
+            DataTicket.Size = new Size(1063, 321);
             DataTicket.TabIndex = 28;
             // 
             // TicketForm

@@ -28,8 +28,8 @@ namespace PABMS
 {
     public partial class PackageForm : Form
     {
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
-
+        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+         string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
         public PackageForm()
         {
             InitializeComponent();
@@ -151,6 +151,7 @@ namespace PABMS
 
                 connection.Open();
                 int result = command.ExecuteNonQuery();
+            
                 if (result > 0)
                     MessageBox.Show("Data updated successfully.");
                 else
@@ -183,6 +184,7 @@ namespace PABMS
                 int result = command.ExecuteNonQuery();
                 if (result > 0)
                     MessageBox.Show("Data inserted successfully.");
+                
                 else
                     MessageBox.Show("Data insertion failed.");
             }

@@ -176,10 +176,10 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(483, 458);
+            txtSearch.Location = new Point(424, 457);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(674, 47);
+            txtSearch.Size = new Size(435, 47);
             txtSearch.TabIndex = 46;
             // 
             // gridSearch
@@ -198,16 +198,19 @@
             // 
             // txtUserID
             // 
+            txtUserID.BackColor = SystemColors.ButtonHighlight;
             txtUserID.BorderStyle = BorderStyle.FixedSingle;
             txtUserID.Location = new Point(446, 171);
             txtUserID.Multiline = true;
             txtUserID.Name = "txtUserID";
+            txtUserID.ReadOnly = true;
             txtUserID.Size = new Size(276, 44);
             txtUserID.TabIndex = 36;
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = SystemColors.ButtonFace;
             label4.Enabled = false;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(309, 183);
@@ -295,6 +298,7 @@
             Name = "UserForm";
             Text = "UserForm";
             WindowState = FormWindowState.Maximized;
+            Load += UserForm_Load;
             ((System.ComponentModel.ISupportInitialize)gridSearch).EndInit();
             ResumeLayout(false);
             PerformLayout();

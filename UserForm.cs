@@ -15,7 +15,8 @@ namespace PABMS
 
     public partial class UserForm : Form
     {
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
+        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
+        string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
         public UserForm()
         {
             InitializeComponent();
@@ -36,6 +37,7 @@ namespace PABMS
                 gridSearch.DataSource = table;
                 return;
             }
+            LoadLatestUserID();
         }
 
         private void searchUserByID()
@@ -103,6 +105,7 @@ namespace PABMS
                         connection.Open();
                         command.ExecuteNonQuery();
                         MessageBox.Show("User inserted successfully.");
+                        LoadLatestUserID();
                     }
                     catch (Exception ex)
                     {
@@ -143,6 +146,7 @@ namespace PABMS
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("User updated successfully.");
+
                         }
                         else
                         {
@@ -178,7 +182,7 @@ namespace PABMS
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     try
-                    {   
+                    {
                         command.Parameters.AddWithValue("@staffID", staffID);
                         SqlDataAdapter adapter = new SqlDataAdapter(command);
                         DataTable dataTable = new DataTable();
@@ -204,6 +208,7 @@ namespace PABMS
         private void btnSave_Click(object sender, EventArgs e)
         {
             insertUser();
+            ClearForm();
         }
 
         private void gridSearch_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -230,20 +235,14 @@ namespace PABMS
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             UpdateUser();
+            ClearForm();
         }
 
         private void btnSearchStaff_Click(object sender, EventArgs e)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string updateCommandText = @"
-                    SELECT 
-                        StaffID, FullName, PhoneNumber
-                    FROM 
-                        tbStaff 
-                    WHERE 
-                        FullName LIKE @Name;
-                    ";
+                string updateCommandText = "Staff Found";
 
                 using (SqlCommand command = new SqlCommand(updateCommandText, connection))
                 {
@@ -269,7 +268,7 @@ namespace PABMS
                         {
                             MessageBox.Show("Staff not found.");
                         }
-                        
+
                     }
                     catch (Exception ex)
                     {
@@ -278,5 +277,58 @@ namespace PABMS
                 }
             }
         }
+        private void LoadLatestUserID()
+        {
+            int latestUserID = GetLatestUserID();
+            txtUserID.Text = (latestUserID + 1).ToString();
+        }
+
+        private int GetLatestUserID()
+        {
+            int latestUserID = 1;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT ISNULL(MAX(UserID), 0) FROM tbUser";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        if (result != DBNull.Value)
+                        {
+                            latestUserID = Convert.ToInt32(result);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while fetching latest user ID: " + ex.Message);
+                }
+            }
+
+            return latestUserID;
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+            LoadLatestUserID();
+        }
+
+        private void ClearForm()
+        {
+            txtPassword.Clear();
+            txtSearch.Clear();
+            txtStaffID.Clear();
+            txtStaffTel.Clear();
+            txtStaffName.Clear();
+            txtUsername.Clear();
+
+        }
+
+       
     }
 }
+

@@ -1,5 +1,7 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace PABMS
 {
@@ -252,6 +254,9 @@ namespace PABMS
             CusName.Clear();
             CusPhone.Clear();
             StaffName.Clear();
+            txtSearch.Clear();
+            LoadTicketData();
+            LoadLatestTicketID();
         }
 
         private void LoadTicketData()
@@ -329,14 +334,21 @@ namespace PABMS
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = DataTicket.Rows[e.RowIndex];
-                txtID.Text = row.Cells["TicketID"].Value.ToString();
-                dtpPurchas.Value = Convert.ToDateTime(row.Cells["PurchaseDate"].Value);
-                dtpDeparture.Value = Convert.ToDateTime(row.Cells["DepartureDate"].Value);
-                cmCusID.Text = row.Cells["CustomerID"].Value.ToString();
-                cmStaffID.Text = row.Cells["StaffID"].Value.ToString();
-                txtOrigin.Text = row.Cells["OriginName"].Value.ToString();
-                txtDestination.Text = row.Cells["DestinationName"].Value.ToString();
-                cmBusID.Text = row.Cells["BusID"].Value.ToString();
+                if (row != null)
+                {
+                    txtID.Text = row.Cells["TicketID"].Value.ToString();
+                    dtpPurchas.Value = Convert.ToDateTime(row.Cells["PurchaseDate"].Value);
+                    dtpDeparture.Value = Convert.ToDateTime(row.Cells["DepartureDate"].Value);
+                    cmCusID.Text = row.Cells["CustomerID"].Value.ToString();
+                    cmStaffID.Text = row.Cells["StaffID"].Value.ToString();
+                    txtOrigin.Text = row.Cells["OriginName"].Value.ToString();
+                    txtDestination.Text = row.Cells["DestinationName"].Value.ToString();
+                    cmBusID.Text = row.Cells["BusID"].Value.ToString();
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 
@@ -373,6 +385,70 @@ namespace PABMS
                 catch (Exception ex)
                 {
                     MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtID.Text.Trim()))
+            {
+                MessageBox.Show("Please select a ticket to update.");
+                return;
+            }
+
+            int ticketID = Convert.ToInt32(txtID.Text.Trim());
+            int customerID = Convert.ToInt32(cmCusID.SelectedItem?.ToString());
+            int staffID = Convert.ToInt32(cmStaffID.SelectedItem?.ToString());
+            int busID = Convert.ToInt32(cmBusID.SelectedItem?.ToString());
+            DateTime purchaseDate = dtpPurchas.Value;
+            DateTime departureDate = dtpDeparture.Value;
+            string origin = txtOrigin.Text.Trim();
+            string destination = txtDestination.Text.Trim();
+
+            if (customerID == 0 || staffID == 0 || busID == 0)
+            {
+                MessageBox.Show("Please select a valid customer, staff, and bus.");
+                return;
+            }
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "UPDATE tbTicket SET PurchaseDate = @PurchaseDate, DepartureDate = @DepartureDate, " +
+                                   "CustomerID = @CustomerID, StaffID = @StaffID, OriginName = @OriginName, " +
+                                   "DestinationName = @DestinationName, BusID = @BusID " +
+                                   "WHERE TicketID = @TicketID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@TicketID", ticketID);
+                        cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
+                        cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.Parameters.AddWithValue("@StaffID", staffID);
+                        cmd.Parameters.AddWithValue("@OriginName", origin);
+                        cmd.Parameters.AddWithValue("@DestinationName", destination);
+                        cmd.Parameters.AddWithValue("@BusID", busID);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                    MessageBox.Show("Ticket updated successfully.");
+                    ClearForm();
+                    LoadTicketData();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
                 }
             }
         }

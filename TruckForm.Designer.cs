@@ -35,30 +35,27 @@
             btnSave = new Button();
             txtSearch = new TextBox();
             panel1 = new Panel();
-            txtDriverPhone = new TextBox();
+            cmTruck = new ComboBox();
+            txtPhone = new TextBox();
             label5 = new Label();
-            ckFemale = new CheckBox();
-            ckMale = new CheckBox();
-            label4 = new Label();
-            txtDriverName = new TextBox();
+            txtFullName = new TextBox();
             label3 = new Label();
-            txtDriverID = new TextBox();
             label6 = new Label();
             txtTruckNumber = new TextBox();
             label2 = new Label();
             txtTruckID = new TextBox();
             label11 = new Label();
             label1 = new Label();
-            gridDriver = new DataGridView();
+            DataTruck = new DataGridView();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gridDriver).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataTruck).BeginInit();
             SuspendLayout();
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(111, 585);
+            label14.Location = new Point(229, 588);
             label14.Name = "label14";
             label14.Size = new Size(159, 29);
             label14.TabIndex = 67;
@@ -74,6 +71,7 @@
             btnNew.TabIndex = 66;
             btnNew.Text = "NEW";
             btnNew.UseVisualStyleBackColor = false;
+            btnNew.Click += btnNew_Click;
             // 
             // btnUpdate
             // 
@@ -109,28 +107,26 @@
             btnSave.TabIndex = 63;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(285, 583);
+            txtSearch.Location = new Point(430, 583);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(688, 34);
+            txtSearch.Size = new Size(673, 34);
             txtSearch.TabIndex = 61;
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(txtDriverPhone);
+            panel1.Controls.Add(cmTruck);
+            panel1.Controls.Add(txtPhone);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(ckFemale);
-            panel1.Controls.Add(ckMale);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(txtDriverName);
+            panel1.Controls.Add(txtFullName);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(txtDriverID);
             panel1.Controls.Add(label6);
             panel1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             panel1.Location = new Point(285, 340);
@@ -138,65 +134,43 @@
             panel1.Size = new Size(1022, 206);
             panel1.TabIndex = 60;
             // 
-            // txtDriverPhone
+            // cmTruck
             // 
-            txtDriverPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDriverPhone.Location = new Point(396, 144);
-            txtDriverPhone.Multiline = true;
-            txtDriverPhone.Name = "txtDriverPhone";
-            txtDriverPhone.Size = new Size(517, 34);
-            txtDriverPhone.TabIndex = 8;
+            cmTruck.FormattingEnabled = true;
+            cmTruck.Location = new Point(396, 20);
+            cmTruck.Name = "cmTruck";
+            cmTruck.Size = new Size(517, 37);
+            cmTruck.TabIndex = 9;
+            cmTruck.SelectedIndexChanged += cmTruck_SelectedIndexChanged_1;
+            // 
+            // txtPhone
+            // 
+            txtPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPhone.Location = new Point(396, 103);
+            txtPhone.Multiline = true;
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(517, 34);
+            txtPhone.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(105, 147);
+            label5.Location = new Point(105, 108);
             label5.Name = "label5";
             label5.Size = new Size(176, 29);
             label5.TabIndex = 7;
             label5.Text = "Phone Number";
+            label5.Click += label5_Click;
             // 
-            // ckFemale
+            // txtFullName
             // 
-            ckFemale.AutoSize = true;
-            ckFemale.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ckFemale.Location = new Point(490, 114);
-            ckFemale.Name = "ckFemale";
-            ckFemale.Size = new Size(117, 33);
-            ckFemale.TabIndex = 6;
-            ckFemale.Text = "Female";
-            ckFemale.UseVisualStyleBackColor = true;
-            // 
-            // ckMale
-            // 
-            ckMale.AutoSize = true;
-            ckMale.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            ckMale.Location = new Point(396, 114);
-            ckMale.Name = "ckMale";
-            ckMale.Size = new Size(88, 33);
-            ckMale.TabIndex = 5;
-            ckMale.Text = "Male";
-            ckMale.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(105, 114);
-            label4.Name = "label4";
-            label4.Size = new Size(54, 29);
-            label4.TabIndex = 4;
-            label4.Text = "Sex";
-            // 
-            // txtDriverName
-            // 
-            txtDriverName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDriverName.Location = new Point(396, 63);
-            txtDriverName.Multiline = true;
-            txtDriverName.Name = "txtDriverName";
-            txtDriverName.Size = new Size(517, 34);
-            txtDriverName.TabIndex = 3;
+            txtFullName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtFullName.Location = new Point(396, 63);
+            txtFullName.Multiline = true;
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(517, 34);
+            txtFullName.TabIndex = 3;
             // 
             // label3
             // 
@@ -207,17 +181,6 @@
             label3.Size = new Size(148, 29);
             label3.TabIndex = 2;
             label3.Text = "Driver Name";
-            // 
-            // txtDriverID
-            // 
-            txtDriverID.BorderStyle = BorderStyle.FixedSingle;
-            txtDriverID.Enabled = false;
-            txtDriverID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDriverID.Location = new Point(396, 23);
-            txtDriverID.Multiline = true;
-            txtDriverID.Name = "txtDriverID";
-            txtDriverID.Size = new Size(517, 34);
-            txtDriverID.TabIndex = 1;
             // 
             // label6
             // 
@@ -281,26 +244,26 @@
             label1.TabIndex = 53;
             label1.Text = "Truck's Form";
             // 
-            // gridDriver
+            // DataTruck
             // 
-            gridDriver.AllowUserToAddRows = false;
-            gridDriver.AllowUserToDeleteRows = false;
-            gridDriver.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridDriver.Location = new Point(64, 637);
-            gridDriver.Name = "gridDriver";
-            gridDriver.ReadOnly = true;
-            gridDriver.RowHeadersWidth = 51;
-            gridDriver.RowTemplate.Height = 29;
-            gridDriver.Size = new Size(1388, 253);
-            gridDriver.TabIndex = 68;
-            gridDriver.CellClick += gridDriver_CellClick;
+            DataTruck.AllowUserToAddRows = false;
+            DataTruck.AllowUserToDeleteRows = false;
+            DataTruck.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataTruck.Location = new Point(430, 623);
+            DataTruck.Name = "DataTruck";
+            DataTruck.ReadOnly = true;
+            DataTruck.RowHeadersWidth = 51;
+            DataTruck.RowTemplate.Height = 29;
+            DataTruck.Size = new Size(673, 279);
+            DataTruck.TabIndex = 68;
+            DataTruck.CellClick += gridDriver_CellClick;
             // 
             // TruckForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1526, 1012);
-            Controls.Add(gridDriver);
+            Controls.Add(DataTruck);
             Controls.Add(label14);
             Controls.Add(btnNew);
             Controls.Add(btnUpdate);
@@ -319,7 +282,7 @@
             Load += TruckForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gridDriver).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataTruck).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -334,19 +297,16 @@
         private TextBox txtSearch;
         private Panel panel1;
         private Label label5;
-        private Label label4;
         private Label label3;
         private Label label6;
-        private CheckBox ckMale;
-        private CheckBox ckFemale;
-        private TextBox txtDriverPhone;
-        private TextBox txtDriverID;
-        private TextBox txtDriverName;
+        private TextBox txtPhone;
+        private TextBox txtFullName;
         private TextBox txtTruckNumber;
         private TextBox txtTruckID;
         private Label label2;
         private Label label11;
         private Label label1;
-        private DataGridView gridDriver;
+        private DataGridView DataTruck;
+        private ComboBox cmTruck;
     }
 }
