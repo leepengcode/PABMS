@@ -46,6 +46,7 @@
             label7 = new Label();
             textBox9 = new TextBox();
             panel3 = new Panel();
+            listBox1 = new ListBox();
             textBox8 = new TextBox();
             label10 = new Label();
             textBox6 = new TextBox();
@@ -56,9 +57,7 @@
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             textBox11 = new TextBox();
             label11 = new Label();
-            textBox12 = new TextBox();
             label12 = new Label();
-            textBox13 = new TextBox();
             label13 = new Label();
             textBox15 = new TextBox();
             label15 = new Label();
@@ -71,6 +70,9 @@
             button3 = new Button();
             button4 = new Button();
             label14 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
+            checkedListBox1 = new CheckedListBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -254,6 +256,7 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
+            panel3.Controls.Add(listBox1);
             panel3.Controls.Add(textBox8);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(textBox6);
@@ -264,6 +267,15 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(375, 202);
             panel3.TabIndex = 1;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 20;
+            listBox1.Location = new Point(151, 20);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(178, 44);
+            listBox1.TabIndex = 14;
             // 
             // textBox8
             // 
@@ -287,7 +299,7 @@
             // textBox6
             // 
             textBox6.BorderStyle = BorderStyle.FixedSingle;
-            textBox6.Location = new Point(151, 63);
+            textBox6.Location = new Point(151, 72);
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(178, 34);
@@ -297,7 +309,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(46, 77);
+            label8.Location = new Point(41, 86);
             label8.Name = "label8";
             label8.Size = new Size(57, 20);
             label8.TabIndex = 10;
@@ -316,7 +328,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(46, 37);
+            label9.Location = new Point(41, 37);
             label9.Name = "label9";
             label9.Size = new Size(52, 20);
             label9.TabIndex = 8;
@@ -351,15 +363,6 @@
             label11.TabIndex = 9;
             label11.Text = "Ticket ID";
             // 
-            // textBox12
-            // 
-            textBox12.BorderStyle = BorderStyle.FixedSingle;
-            textBox12.Location = new Point(720, 367);
-            textBox12.Multiline = true;
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(241, 44);
-            textBox12.TabIndex = 12;
-            // 
             // label12
             // 
             label12.AutoSize = true;
@@ -369,15 +372,6 @@
             label12.Size = new Size(99, 20);
             label12.TabIndex = 11;
             label12.Text = "Purchas Date";
-            // 
-            // textBox13
-            // 
-            textBox13.BorderStyle = BorderStyle.FixedSingle;
-            textBox13.Location = new Point(1148, 367);
-            textBox13.Multiline = true;
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(241, 44);
-            textBox13.TabIndex = 14;
             // 
             // label13
             // 
@@ -495,11 +489,36 @@
             label14.TabIndex = 25;
             label14.Text = "Search";
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(1139, 374);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(250, 27);
+            dateTimePicker1.TabIndex = 26;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(720, 374);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(241, 27);
+            dateTimePicker2.TabIndex = 27;
+            // 
+            // checkedListBox1
+            // 
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Location = new Point(1224, 73);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(150, 48);
+            checkedListBox1.TabIndex = 28;
+            // 
             // TicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1521, 937);
+            Controls.Add(checkedListBox1);
+            Controls.Add(dateTimePicker2);
+            Controls.Add(dateTimePicker1);
             Controls.Add(label14);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -511,9 +530,7 @@
             Controls.Add(label15);
             Controls.Add(textBox16);
             Controls.Add(label16);
-            Controls.Add(textBox13);
             Controls.Add(label13);
-            Controls.Add(textBox12);
             Controls.Add(label12);
             Controls.Add(textBox11);
             Controls.Add(label11);
@@ -566,9 +583,7 @@
         private TextBox textBox9;
         private TextBox textBox11;
         private Label label11;
-        private TextBox textBox12;
         private Label label12;
-        private TextBox textBox13;
         private Label label13;
         private TextBox textBox15;
         private Label label15;
@@ -581,5 +596,9 @@
         private Button button3;
         private Button button4;
         private Label label14;
+        private ListBox listBox1;
+        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePicker2;
+        private CheckedListBox checkedListBox1;
     }
 }
