@@ -29,83 +29,92 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox4 = new TextBox();
+            txtPassword = new TextBox();
             label6 = new Label();
-            textBox2 = new TextBox();
+            txtUsername = new TextBox();
             label3 = new Label();
-            textBox1 = new TextBox();
+            txtStaffID = new TextBox();
             label2 = new Label();
             label14 = new Label();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            listView1 = new ListView();
-            textBox14 = new TextBox();
+            btnNew = new Button();
+            btnUpdate = new Button();
+            btnSearch = new Button();
+            btnSave = new Button();
+            txtSearch = new TextBox();
+            gridSearch = new DataGridView();
+            txtUserID = new TextBox();
+            label4 = new Label();
+            txtStaffName = new TextBox();
+            txtStaffTel = new TextBox();
+            label5 = new Label();
+            label7 = new Label();
+            btnSearchStaff = new Button();
+            ((System.ComponentModel.ISupportInitialize)gridSearch).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Heebo", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(708, 60);
             label1.Name = "label1";
-            label1.Size = new Size(187, 44);
+            label1.Size = new Size(186, 36);
             label1.TabIndex = 3;
             label1.Text = "User's Form";
             // 
-            // textBox4
+            // txtPassword
             // 
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Location = new Point(483, 267);
-            textBox4.Multiline = true;
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(674, 44);
-            textBox4.TabIndex = 39;
+            txtPassword.BorderStyle = BorderStyle.FixedSingle;
+            txtPassword.Location = new Point(446, 330);
+            txtPassword.Multiline = true;
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(276, 44);
+            txtPassword.TabIndex = 39;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(346, 281);
+            label6.Location = new Point(309, 344);
             label6.Name = "label6";
             label6.Size = new Size(73, 20);
             label6.TabIndex = 38;
             label6.Text = "Password";
             // 
-            // textBox2
+            // txtUsername
             // 
-            textBox2.BorderStyle = BorderStyle.FixedSingle;
-            textBox2.Location = new Point(483, 186);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(674, 44);
-            textBox2.TabIndex = 37;
+            txtUsername.BorderStyle = BorderStyle.FixedSingle;
+            txtUsername.Location = new Point(446, 249);
+            txtUsername.Multiline = true;
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(276, 44);
+            txtUsername.TabIndex = 37;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(346, 200);
+            label3.Location = new Point(309, 263);
             label3.Name = "label3";
             label3.Size = new Size(78, 20);
             label3.TabIndex = 36;
             label3.Text = "Username";
             // 
-            // textBox1
+            // txtStaffID
             // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(483, 344);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(674, 44);
-            textBox1.TabIndex = 41;
+            txtStaffID.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffID.Enabled = false;
+            txtStaffID.Location = new Point(883, 171);
+            txtStaffID.Multiline = true;
+            txtStaffID.Name = "txtStaffID";
+            txtStaffID.Size = new Size(211, 44);
+            txtStaffID.TabIndex = 41;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(346, 358);
+            label2.Location = new Point(809, 184);
             label2.Name = "label2";
             label2.Size = new Size(59, 20);
             label2.TabIndex = 40;
@@ -115,92 +124,178 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(196, 455);
+            label14.Location = new Point(352, 470);
             label14.Name = "label14";
             label14.Size = new Size(55, 20);
             label14.TabIndex = 52;
             label14.Text = "Search";
             // 
-            // button4
+            // btnNew
             // 
-            button4.BackColor = Color.FromArgb(192, 255, 255);
-            button4.Location = new Point(1196, 779);
-            button4.Name = "button4";
-            button4.Size = new Size(152, 50);
-            button4.TabIndex = 51;
-            button4.Text = "NEW";
-            button4.UseVisualStyleBackColor = false;
+            btnNew.BackColor = Color.FromArgb(192, 255, 255);
+            btnNew.Location = new Point(1196, 779);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(152, 50);
+            btnNew.TabIndex = 51;
+            btnNew.Text = "NEW";
+            btnNew.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnUpdate
             // 
-            button3.BackColor = Color.FromArgb(255, 192, 128);
-            button3.Location = new Point(883, 779);
-            button3.Name = "button3";
-            button3.Size = new Size(152, 50);
-            button3.TabIndex = 50;
-            button3.Text = "UPDATE";
-            button3.UseVisualStyleBackColor = false;
+            btnUpdate.BackColor = Color.FromArgb(255, 192, 128);
+            btnUpdate.Location = new Point(883, 779);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(152, 50);
+            btnUpdate.TabIndex = 50;
+            btnUpdate.Text = "UPDATE";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // button2
+            // btnSearch
             // 
-            button2.BackColor = SystemColors.ActiveCaption;
-            button2.Location = new Point(560, 779);
-            button2.Name = "button2";
-            button2.Size = new Size(152, 50);
-            button2.TabIndex = 49;
-            button2.Text = "SEARCH";
-            button2.UseVisualStyleBackColor = false;
+            btnSearch.BackColor = SystemColors.ActiveCaption;
+            btnSearch.Location = new Point(560, 779);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(152, 50);
+            btnSearch.TabIndex = 49;
+            btnSearch.Text = "SEARCH";
+            btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
-            // button1
+            // btnSave
             // 
-            button1.BackColor = Color.FromArgb(192, 192, 255);
-            button1.Location = new Point(278, 779);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 50);
-            button1.TabIndex = 48;
-            button1.Text = "SAVE";
-            button1.UseVisualStyleBackColor = false;
+            btnSave.BackColor = Color.FromArgb(192, 192, 255);
+            btnSave.Location = new Point(278, 779);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(152, 50);
+            btnSave.TabIndex = 48;
+            btnSave.Text = "SAVE";
+            btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
-            // listView1
+            // txtSearch
             // 
-            listView1.Location = new Point(193, 506);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1226, 244);
-            listView1.TabIndex = 47;
-            listView1.UseCompatibleStateImageBehavior = false;
+            txtSearch.BorderStyle = BorderStyle.FixedSingle;
+            txtSearch.Location = new Point(483, 458);
+            txtSearch.Multiline = true;
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(674, 47);
+            txtSearch.TabIndex = 46;
             // 
-            // textBox14
+            // gridSearch
             // 
-            textBox14.BorderStyle = BorderStyle.FixedSingle;
-            textBox14.Location = new Point(327, 443);
-            textBox14.Multiline = true;
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(664, 47);
-            textBox14.TabIndex = 46;
+            gridSearch.AllowUserToAddRows = false;
+            gridSearch.AllowUserToDeleteRows = false;
+            gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridSearch.Location = new Point(352, 529);
+            gridSearch.Name = "gridSearch";
+            gridSearch.ReadOnly = true;
+            gridSearch.RowHeadersWidth = 51;
+            gridSearch.RowTemplate.Height = 29;
+            gridSearch.Size = new Size(805, 188);
+            gridSearch.TabIndex = 53;
+            gridSearch.CellClick += gridSearch_CellClick;
+            // 
+            // txtUserID
+            // 
+            txtUserID.BorderStyle = BorderStyle.FixedSingle;
+            txtUserID.Location = new Point(446, 171);
+            txtUserID.Multiline = true;
+            txtUserID.Name = "txtUserID";
+            txtUserID.Size = new Size(276, 44);
+            txtUserID.TabIndex = 36;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Enabled = false;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(309, 183);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 20);
+            label4.TabIndex = 36;
+            label4.Text = "User ID";
+            // 
+            // txtStaffName
+            // 
+            txtStaffName.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffName.Location = new Point(883, 249);
+            txtStaffName.Multiline = true;
+            txtStaffName.Name = "txtStaffName";
+            txtStaffName.Size = new Size(211, 44);
+            txtStaffName.TabIndex = 41;
+            // 
+            // txtStaffTel
+            // 
+            txtStaffTel.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffTel.Location = new Point(883, 320);
+            txtStaffTel.Multiline = true;
+            txtStaffTel.Name = "txtStaffTel";
+            txtStaffTel.Size = new Size(211, 44);
+            txtStaffTel.TabIndex = 41;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(770, 262);
+            label5.Name = "label5";
+            label5.Size = new Size(85, 20);
+            label5.TabIndex = 40;
+            label5.Text = "Staff Name";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(796, 333);
+            label7.Name = "label7";
+            label7.Size = new Size(63, 20);
+            label7.TabIndex = 40;
+            label7.Text = "Staff Tel";
+            // 
+            // btnSearchStaff
+            // 
+            btnSearchStaff.BackColor = SystemColors.ActiveCaption;
+            btnSearchStaff.Location = new Point(1100, 248);
+            btnSearchStaff.Name = "btnSearchStaff";
+            btnSearchStaff.Size = new Size(152, 46);
+            btnSearchStaff.TabIndex = 49;
+            btnSearchStaff.Text = "SEARCH STAFF";
+            btnSearchStaff.UseVisualStyleBackColor = false;
+            btnSearchStaff.Click += btnSearchStaff_Click;
             // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1516, 878);
+            Controls.Add(gridSearch);
             Controls.Add(label14);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(listView1);
-            Controls.Add(textBox14);
-            Controls.Add(textBox1);
+            Controls.Add(btnNew);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnSearchStaff);
+            Controls.Add(btnSearch);
+            Controls.Add(btnSave);
+            Controls.Add(txtSearch);
+            Controls.Add(txtStaffTel);
+            Controls.Add(txtStaffName);
+            Controls.Add(txtStaffID);
+            Controls.Add(label7);
+            Controls.Add(label5);
             Controls.Add(label2);
-            Controls.Add(textBox4);
+            Controls.Add(txtPassword);
             Controls.Add(label6);
-            Controls.Add(textBox2);
+            Controls.Add(txtUserID);
+            Controls.Add(txtUsername);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserForm";
             Text = "UserForm";
             WindowState = FormWindowState.Maximized;
+            ((System.ComponentModel.ISupportInitialize)gridSearch).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -208,18 +303,25 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox4;
+        private TextBox txtUsername;
+        private TextBox txtPassword;
+        private TextBox txtStaffID;
         private Label label6;
-        private TextBox textBox2;
         private Label label3;
-        private TextBox textBox1;
         private Label label2;
         private Label label14;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Button button1;
-        private ListView listView1;
-        private TextBox textBox14;
+        private Button btnNew;
+        private Button btnUpdate;
+        private Button btnSearch;
+        private TextBox txtSearch;
+        private Button btnSave;
+        private DataGridView gridSearch;
+        private TextBox txtUserID;
+        private Label label4;
+        private TextBox txtStaffName;
+        private TextBox txtStaffTel;
+        private Label label5;
+        private Label label7;
+        private Button btnSearchStaff;
     }
 }

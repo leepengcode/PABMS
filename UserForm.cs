@@ -2,19 +2,281 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace PABMS
 {
+
     public partial class UserForm : Form
     {
+        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
         public UserForm()
         {
             InitializeComponent();
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM tbUser", connectionString))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridSearch.DataSource = table;
+            }
+        }
+
+        private void showUsers()
+        {
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM tbUser", connectionString))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                gridSearch.DataSource = table;
+                return;
+            }
+        }
+
+        private void searchUserByID()
+        {
+
+            if (!int.TryParse(txtSearch.Text, out int userID))
+            {
+                showUsers();
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    using (SqlCommand command = new SqlCommand("spSearchUserByID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@UserID", userID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            DataTable table = new DataTable();
+                            table.Load(reader);
+
+                            if (table.Rows.Count > 0)
+                            {
+                                gridSearch.DataSource = table;
+                            }
+                            else
+                            {
+                                showUsers();
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred: " + ex.Message);
+                }
+            }
+        }
+
+        private void insertUser()
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            int staffID = int.Parse(txtStaffID.Text);
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertCommandText = @"
+                INSERT INTO tbUser (Username, Password, StaffID)
+                VALUES (@Username, @Password, @StaffID)";
+
+                using (SqlCommand command = new SqlCommand(insertCommandText, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@StaffID", staffID);
+
+                    try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("User inserted successfully.");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                    showUsers();
+                }
+            }
+        }
+
+        private void UpdateUser()
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            int staffID = int.Parse(txtStaffID.Text);
+            int userID = int.Parse(txtUserID.Text);
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string updateCommandText = @"
+                UPDATE tbUser
+                SET Username = @Username,
+                    Password = @Password,
+                    StaffID = @StaffID
+                WHERE UserID = @UserID";
+
+                using (SqlCommand command = new SqlCommand(updateCommandText, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@StaffID", staffID);
+                    command.Parameters.AddWithValue("@UserID", userID);
+
+                    try
+                    {
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User updated successfully.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("User not found.");
+                        }
+                        showUsers();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void LoadUserStaffDetails(int staffID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                    SELECT 
+                        tbUser.UserID,
+                        tbUser.Username,
+                        tbUser.Password,
+                        tbStaff.StaffID,
+                        tbStaff.FullName,
+                        tbStaff.PhoneNumber
+                    FROM 
+	                    tbUser
+                    INNER JOIN 
+                        tbStaff ON tbStaff.StaffID = @staffID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    try
+                    {   
+                        command.Parameters.AddWithValue("@staffID", staffID);
+                        SqlDataAdapter adapter = new SqlDataAdapter(command);
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        txtStaffID.Text = dataTable.Rows[0]["StaffID"].ToString();
+                        txtStaffName.Text = dataTable.Rows[0]["FullName"].ToString();
+                        txtStaffTel.Text = dataTable.Rows[0]["PhoneNumber"].ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            searchUserByID();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            insertUser();
+        }
+
+        private void gridSearch_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM tbUser", connectionString))
+            {
+                DataTable table = new DataTable();
+                adapter.Fill(table);
+                if (table.Rows.Count > 0 && index > -1)
+                {
+                    txtUserID.Text = table.Rows[index]["UserID"].ToString();
+                    txtUsername.Text = table.Rows[index]["Username"].ToString();
+                    txtPassword.Text = table.Rows[index]["Password"].ToString();
+                    txtStaffID.Text = table.Rows[index]["StaffID"].ToString();
+                }
+                int staffID = int.Parse(txtStaffID.Text);
+                LoadUserStaffDetails(staffID);
+            }
+
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateUser();
+        }
+
+        private void btnSearchStaff_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string updateCommandText = @"
+                    SELECT 
+                        StaffID, FullName, PhoneNumber
+                    FROM 
+                        tbStaff 
+                    WHERE 
+                        FullName LIKE @Name;
+                    ";
+
+                using (SqlCommand command = new SqlCommand(updateCommandText, connection))
+                {
+                    command.Parameters.AddWithValue("@Name", "%" + txtStaffName.Text + "%");
+                    // message box command's final sql
+                    MessageBox.Show(command.CommandText);
+
+                    try
+                    {
+                        connection.Open();
+                        DataTable table = new DataTable();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            table.Load(reader);
+                        }
+                        if (table.Rows.Count > 0)
+                        {
+                            txtStaffID.Text = table.Rows[0]["StaffID"].ToString();
+                            txtStaffName.Text = table.Rows[0]["FullName"].ToString();
+                            txtStaffTel.Text = table.Rows[0]["PhoneNumber"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Staff not found.");
+                        }
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+            }
         }
     }
 }
