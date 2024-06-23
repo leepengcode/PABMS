@@ -22,21 +22,72 @@ namespace PABMS
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO.Packaging;
 using System.Windows.Forms;
 
 namespace PABMS
 {
     public partial class PackageForm : Form
     {
+<<<<<<< HEAD
         //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
          string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+=======
+        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        DataTable table = new DataTable();
+>>>>>>> 33bed45ba067e28b29bc173230b001a2a1a9b8a6
         public PackageForm()
         {
             InitializeComponent();
             // Attach event handlers
             btnSearch.Click += BtnSearch_Click;
             gridSearch.SelectionChanged += GridSearch_SelectionChanged;
+            showPackages();
         }
+
+
+        private void showPackages()
+        {
+            adapter = new SqlDataAdapter("SELECT * FROM tbPackage", connectionString);
+            string query = @"
+                SELECT 
+                    p.PackageID,
+                    p.PackageName,
+                    p.PackagePrice,
+                    p.DeliveryDate,
+                    p.DepartureDate,
+                    p.ReceiverContactInformation,
+                    p.OriginName,
+                    p.DestinationName,
+                    c.CustomerID,
+                    c.FullName AS CustomerName,
+                    c.PhoneNumber AS CustomerPhoneNumber,
+                    c.Sex AS CustomerSex,
+                    s.StaffID,
+                    s.FullName AS StaffName,
+                    s.Sex AS StaffSex,
+                    t.TruckID,
+                    t.TruckNumber
+                FROM tbPackage p
+                JOIN tbCustomer c ON p.CustomerID = c.CustomerID
+                JOIN tbStaff s ON p.StaffID = s.StaffID
+                JOIN tbTruck t ON p.TruckID = t.TruckID
+                ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@PackageID", 1);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(command);
+                table = new DataTable();
+                adapter.Fill(table);
+                gridSearch.DataSource = table;
+            }
+        }
+    
 
         private void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -82,7 +133,6 @@ namespace PABMS
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@PackageID", packageId);
-
                 SqlDataAdapter adapter = new SqlDataAdapter(command);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -94,7 +144,10 @@ namespace PABMS
         {
             DataGridViewRow row = gridSearch.CurrentRow;
             if (row != null)
+            {
                 DisplaySelectedRowData(row);
+            }
+                
         }
 
         private void DisplaySelectedRowData(DataGridViewRow row)
@@ -156,6 +209,8 @@ namespace PABMS
                     MessageBox.Show("Data updated successfully.");
                 else
                     MessageBox.Show("Data update failed.");
+
+                showPackages();
             }
         }
 
