@@ -31,39 +31,39 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             label15 = new Label();
-            txtSex = new TextBox();
             label16 = new Label();
-            txtName = new TextBox();
+            txtFullName = new TextBox();
             label12 = new Label();
             txtID = new TextBox();
             label11 = new Label();
-            
-            ckMale = new CheckBox();
-            label4 = new Label();
-            txtAddress = new TextBox();
+            rbMale = new CheckBox();
+            txtStaffAddress = new TextBox();
             Address = new Label();
-            txtPosition = new TextBox();
+            txtStaffPosition = new TextBox();
             label3 = new Label();
-            txtPhone = new TextBox();
+            txtStaffPhone = new TextBox();
             label6 = new Label();
-            ckStopwork = new CheckBox();
+            rbStoppedWork = new CheckBox();
             label5 = new Label();
-            photoBox = new PictureBox();
+            pbPhoto = new PictureBox();
             label14 = new Label();
             btnNew = new Button();
             btnUpdate = new Button();
             btnSearch = new Button();
             btnSave = new Button();
-            listView1 = new ListView();
             txtSearch = new TextBox();
-            bdStaff = new DateTimePicker();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
+            dtpBirthDate = new DateTimePicker();
+            txtStaffSalary = new TextBox();
             label2 = new Label();
-            label7 = new Label();
             bindingSource1 = new BindingSource(components);
-            ((System.ComponentModel.ISupportInitialize)photoBox).BeginInit();
+            rbFemale = new CheckBox();
+            dtpHiredDate = new DateTimePicker();
+            label4 = new Label();
+            btnBrowsePhoto = new Button();
+            DataStaff = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)pbPhoto).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataStaff).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -86,15 +86,6 @@
             label15.TabIndex = 25;
             label15.Text = "Birth Date";
             // 
-            // txtSex
-            // 
-            txtSex.BorderStyle = BorderStyle.FixedSingle;
-            txtSex.Location = new Point(323, 204);
-            txtSex.Multiline = true;
-            txtSex.Name = "txtSex";
-            txtSex.Size = new Size(241, 44);
-            txtSex.TabIndex = 24;
-            // 
             // label16
             // 
             label16.AutoSize = true;
@@ -105,14 +96,14 @@
             label16.TabIndex = 23;
             label16.Text = "Sex";
             // 
-            // txtName
+            // txtFullName
             // 
-            txtName.BorderStyle = BorderStyle.FixedSingle;
-            txtName.Location = new Point(746, 140);
-            txtName.Multiline = true;
-            txtName.Name = "txtName";
-            txtName.Size = new Size(241, 44);
-            txtName.TabIndex = 22;
+            txtFullName.BorderStyle = BorderStyle.FixedSingle;
+            txtFullName.Location = new Point(746, 140);
+            txtFullName.Multiline = true;
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(241, 44);
+            txtFullName.TabIndex = 22;
             // 
             // label12
             // 
@@ -143,39 +134,25 @@
             label11.TabIndex = 19;
             label11.Text = "Staff ID";
             // 
-            // ckFemale
+            // rbMale
             // 
-           
+            rbMale.AutoSize = true;
+            rbMale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            rbMale.Location = new Point(325, 214);
+            rbMale.Name = "rbMale";
+            rbMale.Size = new Size(65, 24);
+            rbMale.TabIndex = 28;
+            rbMale.Text = "Male";
+            rbMale.UseVisualStyleBackColor = true;
             // 
-            // ckMale
+            // txtStaffAddress
             // 
-            ckMale.AutoSize = true;
-            ckMale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ckMale.Location = new Point(340, 272);
-            ckMale.Name = "ckMale";
-            ckMale.Size = new Size(65, 24);
-            ckMale.TabIndex = 28;
-            ckMale.Text = "Male";
-            ckMale.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(192, 276);
-            label4.Name = "label4";
-            label4.Size = new Size(33, 20);
-            label4.TabIndex = 27;
-            label4.Text = "Sex";
-            // 
-            // txtAddress
-            // 
-            txtAddress.BorderStyle = BorderStyle.FixedSingle;
-            txtAddress.Location = new Point(746, 322);
-            txtAddress.Multiline = true;
-            txtAddress.Name = "txtAddress";
-            txtAddress.Size = new Size(241, 44);
-            txtAddress.TabIndex = 33;
+            txtStaffAddress.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffAddress.Location = new Point(746, 322);
+            txtStaffAddress.Multiline = true;
+            txtStaffAddress.Name = "txtStaffAddress";
+            txtStaffAddress.Size = new Size(241, 44);
+            txtStaffAddress.TabIndex = 33;
             // 
             // Address
             // 
@@ -187,33 +164,33 @@
             Address.TabIndex = 32;
             Address.Text = "Address";
             // 
-            // txtPosition
+            // txtStaffPosition
             // 
-            txtPosition.BorderStyle = BorderStyle.FixedSingle;
-            txtPosition.Location = new Point(323, 322);
-            txtPosition.Multiline = true;
-            txtPosition.Name = "txtPosition";
-            txtPosition.Size = new Size(241, 44);
-            txtPosition.TabIndex = 31;
+            txtStaffPosition.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffPosition.Location = new Point(323, 261);
+            txtStaffPosition.Multiline = true;
+            txtStaffPosition.Name = "txtStaffPosition";
+            txtStaffPosition.Size = new Size(241, 44);
+            txtStaffPosition.TabIndex = 31;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(186, 336);
+            label3.Location = new Point(186, 275);
             label3.Name = "label3";
             label3.Size = new Size(63, 20);
             label3.TabIndex = 30;
             label3.Text = "Position";
             // 
-            // txtPhone
+            // txtStaffPhone
             // 
-            txtPhone.BorderStyle = BorderStyle.FixedSingle;
-            txtPhone.Location = new Point(746, 261);
-            txtPhone.Multiline = true;
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(241, 44);
-            txtPhone.TabIndex = 35;
+            txtStaffPhone.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffPhone.Location = new Point(746, 261);
+            txtStaffPhone.Multiline = true;
+            txtStaffPhone.Name = "txtStaffPhone";
+            txtStaffPhone.Size = new Size(241, 44);
+            txtStaffPhone.TabIndex = 35;
             // 
             // label6
             // 
@@ -225,40 +202,41 @@
             label6.TabIndex = 34;
             label6.Text = "Phone";
             // 
-            // ckStopwork
+            // rbStoppedWork
             // 
-            ckStopwork.AutoSize = true;
-            ckStopwork.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            ckStopwork.Location = new Point(329, 443);
-            ckStopwork.Name = "ckStopwork";
-            ckStopwork.Size = new Size(18, 17);
-            ckStopwork.TabIndex = 37;
-            ckStopwork.UseVisualStyleBackColor = false;
+            rbStoppedWork.AutoSize = true;
+            rbStoppedWork.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            rbStoppedWork.Location = new Point(746, 386);
+            rbStoppedWork.Name = "rbStoppedWork";
+            rbStoppedWork.Size = new Size(18, 17);
+            rbStoppedWork.TabIndex = 37;
+            rbStoppedWork.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(192, 444);
+            label5.Location = new Point(609, 387);
             label5.Name = "label5";
             label5.Size = new Size(107, 20);
             label5.TabIndex = 36;
             label5.Text = "Stopped Work";
             // 
-            // photoBox
+            // pbPhoto
             // 
-            photoBox.Location = new Point(1063, 140);
-            photoBox.Name = "photoBox";
-            photoBox.Size = new Size(233, 279);
-            photoBox.SizeMode = PictureBoxSizeMode.CenterImage;
-            photoBox.TabIndex = 38;
-            photoBox.TabStop = false;
+            pbPhoto.BorderStyle = BorderStyle.FixedSingle;
+            pbPhoto.Location = new Point(1063, 191);
+            pbPhoto.Name = "pbPhoto";
+            pbPhoto.Size = new Size(233, 228);
+            pbPhoto.SizeMode = PictureBoxSizeMode.CenterImage;
+            pbPhoto.TabIndex = 38;
+            pbPhoto.TabStop = false;
             // 
             // label14
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(189, 518);
+            label14.Location = new Point(189, 480);
             label14.Name = "label14";
             label14.Size = new Size(55, 20);
             label14.TabIndex = 45;
@@ -267,138 +245,163 @@
             // btnNew
             // 
             btnNew.BackColor = Color.FromArgb(192, 255, 255);
-            btnNew.Location = new Point(1189, 842);
+            btnNew.Location = new Point(1171, 896);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(152, 50);
             btnNew.TabIndex = 44;
             btnNew.Text = "NEW";
             btnNew.UseVisualStyleBackColor = false;
+            btnNew.Click += btnNew_Click;
             // 
             // btnUpdate
             // 
             btnUpdate.BackColor = Color.FromArgb(255, 192, 128);
-            btnUpdate.Location = new Point(876, 842);
+            btnUpdate.Location = new Point(858, 896);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(152, 50);
             btnUpdate.TabIndex = 43;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click_1;
             // 
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.ActiveCaption;
-            btnSearch.Location = new Point(553, 842);
+            btnSearch.Location = new Point(535, 896);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(152, 50);
             btnSearch.TabIndex = 42;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = false;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnSave
             // 
             btnSave.BackColor = Color.FromArgb(192, 192, 255);
-            btnSave.Location = new Point(271, 842);
+            btnSave.Location = new Point(253, 896);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(152, 50);
             btnSave.TabIndex = 41;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
-            // 
-            // listView1
-            // 
-            listView1.Location = new Point(186, 569);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(1226, 244);
-            listView1.TabIndex = 40;
-            listView1.UseCompatibleStateImageBehavior = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(320, 506);
+            txtSearch.Location = new Point(320, 468);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(664, 47);
             txtSearch.TabIndex = 39;
             // 
-            // bdStaff
+            // dtpBirthDate
             // 
-            bdStaff.Location = new Point(746, 218);
-            bdStaff.Margin = new Padding(5);
-            bdStaff.Name = "bdStaff";
-            bdStaff.Size = new Size(241, 27);
-            bdStaff.TabIndex = 46;
+            dtpBirthDate.Location = new Point(746, 218);
+            dtpBirthDate.Margin = new Padding(5);
+            dtpBirthDate.Name = "dtpBirthDate";
+            dtpBirthDate.Size = new Size(241, 27);
+            dtpBirthDate.TabIndex = 46;
             // 
-            // dateTimePicker1
+            // txtStaffSalary
             // 
-            dateTimePicker1.Location = new Point(746, 384);
-            dateTimePicker1.Margin = new Padding(5);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(241, 27);
-            dateTimePicker1.TabIndex = 50;
-            // 
-            // textBox1
-            // 
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(323, 375);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(241, 44);
-            textBox1.TabIndex = 49;
+            txtStaffSalary.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffSalary.Location = new Point(323, 322);
+            txtStaffSalary.Multiline = true;
+            txtStaffSalary.Name = "txtStaffSalary";
+            txtStaffSalary.Size = new Size(241, 44);
+            txtStaffSalary.TabIndex = 49;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(186, 389);
+            label2.Location = new Point(186, 336);
             label2.Name = "label2";
-            label2.Size = new Size(63, 20);
+            label2.Size = new Size(52, 20);
             label2.TabIndex = 48;
-            label2.Text = "Position";
+            label2.Text = "Salary";
             // 
-            // label7
+            // rbFemale
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(609, 384);
-            label7.Name = "label7";
-            label7.Size = new Size(78, 20);
-            label7.TabIndex = 47;
-            label7.Text = "Birth Date";
+            rbFemale.AutoSize = true;
+            rbFemale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            rbFemale.Location = new Point(407, 214);
+            rbFemale.Name = "rbFemale";
+            rbFemale.Size = new Size(80, 24);
+            rbFemale.TabIndex = 51;
+            rbFemale.Text = "Female";
+            rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // dtpHiredDate
+            // 
+            dtpHiredDate.Location = new Point(320, 387);
+            dtpHiredDate.Margin = new Padding(5);
+            dtpHiredDate.Name = "dtpHiredDate";
+            dtpHiredDate.Size = new Size(241, 27);
+            dtpHiredDate.TabIndex = 53;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(183, 387);
+            label4.Name = "label4";
+            label4.Size = new Size(83, 20);
+            label4.TabIndex = 52;
+            label4.Text = "Hired Date";
+            // 
+            // btnBrowsePhoto
+            // 
+            btnBrowsePhoto.Location = new Point(1063, 140);
+            btnBrowsePhoto.Name = "btnBrowsePhoto";
+            btnBrowsePhoto.Size = new Size(233, 44);
+            btnBrowsePhoto.TabIndex = 54;
+            btnBrowsePhoto.UseVisualStyleBackColor = true;
+            btnBrowsePhoto.Click += btnBrowsePhoto_Click_1;
+            // 
+            // DataStaff
+            // 
+            DataStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataStaff.Location = new Point(54, 521);
+            DataStaff.Name = "DataStaff";
+            DataStaff.RowHeadersWidth = 51;
+            DataStaff.RowTemplate.Height = 29;
+            DataStaff.Size = new Size(1410, 369);
+            DataStaff.TabIndex = 55;
             // 
             // StaffForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1569, 926);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(1619, 1025);
+            Controls.Add(DataStaff);
+            Controls.Add(btnBrowsePhoto);
+            Controls.Add(dtpHiredDate);
+            Controls.Add(label4);
+            Controls.Add(rbFemale);
+            Controls.Add(txtStaffSalary);
             Controls.Add(label2);
-            Controls.Add(label7);
-            Controls.Add(bdStaff);
+            Controls.Add(dtpBirthDate);
             Controls.Add(label14);
             Controls.Add(btnNew);
             Controls.Add(btnUpdate);
             Controls.Add(btnSearch);
             Controls.Add(btnSave);
-            Controls.Add(listView1);
             Controls.Add(txtSearch);
-            Controls.Add(photoBox);
-            Controls.Add(ckStopwork);
+            Controls.Add(pbPhoto);
+            Controls.Add(rbStoppedWork);
             Controls.Add(label5);
-            Controls.Add(txtPhone);
+            Controls.Add(txtStaffPhone);
             Controls.Add(label6);
-            Controls.Add(txtAddress);
+            Controls.Add(txtStaffAddress);
             Controls.Add(Address);
-            Controls.Add(txtPosition);
+            Controls.Add(txtStaffPosition);
             Controls.Add(label3);
-       
-            Controls.Add(ckMale);
-            Controls.Add(label4);
+            Controls.Add(rbMale);
             Controls.Add(label15);
-            Controls.Add(txtSex);
             Controls.Add(label16);
-            Controls.Add(txtName);
+            Controls.Add(txtFullName);
             Controls.Add(label12);
             Controls.Add(txtID);
             Controls.Add(label11);
@@ -408,8 +411,9 @@
             Text = "StaffForm";
             WindowState = FormWindowState.Maximized;
             Load += StaffForm_Load;
-            ((System.ComponentModel.ISupportInitialize)photoBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbPhoto).EndInit();
             ((System.ComponentModel.ISupportInitialize)bindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataStaff).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -419,36 +423,36 @@
         private Label label1;
         private TextBox txtDestination;
         private Label label15;
-        private TextBox txtSex;
         private Label label16;
-        private TextBox txtName;
+        private TextBox txtFullName;
         private Label label12;
         private TextBox txtID;
         private Label label11;
         private CheckBox checkBox2;
-        private CheckBox ckMale;
-        private Label label4;
-        private TextBox txtAddress;
+        private CheckBox rbMale;
+        private TextBox txtStaffAddress;
         private Label Address;
-        private TextBox txtPosition;
+        private TextBox txtStaffPosition;
         private Label label3;
-        private TextBox txtPhone;
+        private TextBox txtStaffPhone;
         private Label label6;
-        private CheckBox ckStopwork;
+        private CheckBox rbStoppedWork;
         private Label label5;
-        private PictureBox photoBox;
+        private PictureBox pbPhoto;
         private Label label14;
         private Button btnNew;
         private Button btnUpdate;
         private Button btnSearch;
         private Button btnSave;
-        private ListView listView1;
         private TextBox txtSearch;
-        private DateTimePicker bdStaff;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
+        private DateTimePicker dtpBirthDate;
+        private TextBox txtStaffSalary;
         private Label label2;
-        private Label label7;
         private BindingSource bindingSource1;
+        private CheckBox rbFemale;
+        private DateTimePicker dtpHiredDate;
+        private Label label4;
+        private Button btnBrowsePhoto;
+        private DataGridView DataStaff;
     }
 }
