@@ -37,7 +37,7 @@
             label12 = new Label();
             txtID = new TextBox();
             label11 = new Label();
-            this.ckFemale = new CheckBox();
+            
             ckMale = new CheckBox();
             label4 = new Label();
             txtAddress = new TextBox();
@@ -145,15 +145,7 @@
             // 
             // ckFemale
             // 
-            this.ckFemale.AutoSize = true;
-            this.ckFemale.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            this.ckFemale.Location = new Point(474, 272);
-            this.ckFemale.Name = "ckFemale";
-            this.ckFemale.Size = new Size(80, 24);
-            this.ckFemale.TabIndex = 29;
-            this.ckFemale.Text = "Female";
-            this.ckFemale.UseVisualStyleBackColor = true;
-            this.ckFemale.CheckedChanged += this.checkBox2_CheckedChanged;
+           
             // 
             // ckMale
             // 
@@ -400,7 +392,7 @@
             Controls.Add(Address);
             Controls.Add(txtPosition);
             Controls.Add(label3);
-            Controls.Add(this.ckFemale);
+       
             Controls.Add(ckMale);
             Controls.Add(label4);
             Controls.Add(label15);

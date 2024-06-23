@@ -34,7 +34,9 @@ namespace PABMS
         {
             try
             {
-                connector = new SqlConnection("Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True");
+                //connector = new SqlConnection("Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True");
+                
+        connector = new SqlConnection("Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True");
                 MessageBox.Show("Successfully connected to the database!");
             }
             catch (Exception ex)

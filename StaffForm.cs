@@ -19,30 +19,7 @@ namespace PABMS
         }
 
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (ValidateInput())
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "INSERT INTO Drivers (FullName, Sex, BirthDate, DriverAddress, PhoneNumber, Salary, HiredDate, StoppedWork) " +
-                                   "VALUES (@FullName, @Sex, @BirthDate, @DriverAddress, @PhoneNumber, @Salary, @HiredDate, @StoppedWork)";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@FullName", txtFullName.Text);
-                    cmd.Parameters.AddWithValue("@Sex", txtSex.Text);
-                    cmd.Parameters.AddWithValue("@BirthDate", dtpBirthDate.Value);
-                    cmd.Parameters.AddWithValue("@DriverAddress", txtDriverAddress.Text);
-                    cmd.Parameters.AddWithValue("@PhoneNumber", txtPhoneNumber.Text);
-                    cmd.Parameters.AddWithValue("@Salary", txtSalary.Text);
-                    cmd.Parameters.AddWithValue("@HiredDate", dtpHiredDate.Value);
-                    cmd.Parameters.AddWithValue("@StoppedWork", chkStoppedWork.Checked);
-                    cmd.ExecuteNonQuery();
-                }
-                LoadDrivers();
-                ClearInputFields();
-            }
-        }
+        
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
 
