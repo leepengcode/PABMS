@@ -1,11 +1,13 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 namespace PABMS
 {
     public partial class TicketForm : Form
     {
-        private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+        //private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+        private string connectionString = @"Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
