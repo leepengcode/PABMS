@@ -3,11 +3,24 @@ namespace PABMS
 {
     public partial class MainForm : Form
     {
-        //SqlConnection cnn = new SqlConnection();
+        //private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
+        private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
+        SqlConnection connection;
 
         public MainForm()
         {
             InitializeComponent();
+            
+            connection = new SqlConnection(connectionString);
+            try
+            {
+                connection.Open();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
         public void loadForm(object Form)
         {
@@ -161,11 +174,6 @@ namespace PABMS
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            loadForm(new PaymentPackageForm());
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             loadForm(new CustomerForm());
@@ -176,9 +184,14 @@ namespace PABMS
             loadForm(new PaymentTicketForm());
         }
 
-        private void sideBar_Paint(object sender, PaintEventArgs e)
+        private void btnPayPackage_Click(object sender, EventArgs e)
         {
+            loadForm(new PaymentPackageForm(connection));
+        }
 
+        private void btnPayTicket_Click(object sender, EventArgs e)
+        {
+            loadForm(new PaymentTicketForm());
         }
 
 

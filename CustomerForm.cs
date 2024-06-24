@@ -13,7 +13,8 @@ namespace PABMS
 {
     public partial class CustomerForm : Form
     {
-        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
+        // private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
+        private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
         public CustomerForm()
