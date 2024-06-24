@@ -99,9 +99,11 @@
             // 
             // CusPhone
             // 
+            CusPhone.BorderStyle = BorderStyle.FixedSingle;
             CusPhone.Location = new Point(161, 125);
             CusPhone.Multiline = true;
             CusPhone.Name = "CusPhone";
+            CusPhone.ReadOnly = true;
             CusPhone.Size = new Size(178, 34);
             CusPhone.TabIndex = 8;
             // 
@@ -117,9 +119,11 @@
             // 
             // CusName
             // 
+            CusName.BorderStyle = BorderStyle.FixedSingle;
             CusName.Location = new Point(161, 71);
             CusName.Multiline = true;
             CusName.Name = "CusName";
+            CusName.ReadOnly = true;
             CusName.Size = new Size(178, 34);
             CusName.TabIndex = 3;
             CusName.TextChanged += CusName_TextChanged;
@@ -164,6 +168,7 @@
             StaffName.Location = new Point(142, 72);
             StaffName.Multiline = true;
             StaffName.Name = "StaffName";
+            StaffName.ReadOnly = true;
             StaffName.Size = new Size(178, 34);
             StaffName.TabIndex = 30;
             // 
@@ -234,6 +239,7 @@
             BusN0.Location = new Point(151, 72);
             BusN0.Multiline = true;
             BusN0.Name = "BusN0";
+            BusN0.ReadOnly = true;
             BusN0.Size = new Size(178, 34);
             BusN0.TabIndex = 29;
             // 
@@ -252,6 +258,7 @@
             BusPrice.Location = new Point(151, 126);
             BusPrice.Multiline = true;
             BusPrice.Name = "BusPrice";
+            BusPrice.ReadOnly = true;
             BusPrice.Size = new Size(178, 34);
             BusPrice.TabIndex = 13;
             // 
