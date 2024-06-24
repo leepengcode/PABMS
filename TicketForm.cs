@@ -1,18 +1,15 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-<<<<<<< HEAD
 using System.Windows.Forms;
-=======
 using System.Drawing;
->>>>>>> 33bed45ba067e28b29bc173230b001a2a1a9b8a6
 
 namespace PABMS
 {
     public partial class TicketForm : Form
     {
         //private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-        private string connectionString = @"Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+        private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;"; // mean @ nv muk string tver oy error T_T
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
@@ -378,7 +375,7 @@ namespace PABMS
             {
                 try
                 {
-                    conn.Open();
+                    conn.Open(); // error here
                     dataAdapter.SelectCommand = new SqlCommand(query, conn);
                     dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
                     dataTable.Clear(); // Clear previous data

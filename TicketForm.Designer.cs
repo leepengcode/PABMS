@@ -295,10 +295,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Heebo", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(710, 45);
             label1.Name = "label1";
-            label1.Size = new Size(211, 44);
+            label1.Size = new Size(204, 36);
             label1.TabIndex = 2;
             label1.Text = "Ticket's Form";
             // 
@@ -458,9 +458,12 @@
             // 
             // DataTicket
             // 
+            DataTicket.AllowUserToAddRows = false;
+            DataTicket.AllowUserToDeleteRows = false;
             DataTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataTicket.Location = new Point(261, 599);
             DataTicket.Name = "DataTicket";
+            DataTicket.ReadOnly = true;
             DataTicket.RowHeadersWidth = 51;
             DataTicket.RowTemplate.Height = 29;
             DataTicket.Size = new Size(1063, 321);
