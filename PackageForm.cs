@@ -29,15 +29,15 @@ namespace PABMS
 {
     public partial class PackageForm : Form
     {
-<<<<<<< HEAD
+
         //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
          string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-=======
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+
+        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
->>>>>>> 33bed45ba067e28b29bc173230b001a2a1a9b8a6
+
         public PackageForm()
         {
             InitializeComponent();

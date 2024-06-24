@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-<<<<<<< HEAD
-using System.Windows.Forms;
-=======
+
 using System.Drawing;
->>>>>>> 33bed45ba067e28b29bc173230b001a2a1a9b8a6
+
 
 namespace PABMS
 {
     public partial class TicketForm : Form
     {
-        //private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-        private string connectionString = @"Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+        private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+        //private string connectionString = @"Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
@@ -199,11 +197,7 @@ namespace PABMS
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmCusID.SelectedItem == null || cmStaffID.SelectedItem == null || cmBusID.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a customer, staff, and bus.");
-                return;
-            }
+          
 
             int customerId = Convert.ToInt32(cmCusID.SelectedItem.ToString());
             int staffId = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
