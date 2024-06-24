@@ -1,24 +1,4 @@
-﻿/*using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PABMS
-{
-    public partial class PackageForm : Form
-    {
-        public PackageForm()
-        {
-            InitializeComponent();
-        }
-    }
-}
-*/
+﻿
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,9 +9,10 @@ namespace PABMS
 {
     public partial class PackageForm : Form
     {
+        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+         string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
 
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
-         //string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
