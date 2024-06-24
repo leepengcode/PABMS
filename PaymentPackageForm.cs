@@ -12,6 +12,7 @@ namespace PABMS
 {
     public partial class PaymentPackageForm : Form
     {
+        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
         public PaymentPackageForm()
         {
             InitializeComponent();

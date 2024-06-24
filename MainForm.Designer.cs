@@ -292,7 +292,7 @@
             btnPayPackage.TabIndex = 14;
             btnPayPackage.Text = "Payment Package";
             btnPayPackage.UseVisualStyleBackColor = true;
-            btnPayPackage.Click += button4_Click;
+            btnPayPackage.Click += btnPayPackage_Click;
             // 
             // btnPayTicket
             // 
@@ -307,7 +307,7 @@
             btnPayTicket.TabIndex = 12;
             btnPayTicket.Text = "Payment Ticket";
             btnPayTicket.UseVisualStyleBackColor = true;
-            btnPayTicket.Click += button1_Click;
+            btnPayTicket.Click += btnPaymentTicket_Click;
             // 
             // sideBarTransition
             // 
