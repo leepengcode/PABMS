@@ -139,6 +139,7 @@
             btnNew.TabIndex = 51;
             btnNew.Text = "NEW";
             btnNew.UseVisualStyleBackColor = false;
+            btnNew.Click += btnNew_Click;
             // 
             // btnUpdate
             // 
@@ -200,6 +201,7 @@
             // 
             txtUserID.BackColor = SystemColors.ButtonHighlight;
             txtUserID.BorderStyle = BorderStyle.FixedSingle;
+            txtUserID.Enabled = false;
             txtUserID.Location = new Point(446, 171);
             txtUserID.Multiline = true;
             txtUserID.Name = "txtUserID";
@@ -211,7 +213,6 @@
             // 
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ButtonFace;
-            label4.Enabled = false;
             label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(309, 183);
             label4.Name = "label4";

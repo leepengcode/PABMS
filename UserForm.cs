@@ -15,8 +15,8 @@ namespace PABMS
 
     public partial class UserForm : Form
     {
-        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
-        string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
+        //string connectionString = "Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
         public UserForm()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace PABMS
                 gridSearch.DataSource = table;
                 return;
             }
-            LoadLatestUserID();
+            //LoadLatestUserID();
         }
 
         private void searchUserByID()
@@ -45,7 +45,8 @@ namespace PABMS
 
             if (!int.TryParse(txtSearch.Text, out int userID))
             {
-                showUsers();
+                //showUsers();
+                MessageBox.Show("Please enter a valid User ID.");
                 return;
             }
 
@@ -70,6 +71,7 @@ namespace PABMS
                             }
                             else
                             {
+                                MessageBox.Show("Did not find User with ID: " + userID);
                                 showUsers();
                             }
                         }
@@ -242,13 +244,20 @@ namespace PABMS
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string updateCommandText = "Staff Found";
+                string updateCommandText = @"
+                    SELECT 
+                        StaffID, FullName, PhoneNumber
+                    FROM 
+                        tbStaff 
+                    WHERE 
+                        FullName LIKE @Name;
+                    ";
 
                 using (SqlCommand command = new SqlCommand(updateCommandText, connection))
                 {
                     command.Parameters.AddWithValue("@Name", "%" + txtStaffName.Text + "%");
                     // message box command's final sql
-                    MessageBox.Show(command.CommandText);
+                    //MessageBox.Show(command.CommandText);
 
                     try
                     {
@@ -328,7 +337,11 @@ namespace PABMS
 
         }
 
-       
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+            LoadLatestUserID();
+        }
     }
 }
 

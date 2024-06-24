@@ -1,24 +1,4 @@
-﻿/*using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace PABMS
-{
-    public partial class PackageForm : Form
-    {
-        public PackageForm()
-        {
-            InitializeComponent();
-        }
-    }
-}
-*/
+﻿
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,11 +9,10 @@ namespace PABMS
 {
     public partial class PackageForm : Form
     {
-
         //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
          string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
 
-        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
+
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
@@ -248,11 +227,22 @@ namespace PABMS
         // btnNew Click Event Handler
         private void btnNew_Click(object sender, EventArgs e)
         {
-            // Clear all textboxes
-            // Example: txtPackageName.Clear();
-            // Repeat for all textboxes
-
-            // Reset checkboxes
+            // make every txt blank
+            txtPackageID.Text = "";
+            txtPackageName.Text = "";
+            txtPackagePrice.Text = "";
+            txtReciverContact.Text = "";
+            txtOrigin.Text = "";
+            txtDestination.Text = "";
+            txtCustomerID.Text = "";
+            txtCustomerName.Text = "";
+            txtPhoneNumber.Text = "";
+            txtStaffID.Text = "";
+            txtStaffName.Text = "";
+            txtTruckID.Text = "";
+            txtTruckNo.Text = "";
+            dateDeparture.Value = DateTime.Now;
+            dateDelivery.Value = DateTime.Now;
             ckMale.Checked = false;
             ckFemale.Checked = false;
         }
