@@ -43,9 +43,7 @@
             txtCustomerName = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            cmDriverID = new ComboBox();
-            txtTicketQTY = new TextBox();
-            label3 = new Label();
+            cmPackageID = new ComboBox();
             label6 = new Label();
             label2 = new Label();
             txtAmount = new TextBox();
@@ -67,13 +65,17 @@
             // 
             // gridSearch
             // 
+            gridSearch.AllowUserToAddRows = false;
+            gridSearch.AllowUserToDeleteRows = false;
             gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSearch.Location = new Point(301, 668);
             gridSearch.Name = "gridSearch";
+            gridSearch.ReadOnly = true;
             gridSearch.RowHeadersWidth = 51;
             gridSearch.RowTemplate.Height = 29;
             gridSearch.Size = new Size(1053, 255);
             gridSearch.TabIndex = 83;
+            gridSearch.SelectionChanged += gridSearch_SelectionChanged;
             // 
             // label14
             // 
@@ -144,9 +146,7 @@
             panel1.Controls.Add(txtCustomerName);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(cmDriverID);
-            panel1.Controls.Add(txtTicketQTY);
-            panel1.Controls.Add(label3);
+            panel1.Controls.Add(cmPackageID);
             panel1.Controls.Add(label6);
             panel1.Location = new Point(301, 376);
             panel1.Name = "panel1";
@@ -210,33 +210,14 @@
             label8.TabIndex = 55;
             label8.Text = "Customer ID";
             // 
-            // cmDriverID
+            // cmPackageID
             // 
-            cmDriverID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cmDriverID.FormattingEnabled = true;
-            cmDriverID.Location = new Point(215, 21);
-            cmDriverID.Name = "cmDriverID";
-            cmDriverID.Size = new Size(250, 37);
-            cmDriverID.TabIndex = 53;
-            // 
-            // txtTicketQTY
-            // 
-            txtTicketQTY.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTicketQTY.Location = new Point(215, 72);
-            txtTicketQTY.Multiline = true;
-            txtTicketQTY.Name = "txtTicketQTY";
-            txtTicketQTY.Size = new Size(250, 34);
-            txtTicketQTY.TabIndex = 3;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(26, 76);
-            label3.Name = "label3";
-            label3.Size = new Size(121, 29);
-            label3.TabIndex = 2;
-            label3.Text = "Ticket Qty";
+            cmPackageID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmPackageID.FormattingEnabled = true;
+            cmPackageID.Location = new Point(215, 21);
+            cmPackageID.Name = "cmPackageID";
+            cmPackageID.Size = new Size(250, 37);
+            cmPackageID.TabIndex = 53;
             // 
             // label6
             // 
@@ -244,9 +225,9 @@
             label6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             label6.Location = new Point(26, 25);
             label6.Name = "label6";
-            label6.Size = new Size(108, 29);
+            label6.Size = new Size(136, 29);
             label6.TabIndex = 0;
-            label6.Text = "Ticket ID";
+            label6.Text = "Package ID";
             // 
             // label2
             // 
@@ -332,6 +313,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "PaymentPackageForm";
             Text = "PaymentForm";
+            Load += PaymentPackageForm_Load;
             ((System.ComponentModel.ISupportInitialize)gridSearch).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -350,7 +332,6 @@
         private Label label4;
         private Label label7;
         private Label label8;
-        private Label label3;
         private Label label6;
         private Label label2;
         private Label label16;
@@ -365,8 +346,7 @@
         private TextBox txtCustomerName;
         private TextBox txtCustomerTel;
 
-        private ComboBox cmDriverID;
-        private TextBox txtTicketQTY;
+        private ComboBox cmPackageID;
 
         private TextBox txtSearch;
         private DataGridView gridSearch;
