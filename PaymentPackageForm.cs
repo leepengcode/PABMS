@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,11 @@ namespace PABMS
 {
     public partial class PaymentPackageForm : Form
     {
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
-        public PaymentPackageForm()
+        SqlConnection connection;
+        public PaymentPackageForm(SqlConnection connection)
         {
             InitializeComponent();
+            this.connection = connection;
         }
     }
 }

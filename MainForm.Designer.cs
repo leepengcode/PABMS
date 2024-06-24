@@ -157,7 +157,6 @@
             sideBar.Size = new Size(319, 761);
             sideBar.TabIndex = 5;
             sideBar.SizeChanged += sideBar_SizeChanged;
-            sideBar.Paint += sideBar_Paint;
             // 
             // btnDashboard
             // 
@@ -307,7 +306,7 @@
             btnPayTicket.TabIndex = 12;
             btnPayTicket.Text = "Payment Ticket";
             btnPayTicket.UseVisualStyleBackColor = true;
-            btnPayTicket.Click += btnPaymentTicket_Click;
+            btnPayTicket.Click += btnPayTicket_Click;
             // 
             // sideBarTransition
             // 
