@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             panel1 = new Panel();
+            panel2 = new Panel();
+            labelUsername = new Label();
             btnMenu = new Button();
             button2 = new Button();
             mainpanel = new Panel();
@@ -47,8 +49,8 @@
             btnPayPackage = new Button();
             btnPayTicket = new Button();
             sideBarTransition = new System.Windows.Forms.Timer(components);
-            panel2 = new Panel();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             mainpanel.SuspendLayout();
             sideBar.SuspendLayout();
             SuspendLayout();
@@ -61,15 +63,36 @@
             panel1.Controls.Add(button2);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1103, 44);
+            panel1.Size = new Size(1261, 59);
             panel1.TabIndex = 0;
             panel1.Click += panel1_Click;
             // 
+            // panel2
+            // 
+            panel2.BackColor = Color.ForestGreen;
+            panel2.Controls.Add(labelUsername);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(120, 0);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1083, 59);
+            panel2.TabIndex = 0;
+            // 
+            // labelUsername
+            // 
+            labelUsername.AutoSize = true;
+            labelUsername.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            labelUsername.ForeColor = SystemColors.ButtonHighlight;
+            labelUsername.Location = new Point(796, 16);
+            labelUsername.Name = "labelUsername";
+            labelUsername.Size = new Size(214, 29);
+            labelUsername.TabIndex = 0;
+            labelUsername.Text = "Login as : example";
+            // 
             // btnMenu
             // 
-            btnMenu.BackColor = Color.Transparent;
+            btnMenu.BackColor = Color.ForestGreen;
             btnMenu.Dock = DockStyle.Left;
             btnMenu.FlatAppearance.BorderSize = 0;
             btnMenu.FlatStyle = FlatStyle.Flat;
@@ -77,25 +100,23 @@
             btnMenu.ForeColor = Color.Red;
             btnMenu.Image = (Image)resources.GetObject("btnMenu.Image");
             btnMenu.Location = new Point(0, 0);
-            btnMenu.Margin = new Padding(3, 2, 3, 2);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(88, 44);
+            btnMenu.Size = new Size(120, 59);
             btnMenu.TabIndex = 3;
             btnMenu.UseVisualStyleBackColor = false;
             btnMenu.Click += btnMenu_Click;
             // 
             // button2
             // 
-            button2.BackColor = Color.Transparent;
+            button2.BackColor = Color.ForestGreen;
             button2.Dock = DockStyle.Right;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             button2.ForeColor = Color.Black;
-            button2.Location = new Point(1052, 0);
-            button2.Margin = new Padding(3, 2, 3, 2);
+            button2.Location = new Point(1203, 0);
             button2.Name = "button2";
-            button2.Size = new Size(51, 44);
+            button2.Size = new Size(58, 59);
             button2.TabIndex = 3;
             button2.Text = "X";
             button2.UseVisualStyleBackColor = false;
@@ -106,24 +127,24 @@
             mainpanel.Controls.Add(PanelForm);
             mainpanel.Controls.Add(sideBar);
             mainpanel.Dock = DockStyle.Fill;
-            mainpanel.Location = new Point(0, 44);
+            mainpanel.Location = new Point(0, 59);
+            mainpanel.Margin = new Padding(3, 4, 3, 4);
             mainpanel.Name = "mainpanel";
-            mainpanel.Size = new Size(1103, 571);
+            mainpanel.Size = new Size(1261, 761);
             mainpanel.TabIndex = 2;
             // 
             // PanelForm
             // 
             PanelForm.Dock = DockStyle.Fill;
-            PanelForm.Location = new Point(279, 0);
-            PanelForm.Margin = new Padding(3, 2, 3, 2);
+            PanelForm.Location = new Point(319, 0);
             PanelForm.Name = "PanelForm";
-            PanelForm.Size = new Size(824, 571);
+            PanelForm.Size = new Size(942, 761);
             PanelForm.TabIndex = 6;
             PanelForm.SizeChanged += PanelForm_SizeChanged;
             // 
             // sideBar
             // 
-            sideBar.BackColor = Color.CornflowerBlue;
+            sideBar.BackColor = Color.ForestGreen;
             sideBar.ColumnCount = 1;
             sideBar.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             sideBar.Controls.Add(btnDashboard, 0, 0);
@@ -139,28 +160,27 @@
             sideBar.Dock = DockStyle.Left;
             sideBar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             sideBar.Location = new Point(0, 0);
-            sideBar.Margin = new Padding(3, 2, 3, 2);
             sideBar.Name = "sideBar";
             sideBar.RowCount = 10;
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 75F));
             sideBar.RowStyles.Add(new RowStyle());
             sideBar.RowStyles.Add(new RowStyle());
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
-            sideBar.Size = new Size(279, 571);
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            sideBar.Size = new Size(319, 761);
             sideBar.TabIndex = 5;
             sideBar.SizeChanged += sideBar_SizeChanged;
             // 
@@ -169,11 +189,11 @@
             btnDashboard.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnDashboard.Image = (Image)resources.GetObject("btnDashboard.Image");
             btnDashboard.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDashboard.Location = new Point(0, 2);
-            btnDashboard.Margin = new Padding(0, 2, 3, 2);
+            btnDashboard.Location = new Point(0, 3);
+            btnDashboard.Margin = new Padding(0, 3, 3, 3);
             btnDashboard.Name = "btnDashboard";
-            btnDashboard.Padding = new Padding(10, 0, 0, 0);
-            btnDashboard.Size = new Size(276, 52);
+            btnDashboard.Padding = new Padding(11, 0, 0, 0);
+            btnDashboard.Size = new Size(315, 69);
             btnDashboard.TabIndex = 6;
             btnDashboard.Text = "Dashboard";
             btnDashboard.UseVisualStyleBackColor = true;
@@ -184,11 +204,11 @@
             btnUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnUser.Image = (Image)resources.GetObject("btnUser.Image");
             btnUser.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUser.Location = new Point(0, 226);
-            btnUser.Margin = new Padding(0, 2, 3, 2);
+            btnUser.Location = new Point(0, 303);
+            btnUser.Margin = new Padding(0, 3, 3, 3);
             btnUser.Name = "btnUser";
-            btnUser.Padding = new Padding(10, 0, 0, 0);
-            btnUser.Size = new Size(276, 52);
+            btnUser.Padding = new Padding(11, 0, 0, 0);
+            btnUser.Size = new Size(315, 69);
             btnUser.TabIndex = 9;
             btnUser.Text = "User";
             btnUser.UseVisualStyleBackColor = true;
@@ -199,11 +219,11 @@
             btnTicket.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnTicket.Image = (Image)resources.GetObject("btnTicket.Image");
             btnTicket.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTicket.Location = new Point(0, 58);
-            btnTicket.Margin = new Padding(0, 2, 3, 2);
+            btnTicket.Location = new Point(0, 78);
+            btnTicket.Margin = new Padding(0, 3, 3, 3);
             btnTicket.Name = "btnTicket";
-            btnTicket.Padding = new Padding(10, 0, 0, 0);
-            btnTicket.Size = new Size(276, 52);
+            btnTicket.Padding = new Padding(11, 0, 0, 0);
+            btnTicket.Size = new Size(315, 69);
             btnTicket.TabIndex = 11;
             btnTicket.Text = "Ticket";
             btnTicket.UseVisualStyleBackColor = true;
@@ -214,11 +234,11 @@
             btnVehicle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnVehicle.Image = (Image)resources.GetObject("btnVehicle.Image");
             btnVehicle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVehicle.Location = new Point(0, 170);
-            btnVehicle.Margin = new Padding(0, 2, 3, 2);
+            btnVehicle.Location = new Point(0, 228);
+            btnVehicle.Margin = new Padding(0, 3, 3, 3);
             btnVehicle.Name = "btnVehicle";
-            btnVehicle.Padding = new Padding(10, 0, 0, 0);
-            btnVehicle.Size = new Size(276, 52);
+            btnVehicle.Padding = new Padding(11, 0, 0, 0);
+            btnVehicle.Size = new Size(315, 69);
             btnVehicle.TabIndex = 10;
             btnVehicle.Text = "Staff";
             btnVehicle.UseVisualStyleBackColor = true;
@@ -229,11 +249,11 @@
             btnBagage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnBagage.Image = (Image)resources.GetObject("btnBagage.Image");
             btnBagage.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBagage.Location = new Point(0, 114);
-            btnBagage.Margin = new Padding(0, 2, 3, 2);
+            btnBagage.Location = new Point(0, 153);
+            btnBagage.Margin = new Padding(0, 3, 3, 3);
             btnBagage.Name = "btnBagage";
-            btnBagage.Padding = new Padding(10, 0, 0, 0);
-            btnBagage.Size = new Size(276, 52);
+            btnBagage.Padding = new Padding(11, 0, 0, 0);
+            btnBagage.Size = new Size(315, 69);
             btnBagage.TabIndex = 8;
             btnBagage.Text = "Package";
             btnBagage.UseVisualStyleBackColor = true;
@@ -244,11 +264,11 @@
             btnCus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnCus.Image = (Image)resources.GetObject("btnCus.Image");
             btnCus.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCus.Location = new Point(0, 282);
-            btnCus.Margin = new Padding(0, 2, 3, 2);
+            btnCus.Location = new Point(0, 378);
+            btnCus.Margin = new Padding(0, 3, 3, 3);
             btnCus.Name = "btnCus";
-            btnCus.Padding = new Padding(10, 0, 0, 0);
-            btnCus.Size = new Size(276, 52);
+            btnCus.Padding = new Padding(11, 0, 0, 0);
+            btnCus.Size = new Size(315, 69);
             btnCus.TabIndex = 14;
             btnCus.Text = "Customer";
             btnCus.UseVisualStyleBackColor = true;
@@ -259,11 +279,11 @@
             btnStaff.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnStaff.Image = (Image)resources.GetObject("btnStaff.Image");
             btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStaff.Location = new Point(0, 338);
-            btnStaff.Margin = new Padding(0, 2, 3, 2);
+            btnStaff.Location = new Point(0, 453);
+            btnStaff.Margin = new Padding(0, 3, 3, 3);
             btnStaff.Name = "btnStaff";
-            btnStaff.Padding = new Padding(10, 0, 0, 0);
-            btnStaff.Size = new Size(276, 52);
+            btnStaff.Padding = new Padding(11, 0, 0, 0);
+            btnStaff.Size = new Size(315, 69);
             btnStaff.TabIndex = 7;
             btnStaff.Text = "Bus";
             btnStaff.UseVisualStyleBackColor = true;
@@ -274,11 +294,11 @@
             btnPayment.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnPayment.Image = (Image)resources.GetObject("btnPayment.Image");
             btnPayment.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPayment.Location = new Point(0, 394);
-            btnPayment.Margin = new Padding(0, 2, 3, 2);
+            btnPayment.Location = new Point(0, 528);
+            btnPayment.Margin = new Padding(0, 3, 3, 3);
             btnPayment.Name = "btnPayment";
-            btnPayment.Padding = new Padding(10, 0, 0, 0);
-            btnPayment.Size = new Size(276, 52);
+            btnPayment.Padding = new Padding(11, 0, 0, 0);
+            btnPayment.Size = new Size(315, 69);
             btnPayment.TabIndex = 5;
             btnPayment.Text = "Truck";
             btnPayment.UseVisualStyleBackColor = true;
@@ -289,11 +309,11 @@
             btnPayPackage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnPayPackage.Image = (Image)resources.GetObject("btnPayPackage.Image");
             btnPayPackage.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPayPackage.Location = new Point(0, 506);
-            btnPayPackage.Margin = new Padding(0, 2, 3, 2);
+            btnPayPackage.Location = new Point(0, 678);
+            btnPayPackage.Margin = new Padding(0, 3, 3, 3);
             btnPayPackage.Name = "btnPayPackage";
-            btnPayPackage.Padding = new Padding(10, 0, 0, 0);
-            btnPayPackage.Size = new Size(276, 52);
+            btnPayPackage.Padding = new Padding(11, 0, 0, 0);
+            btnPayPackage.Size = new Size(315, 69);
             btnPayPackage.TabIndex = 14;
             btnPayPackage.Text = "Payment Package";
             btnPayPackage.UseVisualStyleBackColor = true;
@@ -304,11 +324,11 @@
             btnPayTicket.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnPayTicket.Image = (Image)resources.GetObject("btnPayTicket.Image");
             btnPayTicket.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPayTicket.Location = new Point(0, 450);
-            btnPayTicket.Margin = new Padding(0, 2, 3, 2);
+            btnPayTicket.Location = new Point(0, 603);
+            btnPayTicket.Margin = new Padding(0, 3, 3, 3);
             btnPayTicket.Name = "btnPayTicket";
-            btnPayTicket.Padding = new Padding(10, 0, 0, 0);
-            btnPayTicket.Size = new Size(276, 52);
+            btnPayTicket.Padding = new Padding(11, 0, 0, 0);
+            btnPayTicket.Size = new Size(315, 69);
             btnPayTicket.TabIndex = 12;
             btnPayTicket.Text = "Payment Ticket";
             btnPayTicket.UseVisualStyleBackColor = true;
@@ -319,28 +339,22 @@
             sideBarTransition.Interval = 10;
             sideBarTransition.Tick += timer1_Tick;
             // 
-            // panel2
-            // 
-            panel2.Location = new Point(94, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(962, 44);
-            panel2.TabIndex = 0;
-            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1103, 615);
+            ClientSize = new Size(1261, 820);
             Controls.Add(mainpanel);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
-            Text = "Form1";
+            Text = "Main";
             WindowState = FormWindowState.Maximized;
             Load += MainForm_Load;
             SizeChanged += MainPanel_SizeChanged;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             mainpanel.ResumeLayout(false);
             sideBar.ResumeLayout(false);
             ResumeLayout(false);
@@ -366,5 +380,6 @@
         private Button btnPayPackage;
         private Button btnCus;
         private Panel panel2;
+        private Label labelUsername;
     }
 }

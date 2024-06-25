@@ -7,10 +7,15 @@ namespace PABMS
         private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
         SqlConnection connection;
 
+        FormLogin formLogin;
+
         public MainForm()
         {
             InitializeComponent();
-            
+
+            formLogin = new FormLogin();
+            formLogin.ShowDialog();
+
             connection = new SqlConnection(connectionString);
             try
             {
@@ -170,8 +175,15 @@ namespace PABMS
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            //PanelForm.Location = new Point(sideBar.Right + 10, sideBar.Height);
+            labelUsername.Text = $"Login as : {formLogin.username}";
+            if (formLogin.isLogin)
+            {
 
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)

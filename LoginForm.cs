@@ -1,14 +1,4 @@
-﻿using PABMS;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data.SqlClient;
 
 namespace PABMS
 {
@@ -25,32 +15,39 @@ namespace PABMS
 
         List<User> users = new List<User>();
 
+        public string username;
+        public bool isLogin = false;
+
         public FormLogin()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
+        }
+
+
+        private void MainForm_FormClosed(string data)
+        {
+            MessageBox.Show($"Data received: {data}");
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            this.txtUsername.Focus();
             try
             {
-                //connector = new SqlConnection("Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True");
-                
-        connector = new SqlConnection("Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True");
-                MessageBox.Show("Successfully connected to the database!");
+                connector = new SqlConnection("Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;");
+                //connector = new SqlConnection("Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;");
+                sql_command.CommandText = "SELECT * FROM dbo.tbUser";
+
+                // excute this command
+                sql_command.Connection = connector;
+                connector.Open();
+                reader = sql_command.ExecuteReader();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            sql_command.CommandText = "SELECT * FROM dbo.tbUser";
-
-            // excute this command
-            sql_command.Connection = connector;
-            connector.Open();
-            reader = sql_command.ExecuteReader();
-
 
             while (reader.Read())
             {
@@ -65,12 +62,17 @@ namespace PABMS
         {
             for (int i = 0; i < users.Count; i++)
             {
-                if (textBoxUsername.Text == users[i].Username && textBoxPassword.Text == users[i].Password)
+                if (txtUsername.Text == users[i].Username && txtPassword.Text == users[i].Password)
                 {
-                    MessageBox.Show("Login Successful!");
-                    MainForm main_form = new MainForm();
-                    main_form.Show();
+                    username = users[i].Username;
+
+                    isLogin = true;
+
+                    //MainForm mainForm = new MainForm();
+                    //mainForm.Show();
+
                     this.Hide();
+                    //this.Dispose();
                     break;
                 }
             }
