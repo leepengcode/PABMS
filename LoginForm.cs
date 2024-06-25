@@ -11,11 +11,12 @@ namespace PABMS
         {
             public string Username { get; set; }
             public string Password { get; set; }
+            public int StaffID { get; set; }
         }
 
         List<User> users = new List<User>();
 
-        public string username;
+        public User user;
         public bool isLogin = false;
 
         public FormLogin()
@@ -23,13 +24,6 @@ namespace PABMS
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
         }
-
-
-        private void MainForm_FormClosed(string data)
-        {
-            MessageBox.Show($"Data received: {data}");
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
             this.txtUsername.Focus();
@@ -54,6 +48,7 @@ namespace PABMS
                 User user = new User();
                 user.Username = reader["Username"].ToString();
                 user.Password = reader["Password"].ToString();
+                user.StaffID = Convert.ToInt32(reader["StaffID"]);
                 users.Add(user);
             }
         }
@@ -64,8 +59,7 @@ namespace PABMS
             {
                 if (txtUsername.Text == users[i].Username && txtPassword.Text == users[i].Password)
                 {
-                    username = users[i].Username;
-
+                    user = users[i];
                     isLogin = true;
 
                     //MainForm mainForm = new MainForm();

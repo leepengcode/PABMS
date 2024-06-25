@@ -1,4 +1,5 @@
 using System.Data.SqlClient;
+
 namespace PABMS
 {
     public partial class MainForm : Form
@@ -175,7 +176,9 @@ namespace PABMS
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            labelUsername.Text = $"Login as : {formLogin.username}";
+            FormLogin.User user;
+            user = formLogin.user;
+            labelUsername.Text = $"Login as : {user.Username}";
             if (formLogin.isLogin)
             {
 
