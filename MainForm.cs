@@ -6,27 +6,23 @@ namespace PABMS
     {
         //private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
         private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
+
         SqlConnection connection;
 
         FormLogin formLogin;
 
         public MainForm()
         {
+            connection = new SqlConnection(connectionString);
+
+
+
             InitializeComponent();
 
-            formLogin = new FormLogin();
-            formLogin.ShowDialog();
+            /*formLogin = new FormLogin();
+            formLogin.ShowDialog();*/
 
-            connection = new SqlConnection(connectionString);
-            try
-            {
-                connection.Open();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+            
         }
         public void loadForm(object Form)
         {
@@ -41,14 +37,9 @@ namespace PABMS
             f.Show();
 
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void btnTicket_Click(object sender, EventArgs e)
         {
-            TicketForm f = new TicketForm();
-            loadForm(f);
+            loadForm(new TicketForm(connection));
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
@@ -56,9 +47,9 @@ namespace PABMS
             loadForm(new DashboardForm());
         }
 
-        private void btnBagage_Click(object sender, EventArgs e)
+        private void btnPackage_Click(object sender, EventArgs e)
         {
-            loadForm(new PackageForm());
+            loadForm(new PackageForm(connection));
         }
 
         private void btnVehicle_Click(object sender, EventArgs e)
@@ -81,9 +72,42 @@ namespace PABMS
         {
             loadForm(new TruckForm());
         }
+        private void btnPayPackage_Click(object sender, EventArgs e)
+        {
+            loadForm(new PaymentPackageForm(connection));
+        }
+
+        private void btnPayTicket_Click(object sender, EventArgs e)
+        {
+            loadForm(new PaymentTicketForm());
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            loadForm(new CustomerForm());
+        }
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
+
+            /*FormLogin.User user;
+            user = formLogin.user;
+            labelUsername.Text = $"Login as : {user.Username}";
+            if (formLogin.isLogin)
+            {
+
+            }
+            else
+            {
+                this.Close();
+            }*/
+        }
 
         bool sideBarExpand = true;
-        int i, j = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (sideBarExpand)
@@ -93,11 +117,11 @@ namespace PABMS
                 btnDashboard.Text = removeChar(btnDashboard.Text);
                 btnStaff.Text = removeChar(btnStaff.Text);
                 btnUser.Text = removeChar(btnUser.Text);
-                btnBagage.Text = removeChar(btnBagage.Text);
+                btnPackage.Text = removeChar(btnPackage.Text);
                 btnVehicle.Text = removeChar(btnVehicle.Text);
                 btnTicket.Text = removeChar(btnTicket.Text);
                 btnPayment.Text = removeChar(btnPayment.Text);
-                btnCus.Text = removeChar(btnCus.Text);
+                btnCustomer.Text = removeChar(btnCustomer.Text);
                 btnPayTicket.Text = removeChar(btnPayTicket.Text);
                 btnPayPackage.Text = removeChar(btnPayPackage.Text);
 
@@ -105,7 +129,6 @@ namespace PABMS
                 {
                     sideBarExpand = false;
                     sideBarTransition.Stop();
-                    i++;
                 }
 
             }
@@ -118,11 +141,11 @@ namespace PABMS
                     btnDashboard.Text = "Dashboard";
                     btnStaff.Text = "Staff";
                     btnUser.Text = "User";
-                    btnBagage.Text = "Bagage";
+                    btnPackage.Text = "Bagage";
                     btnVehicle.Text = "Vehicle";
                     btnTicket.Text = "Ticket";
                     btnPayment.Text = "Payment";
-                    btnCus.Text = "Customer";
+                    btnCustomer.Text = "Customer";
                     btnPayPackage.Text = "Payment Package";
                     btnPayTicket.Text = "Payment Ticket";
                 }
@@ -131,7 +154,6 @@ namespace PABMS
                 {
                     sideBarExpand = true;
                     sideBarTransition.Stop();
-                    j++;
                 }
             }
 
@@ -153,62 +175,5 @@ namespace PABMS
 
             return ret;
         }
-
-        private void PanelForm_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sideBar_SizeChanged(object sender, EventArgs e)
-        {
-            //this.PanelForm.Size = new Size(this.Width - sideBar.Width, sideBar.Height);
-        }
-
-        private void panel1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("" + i + " " + j);
-        }
-
-        private void MainPanel_SizeChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void MainForm_Load(object sender, EventArgs e)
-        {
-            FormLogin.User user;
-            user = formLogin.user;
-            labelUsername.Text = $"Login as : {user.Username}";
-            if (formLogin.isLogin)
-            {
-
-            }
-            else
-            {
-                this.Close();
-            }
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            loadForm(new CustomerForm());
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            loadForm(new PaymentTicketForm());
-        }
-
-        private void btnPayPackage_Click(object sender, EventArgs e)
-        {
-            loadForm(new PaymentPackageForm(connection));
-        }
-
-        private void btnPayTicket_Click(object sender, EventArgs e)
-        {
-            loadForm(new PaymentTicketForm());
-        }
-
-
     }
 }

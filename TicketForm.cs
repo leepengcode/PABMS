@@ -6,21 +6,16 @@ namespace PABMS
 {
     public partial class TicketForm : Form
     {
-
-        private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-        //private string connectionString = @"Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
-
-        //private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-       /* private string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";*/ // mean @ nv muk string tver oy error T_T
-
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
+        SqlConnection connection;
 
-        public TicketForm()
+        public TicketForm(SqlConnection connection)
         {
             InitializeComponent();
             dataAdapter = new SqlDataAdapter();
             dataTable = new DataTable();
+            this.connection = connection;
         }
 
         private void TicketForm_Load(object sender, EventArgs e)
@@ -39,103 +34,101 @@ namespace PABMS
             {
                 int selectedBusID = Convert.ToInt32(cmBusID.SelectedItem.ToString());
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                
+                
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("SELECT BusNumber, TicketPrice FROM tbBus WHERE BusID = @BusID", conn);
-                        cmd.Parameters.AddWithValue("@BusID", selectedBusID);
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT BusNumber, TicketPrice FROM tbBus WHERE BusID = @BusID", connection);
+                    cmd.Parameters.AddWithValue("@BusID", selectedBusID);
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            BusN0.Text = reader["BusNumber"].ToString();
-                            BusPrice.Text = reader["TicketPrice"].ToString();
-                        }
-                        reader.Close();
-                    }
-                    catch (Exception ex)
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        MessageBox.Show("An error occurred while retrieving bus details: " + ex.Message);
+                        BusN0.Text = reader["BusNumber"].ToString();
+                        BusPrice.Text = reader["TicketPrice"].ToString();
                     }
+
+                    connection.Close(); reader.Close();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving bus details: " + ex.Message);
+                }
+                
             }
         }
 
         private void FillComboSearchID()
         {
-            cmBusID.Items.Clear();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            cmBusID.Items.Clear();            
+            
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT BusID FROM tbBus", conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT BusID FROM tbBus", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cmBusID.Items.Add(reader["BusID"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("An error occurred while filling BusID combo box: " + ex.Message);
+                    cmBusID.Items.Add(reader["BusID"].ToString());
                 }
+                reader.Close();
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filling BusID combo box: " + ex.Message);
+            }
+            
         }
 
         private void FillComboSearchStaffID()
         {
             cmStaffID.Items.Clear();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT StaffID FROM tbStaff", conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT StaffID FROM tbStaff", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cmStaffID.Items.Add(reader["StaffID"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("An error occurred while filling StaffID combo box: " + ex.Message);
+                    cmStaffID.Items.Add(reader["StaffID"].ToString());
                 }
+                reader.Close();
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filling StaffID combo box: " + ex.Message);
+            }
+            
         }
 
         private void FillComboSearchCusID()
         {
             cmCusID.Items.Clear();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT CustomerID FROM tbCustomer", conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                connection.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CustomerID FROM tbCustomer", connection);
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        cmCusID.Items.Add(reader["CustomerID"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                while (reader.Read())
                 {
-                    MessageBox.Show("An error occurred while filling CustomerID combo box: " + ex.Message);
+                    cmCusID.Items.Add(reader["CustomerID"].ToString());
                 }
+                reader.Close();
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while filling CustomerID combo box: " + ex.Message);
+            }
+            
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,26 +137,25 @@ namespace PABMS
             {
                 int selectedStaffID = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("SELECT FullName FROM tbStaff WHERE StaffID = @StaffID", conn);
-                        cmd.Parameters.AddWithValue("@StaffID", selectedStaffID);
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT FullName FROM tbStaff WHERE StaffID = @StaffID", connection);
+                    cmd.Parameters.AddWithValue("@StaffID", selectedStaffID);
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            StaffName.Text = reader["FullName"].ToString();
-                        }
-                        reader.Close();
-                    }
-                    catch (Exception ex)
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        MessageBox.Show("An error occurred while retrieving staff details: " + ex.Message);
+                        StaffName.Text = reader["FullName"].ToString();
                     }
+                    reader.Close();
+                    connection.Close();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving staff details: " + ex.Message);
+                }
+                
             }
         }
 
@@ -173,27 +165,26 @@ namespace PABMS
             {
                 int selectedCusID = Convert.ToInt32(cmCusID.SelectedItem.ToString());
 
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("SELECT FullName, PhoneNumber FROM tbCustomer WHERE CustomerID = @CustomerID", conn);
-                        cmd.Parameters.AddWithValue("@CustomerID", selectedCusID);
+                try
+                { 
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT FullName, PhoneNumber FROM tbCustomer WHERE CustomerID = @CustomerID", connection);
+                    cmd.Parameters.AddWithValue("@CustomerID", selectedCusID);
 
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            CusName.Text = reader["FullName"].ToString();
-                            CusPhone.Text = reader["PhoneNumber"].ToString();
-                        }
-                        reader.Close();
-                    }
-                    catch (Exception ex)
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
                     {
-                        MessageBox.Show("An error occurred while retrieving customer details: " + ex.Message);
+                        CusName.Text = reader["FullName"].ToString();
+                        CusPhone.Text = reader["PhoneNumber"].ToString();
                     }
+                    reader.Close();
+                    connection.Close();
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving customer details: " + ex.Message);
+                }
+                
             }
         }
 
@@ -209,36 +200,35 @@ namespace PABMS
             string originName = txtOrigin.Text.Trim();
             string destinationName = txtDestination.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "INSERT INTO tbTicket (PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID) " +
-                                   "VALUES (@PurchaseDate, @DepartureDate, @CustomerID, @StaffID, @OriginName, @DestinationName, @BusID)";
+                connection.Open();
+                string query = "INSERT INTO tbTicket (PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID) " +
+                                "VALUES (@PurchaseDate, @DepartureDate, @CustomerID, @StaffID, @OriginName, @DestinationName, @BusID)";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
-                        cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
-                        cmd.Parameters.AddWithValue("@CustomerID", customerId);
-                        cmd.Parameters.AddWithValue("@StaffID", staffId);
-                        cmd.Parameters.AddWithValue("@OriginName", originName);
-                        cmd.Parameters.AddWithValue("@DestinationName", destinationName);
-                        cmd.Parameters.AddWithValue("@BusID", busId);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                    MessageBox.Show("Ticket added successfully.");
-                    LoadTicketData();
-                    LoadLatestTicketID();
-                    ClearForm();
-                }
-                catch (Exception ex)
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    MessageBox.Show("An error occurred while saving the ticket: " + ex.Message);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
+                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerId);
+                    cmd.Parameters.AddWithValue("@StaffID", staffId);
+                    cmd.Parameters.AddWithValue("@OriginName", originName);
+                    cmd.Parameters.AddWithValue("@DestinationName", destinationName);
+                    cmd.Parameters.AddWithValue("@BusID", busId);
+
+                    cmd.ExecuteNonQuery();
                 }
+                MessageBox.Show("Ticket added successfully.");
+                LoadTicketData();
+                LoadLatestTicketID();
+                ClearForm();
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving the ticket: " + ex.Message);
+            }
+            
         }
 
         private void ClearForm()
@@ -266,33 +256,33 @@ namespace PABMS
             dataAdapter = new SqlDataAdapter();
 
             string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID FROM tbTicket";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            try
             {
-                try
-                {
-                    conn.Open();
-                    dataAdapter.SelectCommand = new SqlCommand(query, conn);
-                    dataAdapter.Fill(dataTable);
+                connection.Open();
+                dataAdapter.SelectCommand = new SqlCommand(query, connection);
+                dataAdapter.Fill(dataTable);
 
-                    // Bind data to DataGridView
-                    DataTicket.DataSource = dataTable;
+                // Bind data to DataGridView
+                DataTicket.DataSource = dataTable;
 
-                    // Optionally, set DataGridView column headers if not automatically set
-                    DataTicket.Columns["TicketID"].HeaderText = "Ticket ID";
-                    DataTicket.Columns["PurchaseDate"].HeaderText = "Purchase Date";
-                    DataTicket.Columns["DepartureDate"].HeaderText = "Departure Date";
-                    DataTicket.Columns["CustomerID"].HeaderText = "Customer ID";
-                    DataTicket.Columns["StaffID"].HeaderText = "Staff ID";
-                    DataTicket.Columns["OriginName"].HeaderText = "Origin";
-                    DataTicket.Columns["DestinationName"].HeaderText = "Destination";
-                    DataTicket.Columns["BusID"].HeaderText = "Bus ID";
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
-                }
+                // Optionally, set DataGridView column headers if not automatically set
+                DataTicket.Columns["TicketID"].HeaderText = "Ticket ID";
+                DataTicket.Columns["PurchaseDate"].HeaderText = "Purchase Date";
+                DataTicket.Columns["DepartureDate"].HeaderText = "Departure Date";
+                DataTicket.Columns["CustomerID"].HeaderText = "Customer ID";
+                DataTicket.Columns["StaffID"].HeaderText = "Staff ID";
+                DataTicket.Columns["OriginName"].HeaderText = "Origin";
+                DataTicket.Columns["DestinationName"].HeaderText = "Destination";
+                DataTicket.Columns["BusID"].HeaderText = "Bus ID";
+
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
+            }
+            
         }
 
         private void LoadLatestTicketID()
@@ -305,27 +295,26 @@ namespace PABMS
         {
             int latestTicketID = 1;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "SELECT ISNULL(MAX(TicketID), 0) FROM tbTicket";
+                connection.Open();
+                string query = "SELECT ISNULL(MAX(TicketID), 0) FROM tbTicket";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    object result = cmd.ExecuteScalar();
+                    if (result != DBNull.Value)
                     {
-                        object result = cmd.ExecuteScalar();
-                        if (result != DBNull.Value)
-                        {
-                            latestTicketID = Convert.ToInt32(result);
-                        }
+                        latestTicketID = Convert.ToInt32(result);
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while fetching latest Ticket ID: " + ex.Message);
-                }
+                connection.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while fetching latest Ticket ID: " + ex.Message);
+            }
+            
 
             return latestTicketID;
         }
@@ -369,25 +358,23 @@ namespace PABMS
 
             string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID " +
                            "FROM tbTicket WHERE TicketID = @TicketID";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            try
             {
-                try
-                {
-                    conn.Open(); // error here
-                    dataAdapter.SelectCommand = new SqlCommand(query, conn);
-                    dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
-                    dataTable.Clear(); // Clear previous data
-                    dataAdapter.Fill(dataTable);
+                connection.Open(); // error here
+                dataAdapter.SelectCommand = new SqlCommand(query, connection);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
+                dataTable.Clear(); // Clear previous data
+                dataAdapter.Fill(dataTable);
 
-                    // Bind data to DataGridView
-                    DataTicket.DataSource = dataTable;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
-                }
+                // Bind data to DataGridView
+                DataTicket.DataSource = dataTable;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
+            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -419,39 +406,37 @@ namespace PABMS
                 MessageBox.Show("Please select a valid customer, staff, and bus.");
                 return;
             }
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            
+            try
             {
-                try
-                {
-                    conn.Open();
-                    string query = "UPDATE tbTicket SET PurchaseDate = @PurchaseDate, DepartureDate = @DepartureDate, " +
-                                   "CustomerID = @CustomerID, StaffID = @StaffID, OriginName = @OriginName, " +
-                                   "DestinationName = @DestinationName, BusID = @BusID " +
-                                   "WHERE TicketID = @TicketID";
+                connection.Open();
+                string query = "UPDATE tbTicket SET PurchaseDate = @PurchaseDate, DepartureDate = @DepartureDate, " +
+                                "CustomerID = @CustomerID, StaffID = @StaffID, OriginName = @OriginName, " +
+                                "DestinationName = @DestinationName, BusID = @BusID " +
+                                "WHERE TicketID = @TicketID";
 
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@TicketID", ticketID);
-                        cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
-                        cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
-                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
-                        cmd.Parameters.AddWithValue("@StaffID", staffID);
-                        cmd.Parameters.AddWithValue("@OriginName", origin);
-                        cmd.Parameters.AddWithValue("@DestinationName", destination);
-                        cmd.Parameters.AddWithValue("@BusID", busID);
-
-                        cmd.ExecuteNonQuery();
-                    }
-                    MessageBox.Show("Ticket updated successfully.");
-                    ClearForm();
-                    LoadTicketData();
-                }
-                catch (Exception ex)
+                using (SqlCommand cmd = new SqlCommand(query, connection))
                 {
-                    MessageBox.Show("An error occurred: " + ex.Message);
+                    cmd.Parameters.AddWithValue("@TicketID", ticketID);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
+                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@StaffID", staffID);
+                    cmd.Parameters.AddWithValue("@OriginName", origin);
+                    cmd.Parameters.AddWithValue("@DestinationName", destination);
+                    cmd.Parameters.AddWithValue("@BusID", busID);
+
+                    cmd.ExecuteNonQuery();
                 }
+                MessageBox.Show("Ticket updated successfully.");
+                ClearForm();
+                LoadTicketData();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+            
         }
     }
 }

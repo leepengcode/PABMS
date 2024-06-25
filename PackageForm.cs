@@ -9,15 +9,17 @@ namespace PABMS
     public partial class PackageForm : Form
     {
         //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
-         string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+         //string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
 
 
 
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
+        SqlConnection connection;
 
-        public PackageForm()
+        public PackageForm(SqlConnection connection)
         {
+            this.connection = connection;
             InitializeComponent();
             // Attach event handlers
             btnSearch.Click += BtnSearch_Click;
@@ -28,7 +30,7 @@ namespace PABMS
 
         private void showPackages()
         {
-            adapter = new SqlDataAdapter("SELECT * FROM tbPackage", connectionString);
+            adapter = new SqlDataAdapter("SELECT * FROM tbPackage", connection.ConnectionString);
             string query = @"
                 SELECT 
                     p.PackageID,
@@ -54,7 +56,7 @@ namespace PABMS
                 JOIN tbTruck t ON p.TruckID = t.TruckID
                 ";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@PackageID", 1);
@@ -107,7 +109,7 @@ namespace PABMS
                 WHERE 
                     p.PackageID = @PackageID;";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 command.Parameters.AddWithValue("@PackageID", packageId);
@@ -165,7 +167,7 @@ namespace PABMS
         SET PackageName = @PackageName, PackagePrice = @PackagePrice, DeliveryDate = @DeliveryDate, DepartureDate = @DepartureDate, ReceiverContactInformation = @ReceiverContact, OriginName = @Origin, DestinationName = @Destination, CustomerID = @CustomerID, StaffID = @StaffID, TruckID = @TruckID
         WHERE PackageID = @PackageID";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(updateQuery, connection))
             {
                 command.Parameters.AddWithValue("@PackageName", txtPackageName.Text);
@@ -199,7 +201,7 @@ namespace PABMS
         INSERT INTO tbPackage (PackageName, PackagePrice, DeliveryDate, DepartureDate, ReceiverContactInformation, OriginName, DestinationName, CustomerID, StaffID, TruckID)
         VALUES (@PackageName, @PackagePrice, @DeliveryDate, @DepartureDate, @ReceiverContact, @Origin, @Destination, @CustomerID, @StaffID, @TruckID)";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            //using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(insertQuery, connection))
             {
                 command.Parameters.AddWithValue("@PackageName", txtPackageName.Text);

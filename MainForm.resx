@@ -205,7 +205,7 @@
         t2Hr1KlTp06D1tDQ325W+lAOUYguAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="btnBagage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnPackage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAptJREFUaEPtmruqFEEQhsdExVwzEbwknkiN1EQjA0ExVx/gaGLkBVNvufoAIoKg
@@ -222,7 +222,7 @@
         0aZd0XW91vB7+fT37yhd1/sfaZq/XWav8lPaweoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnCus.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCustomer.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAAzdJREFUaEPtmUmoT1EcgJ95ypwksTCPURRRFkrIzgIRC2wMISmxIsXKtDClZCmz

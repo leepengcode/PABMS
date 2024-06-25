@@ -34,7 +34,7 @@
             panel2 = new Panel();
             labelUsername = new Label();
             btnMenu = new Button();
-            button2 = new Button();
+            btnExit = new Button();
             mainpanel = new Panel();
             PanelForm = new Panel();
             sideBar = new TableLayoutPanel();
@@ -42,8 +42,8 @@
             btnUser = new Button();
             btnTicket = new Button();
             btnVehicle = new Button();
-            btnBagage = new Button();
-            btnCus = new Button();
+            btnPackage = new Button();
+            btnCustomer = new Button();
             btnStaff = new Button();
             btnPayment = new Button();
             btnPayPackage = new Button();
@@ -60,13 +60,12 @@
             panel1.BackColor = Color.CornflowerBlue;
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnMenu);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(btnExit);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1261, 59);
             panel1.TabIndex = 0;
-            panel1.Click += panel1_Click;
             // 
             // panel2
             // 
@@ -106,21 +105,21 @@
             btnMenu.UseVisualStyleBackColor = false;
             btnMenu.Click += btnMenu_Click;
             // 
-            // button2
+            // btnExit
             // 
-            button2.BackColor = Color.ForestGreen;
-            button2.Dock = DockStyle.Right;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.ForeColor = Color.Black;
-            button2.Location = new Point(1203, 0);
-            button2.Name = "button2";
-            button2.Size = new Size(58, 59);
-            button2.TabIndex = 3;
-            button2.Text = "X";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click;
+            btnExit.BackColor = Color.ForestGreen;
+            btnExit.Dock = DockStyle.Right;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExit.ForeColor = Color.Black;
+            btnExit.Location = new Point(1203, 0);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(58, 59);
+            btnExit.TabIndex = 3;
+            btnExit.Text = "X";
+            btnExit.UseVisualStyleBackColor = false;
+            btnExit.Click += btnExit_Click;
             // 
             // mainpanel
             // 
@@ -140,7 +139,6 @@
             PanelForm.Name = "PanelForm";
             PanelForm.Size = new Size(942, 761);
             PanelForm.TabIndex = 6;
-            PanelForm.SizeChanged += PanelForm_SizeChanged;
             // 
             // sideBar
             // 
@@ -151,8 +149,8 @@
             sideBar.Controls.Add(btnUser, 0, 4);
             sideBar.Controls.Add(btnTicket, 0, 1);
             sideBar.Controls.Add(btnVehicle, 0, 3);
-            sideBar.Controls.Add(btnBagage, 0, 2);
-            sideBar.Controls.Add(btnCus, 0, 5);
+            sideBar.Controls.Add(btnPackage, 0, 2);
+            sideBar.Controls.Add(btnCustomer, 0, 5);
             sideBar.Controls.Add(btnStaff, 0, 6);
             sideBar.Controls.Add(btnPayment, 0, 7);
             sideBar.Controls.Add(btnPayPackage, 0, 9);
@@ -182,7 +180,6 @@
             sideBar.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             sideBar.Size = new Size(319, 761);
             sideBar.TabIndex = 5;
-            sideBar.SizeChanged += sideBar_SizeChanged;
             // 
             // btnDashboard
             // 
@@ -244,35 +241,35 @@
             btnVehicle.UseVisualStyleBackColor = true;
             btnVehicle.Click += btnVehicle_Click;
             // 
-            // btnBagage
+            // btnPackage
             // 
-            btnBagage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBagage.Image = (Image)resources.GetObject("btnBagage.Image");
-            btnBagage.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBagage.Location = new Point(0, 153);
-            btnBagage.Margin = new Padding(0, 3, 3, 3);
-            btnBagage.Name = "btnBagage";
-            btnBagage.Padding = new Padding(11, 0, 0, 0);
-            btnBagage.Size = new Size(315, 69);
-            btnBagage.TabIndex = 8;
-            btnBagage.Text = "Package";
-            btnBagage.UseVisualStyleBackColor = true;
-            btnBagage.Click += btnBagage_Click;
+            btnPackage.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPackage.Image = (Image)resources.GetObject("btnPackage.Image");
+            btnPackage.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPackage.Location = new Point(0, 153);
+            btnPackage.Margin = new Padding(0, 3, 3, 3);
+            btnPackage.Name = "btnPackage";
+            btnPackage.Padding = new Padding(11, 0, 0, 0);
+            btnPackage.Size = new Size(315, 69);
+            btnPackage.TabIndex = 8;
+            btnPackage.Text = "Package";
+            btnPackage.UseVisualStyleBackColor = true;
+            btnPackage.Click += btnPackage_Click;
             // 
-            // btnCus
+            // btnCustomer
             // 
-            btnCus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCus.Image = (Image)resources.GetObject("btnCus.Image");
-            btnCus.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCus.Location = new Point(0, 378);
-            btnCus.Margin = new Padding(0, 3, 3, 3);
-            btnCus.Name = "btnCus";
-            btnCus.Padding = new Padding(11, 0, 0, 0);
-            btnCus.Size = new Size(315, 69);
-            btnCus.TabIndex = 14;
-            btnCus.Text = "Customer";
-            btnCus.UseVisualStyleBackColor = true;
-            btnCus.Click += button3_Click;
+            btnCustomer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCustomer.Image = (Image)resources.GetObject("btnCustomer.Image");
+            btnCustomer.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCustomer.Location = new Point(0, 378);
+            btnCustomer.Margin = new Padding(0, 3, 3, 3);
+            btnCustomer.Name = "btnCustomer";
+            btnCustomer.Padding = new Padding(11, 0, 0, 0);
+            btnCustomer.Size = new Size(315, 69);
+            btnCustomer.TabIndex = 14;
+            btnCustomer.Text = "Customer";
+            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.Click += btnCustomer_Click;
             // 
             // btnStaff
             // 
@@ -351,7 +348,6 @@
             Text = "Main";
             WindowState = FormWindowState.Maximized;
             Load += MainForm_Load;
-            SizeChanged += MainPanel_SizeChanged;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -368,17 +364,17 @@
         private TableLayoutPanel sideBar;
         private Panel PanelForm;
         private Button btnMenu;
-        private Button button2;
+        private Button btnExit;
         private Button btnDashboard;
         private Button btnStaff;
         private Button btnUser;
-        private Button btnBagage;
+        private Button btnPackage;
         private Button btnVehicle;
         private Button btnTicket;
         private Button btnPayment;
         private Button btnPayTicket;
         private Button btnPayPackage;
-        private Button btnCus;
+        private Button btnCustomer;
         private Panel panel2;
         private Label labelUsername;
     }
