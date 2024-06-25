@@ -43,7 +43,9 @@
             txtCustomerName = new TextBox();
             label7 = new Label();
             label8 = new Label();
+            cmbPackageName = new ComboBox();
             cmPackageID = new ComboBox();
+            label3 = new Label();
             label6 = new Label();
             label2 = new Label();
             txtAmount = new TextBox();
@@ -68,7 +70,7 @@
             gridSearch.AllowUserToAddRows = false;
             gridSearch.AllowUserToDeleteRows = false;
             gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridSearch.Location = new Point(301, 668);
+            gridSearch.Location = new Point(306, 661);
             gridSearch.Name = "gridSearch";
             gridSearch.ReadOnly = true;
             gridSearch.RowHeadersWidth = 51;
@@ -126,6 +128,7 @@
             btnSave.TabIndex = 78;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
+            btnSave.Click += btnSave_Click;
             // 
             // txtSearch
             // 
@@ -146,7 +149,9 @@
             panel1.Controls.Add(txtCustomerName);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label8);
+            panel1.Controls.Add(cmbPackageName);
             panel1.Controls.Add(cmPackageID);
+            panel1.Controls.Add(label3);
             panel1.Controls.Add(label6);
             panel1.Location = new Point(301, 376);
             panel1.Name = "panel1";
@@ -210,6 +215,15 @@
             label8.TabIndex = 55;
             label8.Text = "Customer ID";
             // 
+            // cmbPackageName
+            // 
+            cmbPackageName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbPackageName.FormattingEnabled = true;
+            cmbPackageName.Location = new Point(215, 69);
+            cmbPackageName.Name = "cmbPackageName";
+            cmbPackageName.Size = new Size(250, 37);
+            cmbPackageName.TabIndex = 53;
+            // 
             // cmPackageID
             // 
             cmPackageID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
@@ -218,6 +232,16 @@
             cmPackageID.Name = "cmPackageID";
             cmPackageID.Size = new Size(250, 37);
             cmPackageID.TabIndex = 53;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(26, 72);
+            label3.Name = "label3";
+            label3.Size = new Size(178, 29);
+            label3.TabIndex = 0;
+            label3.Text = "Package Name";
             // 
             // label6
             // 
@@ -350,5 +374,7 @@
 
         private TextBox txtSearch;
         private DataGridView gridSearch;
+        private Label label3;
+        private ComboBox cmbPackageName;
     }
 }
