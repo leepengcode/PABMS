@@ -17,8 +17,8 @@ namespace PABMS
 
             InitializeComponent();
 
-            formLogin = new FormLogin(connection);
-            formLogin.ShowDialog()
+            /*formLogin = new FormLogin(connection);
+            formLogin.ShowDialog();*/
 
         }
         public void loadForm(object Form)
@@ -41,7 +41,7 @@ namespace PABMS
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            loadForm(new DashboardForm());
+            loadForm(new DashboardForm(connection));
         }
 
         private void btnPackage_Click(object sender, EventArgs e)
@@ -51,23 +51,23 @@ namespace PABMS
 
         private void btnVehicle_Click(object sender, EventArgs e)
         {
-            loadForm(new StaffForm());
+            loadForm(new StaffForm(connection));
         }
 
         private void btnStaff_Click(object sender, EventArgs e)
         {
-            loadForm(new BusForm());
+            loadForm(new BusForm(connection));
 
         }
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            loadForm(new UserForm());
+            loadForm(new UserForm(connection));
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
         {
-            loadForm(new TruckForm());
+            loadForm(new TruckForm(connection));
         }
         private void btnPayPackage_Click(object sender, EventArgs e)
         {
@@ -76,7 +76,7 @@ namespace PABMS
 
         private void btnPayTicket_Click(object sender, EventArgs e)
         {
-            loadForm(new PaymentTicketForm());
+            loadForm(new PaymentTicketForm(connection));
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -90,7 +90,7 @@ namespace PABMS
         }
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            if (!formLogin.isLogin)
+            /*if (!formLogin.isLogin)
             {
                 this.Close();
                 return;
@@ -101,7 +101,7 @@ namespace PABMS
             // Get login information of user
             FormLogin.User user;
             user = formLogin.user;
-            labelUsername.Text = $"Login as : {user.Username}";
+            labelUsername.Text = $"Login as : {user.Username}";*/
         }
 
         bool sideBarExpand = true;

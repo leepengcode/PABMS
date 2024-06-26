@@ -15,11 +15,11 @@ namespace PABMS
 
     public partial class UserForm : Form
     {
-        string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True";
-        //string connectionString = "Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-        public UserForm()
+        string connectionString;
+        public UserForm(SqlConnection connection)
         {
             InitializeComponent();
+            connectionString = connection.ConnectionString;
             using (SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM tbUser", connectionString))
             {
                 DataTable table = new DataTable();

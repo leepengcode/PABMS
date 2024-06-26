@@ -13,13 +13,14 @@ namespace PABMS
 {
     public partial class BusForm : Form
     {
-        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
+        private string connectionString;
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
-        public BusForm()
+        public BusForm(SqlConnection connection)
         {
             InitializeComponent();
+            connectionString = connection.ConnectionString;
         }
 
         private void FillComboSearchDriverID()

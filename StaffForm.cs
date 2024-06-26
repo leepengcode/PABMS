@@ -5,13 +5,14 @@ namespace PABMS
 {
     public partial class StaffForm : Form
     {
-        private string connectionString = "Server=ASUS-EXPERTBOOK\\SQLEXPRESS;Database=ISADE5G5;Integrated Security=True;";
+        private string connectionString;
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
 
-        public StaffForm()
+        public StaffForm(SqlConnection connection)
         {
             InitializeComponent();
+            connectionString = connection.ConnectionString;
         }
 
         private void StaffForm_Load(object sender, EventArgs e)

@@ -67,7 +67,6 @@
             lbCustomer.Name = "lbCustomer";
             lbCustomer.Size = new Size(0, 28);
             lbCustomer.TabIndex = 2;
-            lbCustomer.Click += label2_Click;
             // 
             // label1
             // 

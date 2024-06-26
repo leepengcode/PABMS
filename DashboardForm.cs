@@ -13,21 +13,16 @@ namespace PABMS
 {
     public partial class DashboardForm : Form
     {
-        private string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
+        private string connectionString;
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
-        public DashboardForm()
+        public DashboardForm(SqlConnection connection)
         {
             InitializeComponent();
             SqlDataAdapter dataAdapter = new SqlDataAdapter();
             DataTable dataTable = new DataTable();
+            connectionString = connection.ConnectionString;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DashboardForm_Load(object sender, EventArgs e)
         {
             DisplayCustomerCount();
