@@ -4,7 +4,7 @@ namespace PABMS
 {
     public partial class FormLogin : Form
     {
-        SqlConnection connector = new SqlConnection();
+        SqlConnection connection;
         SqlCommand sql_command = new SqlCommand();
         SqlDataReader reader;
         public class User
@@ -19,8 +19,9 @@ namespace PABMS
         public User user;
         public bool isLogin = false;
 
-        public FormLogin()
+        public FormLogin(SqlConnection connection)
         {
+            this.connection = connection;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
         }
@@ -29,13 +30,11 @@ namespace PABMS
             this.txtUsername.Focus();
             try
             {
-                connector = new SqlConnection("Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;");
-                //connector = new SqlConnection("Data Source=ASUS-EXPERTBOOK\\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;");
                 sql_command.CommandText = "SELECT * FROM dbo.tbUser";
 
                 // excute this command
-                sql_command.Connection = connector;
-                connector.Open();
+                sql_command.Connection = connection;
+                connection.Open();
                 reader = sql_command.ExecuteReader();
             }
             catch (Exception ex)

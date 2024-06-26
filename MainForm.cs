@@ -15,14 +15,11 @@ namespace PABMS
         {
             connection = new SqlConnection(connectionString);
 
-
-
             InitializeComponent();
 
-            /*formLogin = new FormLogin();
-            formLogin.ShowDialog();*/
+            formLogin = new FormLogin(connection);
+            formLogin.ShowDialog()
 
-            
         }
         public void loadForm(object Form)
         {
@@ -93,18 +90,18 @@ namespace PABMS
         }
         private async void MainForm_Load(object sender, EventArgs e)
         {
-
-            /*FormLogin.User user;
-            user = formLogin.user;
-            labelUsername.Text = $"Login as : {user.Username}";
-            if (formLogin.isLogin)
-            {
-
-            }
-            else
+            if (!formLogin.isLogin)
             {
                 this.Close();
-            }*/
+                return;
+            }
+            //this.Dispose();
+
+
+            // Get login information of user
+            FormLogin.User user;
+            user = formLogin.user;
+            labelUsername.Text = $"Login as : {user.Username}";
         }
 
         bool sideBarExpand = true;
