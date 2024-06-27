@@ -17,8 +17,8 @@ namespace PABMS
 
             InitializeComponent();
 
-            /*formLogin = new FormLogin(connection);
-            formLogin.ShowDialog();*/
+            formLogin = new FormLogin(connection);
+            formLogin.ShowDialog();
 
         }
         public void loadForm(object Form)
@@ -90,7 +90,7 @@ namespace PABMS
         }
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            /*if (!formLogin.isLogin)
+            if (!formLogin.isLogin)
             {
                 this.Close();
                 return;
@@ -101,7 +101,7 @@ namespace PABMS
             // Get login information of user
             FormLogin.User user;
             user = formLogin.user;
-            labelUsername.Text = $"Login as : {user.Username}";*/
+            labelUsername.Text = $"Login as : {user.Username}";
         }
 
         bool sideBarExpand = true;
