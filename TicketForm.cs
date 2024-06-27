@@ -34,8 +34,6 @@ namespace PABMS
             {
                 int selectedBusID = Convert.ToInt32(cmBusID.SelectedItem.ToString());
 
-
-
                 try
                 {
                     connection.Open();

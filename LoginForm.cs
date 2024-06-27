@@ -16,6 +16,8 @@ namespace PABMS
 
         List<User> users = new List<User>();
 
+        
+
         public User user;
         public bool isLogin = false;
 
@@ -62,6 +64,8 @@ namespace PABMS
                 {
                     user = users[i];
                     isLogin = true;
+
+                    
 
                     //MainForm mainForm = new MainForm();
                     //mainForm.Show();
