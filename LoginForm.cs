@@ -29,7 +29,11 @@ namespace PABMS
         }
         private void Form2_Load(object sender, EventArgs e)
         {
-            this.txtUsername.Focus();
+            txtUsername.Text = "panha";
+            txtPassword.Text = "panha";
+
+            //this.txtUsername.Focus();
+            btnLogin.Focus();
             try
             {
                 sql_command.CommandText = "SELECT * FROM dbo.tbUser";

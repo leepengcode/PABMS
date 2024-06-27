@@ -20,56 +20,26 @@ namespace PABMS
 
         private void TicketForm_Load(object sender, EventArgs e)
         {
-            FillComboSearchID();
+            FillComboSearchBusID();
             FillComboSearchStaffID();
             FillComboSearchCusID();
             LoadTicketData();
             LoadLatestTicketID();
             DataTicket.CellClick += DataTicket_CellClick;
         }
-
-        private void cmBusID_SelectedIndexChanged(object sender, EventArgs e)
+        private void FillComboSearchBusID()
         {
-            if (cmBusID.SelectedItem != null)
-            {
-                int selectedBusID = Convert.ToInt32(cmBusID.SelectedItem.ToString());
-
-                try
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT BusNumber, TicketPrice FROM tbBus WHERE BusID = @BusID", connection);
-                    cmd.Parameters.AddWithValue("@BusID", selectedBusID);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        BusN0.Text = reader["BusNumber"].ToString();
-                        BusPrice.Text = reader["TicketPrice"].ToString();
-                    }
-
-                    connection.Close(); reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while retrieving bus details: " + ex.Message);
-                }
-
-            }
-        }
-
-        private void FillComboSearchID()
-        {
-            cmBusID.Items.Clear();
+            cmbBusNumber.Items.Clear();
 
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("SELECT BusID FROM tbBus", connection);
+                SqlCommand cmd = new SqlCommand("SELECT BusNumber FROM tbBus", connection);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    cmBusID.Items.Add(reader["BusID"].ToString());
+                    cmbBusNumber.Items.Add(reader["BusNumber"].ToString());
                 }
                 reader.Close();
                 connection.Close();
@@ -83,17 +53,17 @@ namespace PABMS
 
         private void FillComboSearchStaffID()
         {
-            cmStaffID.Items.Clear();
+            cmStaffName.Items.Clear();
 
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("SELECT StaffID FROM tbStaff", connection);
+                SqlCommand cmd = new SqlCommand("SELECT FullName FROM tbStaff", connection);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    cmStaffID.Items.Add(reader["StaffID"].ToString());
+                    cmStaffName.Items.Add(reader["FullName"].ToString());
                 }
                 reader.Close();
                 connection.Close();
@@ -129,34 +99,6 @@ namespace PABMS
 
         }
 
-        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmStaffID.SelectedItem != null)
-            {
-                int selectedStaffID = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
-
-                try
-                {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT FullName  FROM tbStaff WHERE StaffID = @StaffID", connection);
-                    cmd.Parameters.AddWithValue("@StaffID", selectedStaffID);
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        StaffName.Text = reader["StaffID"].ToString();
-                    }
-                    reader.Close();
-                    connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("An error occurred while retrieving staff details: " + ex.Message);
-                }
-
-            }
-        }
-
         private void cmCusID_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmCusName.SelectedItem != null)
@@ -190,8 +132,8 @@ namespace PABMS
 
 
             int customerId = Convert.ToInt32(cmCusName.SelectedItem.ToString());
-            int staffId = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
-            int busId = Convert.ToInt32(cmBusID.SelectedItem.ToString());
+            int staffId = Convert.ToInt32(cmStaffName.SelectedItem.ToString());
+            int busId = Convert.ToInt32(cmbBusNumber.SelectedItem.ToString());
             DateTime purchaseDate = dtpPurchas.Value;
             DateTime departureDate = dtpDeparture.Value;
             string originName = txtOrigin.Text.Trim();
@@ -231,17 +173,17 @@ namespace PABMS
         private void ClearForm()
         {
             cmCusName.SelectedIndex = -1;
-            cmStaffID.SelectedIndex = -1;
-            cmBusID.SelectedIndex = -1;
+            cmStaffName.SelectedIndex = -1;
+            cmbBusNumber.SelectedIndex = -1;
             dtpPurchas.Value = DateTime.Now;
             dtpDeparture.Value = DateTime.Now;
             txtOrigin.Clear();
             txtDestination.Clear();
-            BusN0.Clear();
-            BusPrice.Clear();
+            txtBusID.Clear();
+            txtTicketPrice.Clear();
             CusID.Clear();
             CusPhone.Clear();
-            StaffName.Clear();
+            StaffID.Clear();
             txtSearch.Clear();
             LoadTicketData();
             LoadLatestTicketID();
@@ -327,10 +269,10 @@ namespace PABMS
                     dtpPurchas.Value = Convert.ToDateTime(row.Cells["PurchaseDate"].Value);
                     dtpDeparture.Value = Convert.ToDateTime(row.Cells["DepartureDate"].Value);
                     cmCusName.Text = row.Cells["CustomerID"].Value.ToString();
-                    cmStaffID.Text = row.Cells["StaffID"].Value.ToString();
+                    cmStaffName.Text = row.Cells["StaffID"].Value.ToString();
                     txtOrigin.Text = row.Cells["OriginName"].Value.ToString();
                     txtDestination.Text = row.Cells["DestinationName"].Value.ToString();
-                    cmBusID.Text = row.Cells["BusID"].Value.ToString();
+                    cmbBusNumber.Text = row.Cells["BusID"].Value.ToString();
                 }
                 else
                 {
@@ -391,8 +333,8 @@ namespace PABMS
 
             int ticketID = Convert.ToInt32(txtID.Text.Trim());
             int customerID = Convert.ToInt32(cmCusName.SelectedItem?.ToString());
-            int staffID = Convert.ToInt32(cmStaffID.SelectedItem?.ToString());
-            int busID = Convert.ToInt32(cmBusID.SelectedItem?.ToString());
+            int staffID = Convert.ToInt32(cmStaffName.SelectedItem?.ToString());
+            int busID = Convert.ToInt32(cmbBusNumber.SelectedItem?.ToString());
             DateTime purchaseDate = dtpPurchas.Value;
             DateTime departureDate = dtpDeparture.Value;
             string origin = txtOrigin.Text.Trim();
@@ -434,6 +376,62 @@ namespace PABMS
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
 
+        }
+
+        private void cmbStaffName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmStaffName.SelectedItem != null)
+            {
+                string selectedStaffName = cmStaffName.SelectedItem.ToString();
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT StaffID FROM tbStaff WHERE FullName = @FullName", connection);
+                    cmd.Parameters.AddWithValue("@FullName", selectedStaffName);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        StaffID.Text = reader["StaffID"].ToString();
+                    }
+                    reader.Close();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving staff details: " + ex.Message);
+                }
+            }
+        }
+
+        private void cmBusName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBusNumber.SelectedItem != null)
+            {
+                string selectedBusNumber = cmbBusNumber.SelectedItem.ToString();
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT BusID, TicketPrice FROM tbBus WHERE BusNumber = @BusNumber", connection);
+                    cmd.Parameters.AddWithValue("@BusNumber", selectedBusNumber);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        txtBusID.Text = reader["BusID"].ToString();
+                        txtTicketPrice.Text = reader["TicketPrice"].ToString();
+                    }
+
+                    connection.Close(); reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while retrieving bus details: " + ex.Message);
+                }
+
+            }
         }
     }
 }

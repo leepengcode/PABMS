@@ -36,16 +36,16 @@
             label3 = new Label();
             label2 = new Label();
             panel2 = new Panel();
-            StaffName = new TextBox();
-            cmStaffID = new ComboBox();
+            StaffID = new TextBox();
+            cmStaffName = new ComboBox();
             textBox10 = new TextBox();
             label6 = new Label();
             label7 = new Label();
             textBox9 = new TextBox();
             panel3 = new Panel();
-            BusN0 = new TextBox();
-            cmBusID = new ComboBox();
-            BusPrice = new TextBox();
+            txtBusID = new TextBox();
+            cmbBusNumber = new ComboBox();
+            txtTicketPrice = new TextBox();
             label10 = new Label();
             label8 = new Label();
             label9 = new Label();
@@ -158,8 +158,8 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(StaffName);
-            panel2.Controls.Add(cmStaffID);
+            panel2.Controls.Add(StaffID);
+            panel2.Controls.Add(cmStaffName);
             panel2.Controls.Add(textBox10);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
@@ -169,26 +169,26 @@
             panel2.Size = new Size(375, 202);
             panel2.TabIndex = 1;
             // 
-            // StaffName
+            // StaffID
             // 
-            StaffName.BorderStyle = BorderStyle.FixedSingle;
-            StaffName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            StaffName.Location = new Point(175, 80);
-            StaffName.Multiline = true;
-            StaffName.Name = "StaffName";
-            StaffName.ReadOnly = true;
-            StaffName.Size = new Size(178, 34);
-            StaffName.TabIndex = 30;
+            StaffID.BorderStyle = BorderStyle.FixedSingle;
+            StaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            StaffID.Location = new Point(175, 29);
+            StaffID.Multiline = true;
+            StaffID.Name = "StaffID";
+            StaffID.ReadOnly = true;
+            StaffID.Size = new Size(178, 34);
+            StaffID.TabIndex = 30;
             // 
-            // cmStaffID
+            // cmStaffName
             // 
-            cmStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cmStaffID.FormattingEnabled = true;
-            cmStaffID.Location = new Point(175, 26);
-            cmStaffID.Name = "cmStaffID";
-            cmStaffID.Size = new Size(178, 37);
-            cmStaffID.TabIndex = 30;
-            cmStaffID.SelectedIndexChanged += comboBox3_SelectedIndexChanged;
+            cmStaffName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmStaffName.FormattingEnabled = true;
+            cmStaffName.Location = new Point(175, 79);
+            cmStaffName.Name = "cmStaffName";
+            cmStaffName.Size = new Size(178, 37);
+            cmStaffName.TabIndex = 30;
+            cmStaffName.SelectedIndexChanged += cmbStaffName_SelectedIndexChanged;
             // 
             // textBox10
             // 
@@ -235,9 +235,9 @@
             // panel3
             // 
             panel3.BorderStyle = BorderStyle.FixedSingle;
-            panel3.Controls.Add(BusN0);
-            panel3.Controls.Add(cmBusID);
-            panel3.Controls.Add(BusPrice);
+            panel3.Controls.Add(txtBusID);
+            panel3.Controls.Add(cmbBusNumber);
+            panel3.Controls.Add(txtTicketPrice);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
@@ -246,37 +246,37 @@
             panel3.Size = new Size(375, 202);
             panel3.TabIndex = 1;
             // 
-            // BusN0
+            // txtBusID
             // 
-            BusN0.BorderStyle = BorderStyle.FixedSingle;
-            BusN0.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            BusN0.Location = new Point(144, 70);
-            BusN0.Multiline = true;
-            BusN0.Name = "BusN0";
-            BusN0.ReadOnly = true;
-            BusN0.Size = new Size(178, 34);
-            BusN0.TabIndex = 29;
+            txtBusID.BorderStyle = BorderStyle.FixedSingle;
+            txtBusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtBusID.Location = new Point(144, 25);
+            txtBusID.Multiline = true;
+            txtBusID.Name = "txtBusID";
+            txtBusID.ReadOnly = true;
+            txtBusID.Size = new Size(178, 34);
+            txtBusID.TabIndex = 29;
             // 
-            // cmBusID
+            // cmbBusNumber
             // 
-            cmBusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cmBusID.FormattingEnabled = true;
-            cmBusID.Location = new Point(144, 19);
-            cmBusID.Name = "cmBusID";
-            cmBusID.Size = new Size(178, 37);
-            cmBusID.TabIndex = 28;
-            cmBusID.SelectedIndexChanged += cmBusID_SelectedIndexChanged;
+            cmbBusNumber.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbBusNumber.FormattingEnabled = true;
+            cmbBusNumber.Location = new Point(144, 69);
+            cmbBusNumber.Name = "cmbBusNumber";
+            cmbBusNumber.Size = new Size(178, 37);
+            cmbBusNumber.TabIndex = 28;
+            cmbBusNumber.SelectedIndexChanged += cmBusName_SelectedIndexChanged;
             // 
-            // BusPrice
+            // txtTicketPrice
             // 
-            BusPrice.BorderStyle = BorderStyle.FixedSingle;
-            BusPrice.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            BusPrice.Location = new Point(144, 116);
-            BusPrice.Multiline = true;
-            BusPrice.Name = "BusPrice";
-            BusPrice.ReadOnly = true;
-            BusPrice.Size = new Size(178, 34);
-            BusPrice.TabIndex = 13;
+            txtTicketPrice.BorderStyle = BorderStyle.FixedSingle;
+            txtTicketPrice.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTicketPrice.Location = new Point(144, 116);
+            txtTicketPrice.Multiline = true;
+            txtTicketPrice.Name = "txtTicketPrice";
+            txtTicketPrice.ReadOnly = true;
+            txtTicketPrice.Size = new Size(178, 34);
+            txtTicketPrice.TabIndex = 13;
             // 
             // label10
             // 
@@ -573,7 +573,7 @@
         private Label label5;
         private Label label6;
         private Label label7;
-        private TextBox BusPrice;
+        private TextBox txtTicketPrice;
         private Label label10;
         private Label label8;
         private Label label9;
@@ -595,10 +595,10 @@
         private Label label14;
         private DateTimePicker dtpDeparture;
         private DateTimePicker dtpPurchas;
-        private ComboBox cmBusID;
-        private ComboBox cmStaffID;
-        private TextBox BusN0;
-        private TextBox StaffName;
+        private ComboBox cmbBusNumber;
+        private ComboBox cmStaffName;
+        private TextBox txtBusID;
+        private TextBox StaffID;
         private ComboBox cmCusName;
         private DataGridView DataTicket;
         private Button button1;
