@@ -192,6 +192,11 @@ namespace PABMS
                     DataBus.Columns["TicketPrice"].HeaderText = "Ticket Price";
                     DataBus.Columns["DriverID"].HeaderText = "Driver ID";
 
+                    DataBus.Columns["BusID"].Width = 170; // Adjust the width as needed
+                    DataBus.Columns["BusNumber"].Width = 250; // Adjust the width as needed
+                    DataBus.Columns["TicketPrice"].Width = 250;
+                    DataBus.Columns["DriverID"].Width = 250;
+
                 }
                 catch (Exception ex)
                 {
