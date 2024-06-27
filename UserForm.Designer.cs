@@ -65,70 +65,80 @@
             // txtPassword
             // 
             txtPassword.BorderStyle = BorderStyle.FixedSingle;
-            txtPassword.Location = new Point(446, 330);
+            txtPassword.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPassword.Location = new Point(439, 325);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(276, 44);
+            txtPassword.Size = new Size(250, 34);
             txtPassword.TabIndex = 39;
+            
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(309, 344);
+            label6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(302, 327);
             label6.Name = "label6";
-            label6.Size = new Size(73, 20);
+            label6.Size = new Size(120, 29);
             label6.TabIndex = 38;
             label6.Text = "Password";
+            
             // 
             // txtUsername
             // 
             txtUsername.BorderStyle = BorderStyle.FixedSingle;
-            txtUsername.Location = new Point(446, 249);
+            txtUsername.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUsername.Location = new Point(439, 269);
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(276, 44);
+            txtUsername.Size = new Size(250, 34);
             txtUsername.TabIndex = 37;
+            
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(309, 263);
+            label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(302, 274);
             label3.Name = "label3";
-            label3.Size = new Size(78, 20);
+            label3.Size = new Size(124, 29);
             label3.TabIndex = 36;
             label3.Text = "Username";
+            
             // 
             // txtStaffID
             // 
             txtStaffID.BorderStyle = BorderStyle.FixedSingle;
             txtStaffID.Enabled = false;
-            txtStaffID.Location = new Point(883, 171);
+            txtStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStaffID.Location = new Point(876, 211);
             txtStaffID.Multiline = true;
             txtStaffID.Name = "txtStaffID";
-            txtStaffID.Size = new Size(211, 44);
+            txtStaffID.Size = new Size(250, 34);
             txtStaffID.TabIndex = 41;
+            
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(809, 184);
+            label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(739, 216);
             label2.Name = "label2";
-            label2.Size = new Size(59, 20);
+            label2.Size = new Size(89, 29);
             label2.TabIndex = 40;
             label2.Text = "Staff ID";
+            
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.Location = new Point(352, 470);
+            label14.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label14.Location = new Point(302, 444);
             label14.Name = "label14";
-            label14.Size = new Size(55, 20);
+            label14.Size = new Size(89, 29);
             label14.TabIndex = 52;
             label14.Text = "Search";
+            
             // 
             // btnNew
             // 
@@ -177,23 +187,25 @@
             // txtSearch
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
-            txtSearch.Location = new Point(424, 457);
+            txtSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtSearch.Location = new Point(439, 442);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(435, 47);
+            txtSearch.Size = new Size(250, 34);
             txtSearch.TabIndex = 46;
+            txtSearch.TextChanged += txtSearch_TextChanged;
             // 
             // gridSearch
             // 
             gridSearch.AllowUserToAddRows = false;
             gridSearch.AllowUserToDeleteRows = false;
             gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridSearch.Location = new Point(352, 529);
+            gridSearch.Location = new Point(302, 527);
             gridSearch.Name = "gridSearch";
             gridSearch.ReadOnly = true;
             gridSearch.RowHeadersWidth = 51;
             gridSearch.RowTemplate.Height = 29;
-            gridSearch.Size = new Size(805, 188);
+            gridSearch.Size = new Size(1004, 188);
             gridSearch.TabIndex = 53;
             gridSearch.CellClick += gridSearch_CellClick;
             // 
@@ -202,68 +214,78 @@
             txtUserID.BackColor = SystemColors.ButtonHighlight;
             txtUserID.BorderStyle = BorderStyle.FixedSingle;
             txtUserID.Enabled = false;
-            txtUserID.Location = new Point(446, 171);
+            txtUserID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUserID.Location = new Point(439, 214);
             txtUserID.Multiline = true;
             txtUserID.Name = "txtUserID";
             txtUserID.ReadOnly = true;
-            txtUserID.Size = new Size(276, 44);
+            txtUserID.Size = new Size(250, 34);
             txtUserID.TabIndex = 36;
+            
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ButtonFace;
-            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(309, 183);
+            label4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(302, 219);
             label4.Name = "label4";
-            label4.Size = new Size(59, 20);
+            label4.Size = new Size(93, 29);
             label4.TabIndex = 36;
             label4.Text = "User ID";
+            
             // 
             // txtStaffName
             // 
             txtStaffName.BorderStyle = BorderStyle.FixedSingle;
-            txtStaffName.Location = new Point(883, 249);
+            txtStaffName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStaffName.Location = new Point(876, 268);
             txtStaffName.Multiline = true;
             txtStaffName.Name = "txtStaffName";
-            txtStaffName.Size = new Size(211, 44);
+            txtStaffName.Size = new Size(250, 34);
             txtStaffName.TabIndex = 41;
+            
             // 
             // txtStaffTel
             // 
             txtStaffTel.BorderStyle = BorderStyle.FixedSingle;
-            txtStaffTel.Location = new Point(883, 320);
+            txtStaffTel.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStaffTel.Location = new Point(876, 325);
             txtStaffTel.Multiline = true;
             txtStaffTel.Name = "txtStaffTel";
-            txtStaffTel.Size = new Size(211, 44);
+            txtStaffTel.Size = new Size(250, 34);
             txtStaffTel.TabIndex = 41;
+            
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(770, 262);
+            label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(739, 268);
             label5.Name = "label5";
-            label5.Size = new Size(85, 20);
+            label5.Size = new Size(131, 29);
             label5.TabIndex = 40;
             label5.Text = "Staff Name";
+            
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(796, 333);
+            label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(739, 330);
             label7.Name = "label7";
-            label7.Size = new Size(63, 20);
+            label7.Size = new Size(102, 29);
             label7.TabIndex = 40;
             label7.Text = "Staff Tel";
+            
             // 
             // btnSearchStaff
             // 
             btnSearchStaff.BackColor = SystemColors.ActiveCaption;
-            btnSearchStaff.Location = new Point(1100, 248);
+            btnSearchStaff.Font = new Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSearchStaff.Location = new Point(1132, 269);
             btnSearchStaff.Name = "btnSearchStaff";
-            btnSearchStaff.Size = new Size(152, 46);
+            btnSearchStaff.Size = new Size(174, 34);
             btnSearchStaff.TabIndex = 49;
             btnSearchStaff.Text = "SEARCH STAFF";
             btnSearchStaff.UseVisualStyleBackColor = false;
