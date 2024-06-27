@@ -34,8 +34,8 @@ namespace PABMS
             {
                 int selectedBusID = Convert.ToInt32(cmBusID.SelectedItem.ToString());
 
-                
-                
+
+
                 try
                 {
                     connection.Open();
@@ -55,14 +55,14 @@ namespace PABMS
                 {
                     MessageBox.Show("An error occurred while retrieving bus details: " + ex.Message);
                 }
-                
+
             }
         }
 
         private void FillComboSearchID()
         {
-            cmBusID.Items.Clear();            
-            
+            cmBusID.Items.Clear();
+
             try
             {
                 connection.Open();
@@ -80,7 +80,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while filling BusID combo box: " + ex.Message);
             }
-            
+
         }
 
         private void FillComboSearchStaffID()
@@ -104,7 +104,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while filling StaffID combo box: " + ex.Message);
             }
-            
+
         }
 
         private void FillComboSearchCusID()
@@ -128,7 +128,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while filling CustomerID combo box: " + ex.Message);
             }
-            
+
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -155,7 +155,7 @@ namespace PABMS
                 {
                     MessageBox.Show("An error occurred while retrieving staff details: " + ex.Message);
                 }
-                
+
             }
         }
 
@@ -166,7 +166,7 @@ namespace PABMS
                 int selectedCusID = Convert.ToInt32(cmCusID.SelectedItem.ToString());
 
                 try
-                { 
+                {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("SELECT FullName, PhoneNumber FROM tbCustomer WHERE CustomerID = @CustomerID", connection);
                     cmd.Parameters.AddWithValue("@CustomerID", selectedCusID);
@@ -184,13 +184,13 @@ namespace PABMS
                 {
                     MessageBox.Show("An error occurred while retrieving customer details: " + ex.Message);
                 }
-                
+
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-          
+
 
             int customerId = Convert.ToInt32(cmCusID.SelectedItem.ToString());
             int staffId = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
@@ -228,7 +228,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while saving the ticket: " + ex.Message);
             }
-            
+
         }
 
         private void ClearForm()
@@ -256,7 +256,7 @@ namespace PABMS
             dataAdapter = new SqlDataAdapter();
 
             string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID FROM tbTicket";
-            
+
             try
             {
                 connection.Open();
@@ -282,7 +282,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
             }
-            
+
         }
 
         private void LoadLatestTicketID()
@@ -314,7 +314,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while fetching latest Ticket ID: " + ex.Message);
             }
-            
+
 
             return latestTicketID;
         }
@@ -358,7 +358,7 @@ namespace PABMS
 
             string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID " +
                            "FROM tbTicket WHERE TicketID = @TicketID";
-            
+
             try
             {
                 connection.Open(); // error here
@@ -374,7 +374,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -406,7 +406,7 @@ namespace PABMS
                 MessageBox.Show("Please select a valid customer, staff, and bus.");
                 return;
             }
-            
+
             try
             {
                 connection.Open();
@@ -436,7 +436,7 @@ namespace PABMS
             {
                 MessageBox.Show("An error occurred: " + ex.Message);
             }
-            
+
         }
     }
 }

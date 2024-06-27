@@ -50,6 +50,8 @@ namespace PABMS
                 user.StaffID = Convert.ToInt32(reader["StaffID"]);
                 users.Add(user);
             }
+            connection.Close();
+
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)

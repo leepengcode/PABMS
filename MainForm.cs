@@ -13,10 +13,10 @@ namespace PABMS
 
         public MainForm()
         {
-            connection = new SqlConnection(connectionString);
 
             InitializeComponent();
 
+            connection = new SqlConnection(connectionString);
             formLogin = new FormLogin(connection);
             formLogin.ShowDialog();
 
