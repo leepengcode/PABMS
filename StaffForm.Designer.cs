@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StaffForm));
             label1 = new Label();
             label15 = new Label();
             label16 = new Label();
@@ -231,10 +232,11 @@
             pbPhoto.BorderStyle = BorderStyle.FixedSingle;
             pbPhoto.Location = new Point(1238, 187);
             pbPhoto.Name = "pbPhoto";
-            pbPhoto.Size = new Size(233, 229);
+            pbPhoto.Size = new Size(270, 312);
             pbPhoto.SizeMode = PictureBoxSizeMode.CenterImage;
             pbPhoto.TabIndex = 38;
             pbPhoto.TabStop = false;
+            pbPhoto.Click += pbPhoto_Click;
             // 
             // label14
             // 
@@ -304,7 +306,7 @@
             // 
             dtpBirthDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             dtpBirthDate.Location = new Point(326, 412);
-            dtpBirthDate.Margin = new Padding(5, 5, 5, 5);
+            dtpBirthDate.Margin = new Padding(5);
             dtpBirthDate.Name = "dtpBirthDate";
             dtpBirthDate.Size = new Size(411, 34);
             dtpBirthDate.TabIndex = 46;
@@ -344,7 +346,7 @@
             // 
             dtpHiredDate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             dtpHiredDate.Location = new Point(326, 353);
-            dtpHiredDate.Margin = new Padding(5, 5, 5, 5);
+            dtpHiredDate.Margin = new Padding(5);
             dtpHiredDate.Name = "dtpHiredDate";
             dtpHiredDate.Size = new Size(411, 34);
             dtpHiredDate.TabIndex = 53;
@@ -361,12 +363,16 @@
             // 
             // btnBrowsePhoto
             // 
+            btnBrowsePhoto.BackColor = SystemColors.ActiveCaption;
             btnBrowsePhoto.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBrowsePhoto.Location = new Point(1238, 135);
+            btnBrowsePhoto.Image = (Image)resources.GetObject("btnBrowsePhoto.Image");
+            btnBrowsePhoto.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBrowsePhoto.Location = new Point(1238, 117);
             btnBrowsePhoto.Name = "btnBrowsePhoto";
-            btnBrowsePhoto.Size = new Size(233, 34);
+            btnBrowsePhoto.Size = new Size(270, 57);
             btnBrowsePhoto.TabIndex = 54;
-            btnBrowsePhoto.UseVisualStyleBackColor = true;
+            btnBrowsePhoto.Text = "Photo";
+            btnBrowsePhoto.UseVisualStyleBackColor = false;
             btnBrowsePhoto.Click += btnBrowsePhoto_Click_1;
             // 
             // DataStaff

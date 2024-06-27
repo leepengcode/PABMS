@@ -72,10 +72,10 @@
             panel2.BackColor = Color.ForestGreen;
             panel2.Controls.Add(labelUsername);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(120, 0);
+            panel2.Location = new Point(95, 0);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1083, 59);
+            panel2.Size = new Size(1108, 59);
             panel2.TabIndex = 0;
             // 
             // labelUsername
@@ -100,7 +100,7 @@
             btnMenu.Image = (Image)resources.GetObject("btnMenu.Image");
             btnMenu.Location = new Point(0, 0);
             btnMenu.Name = "btnMenu";
-            btnMenu.Size = new Size(120, 59);
+            btnMenu.Size = new Size(95, 59);
             btnMenu.TabIndex = 3;
             btnMenu.UseVisualStyleBackColor = false;
             btnMenu.Click += btnMenu_Click;

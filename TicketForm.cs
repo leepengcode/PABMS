@@ -114,12 +114,12 @@ namespace PABMS
             try
             {
                 connection.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CustomerID FROM tbCustomer", connection);
+                SqlCommand cmd = new SqlCommand("SELECT FullName FROM tbCustomer", connection);
                 SqlDataReader reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
-                    cmCusID.Items.Add(reader["CustomerID"].ToString());
+                    cmCusID.Items.Add(reader["FullName"].ToString());
                 }
                 reader.Close();
                 connection.Close();
@@ -140,13 +140,13 @@ namespace PABMS
                 try
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT FullName FROM tbStaff WHERE StaffID = @StaffID", connection);
+                    SqlCommand cmd = new SqlCommand("SELECT FullName  FROM tbStaff WHERE StaffID = @StaffID", connection);
                     cmd.Parameters.AddWithValue("@StaffID", selectedStaffID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        StaffName.Text = reader["FullName"].ToString();
+                        StaffName.Text = reader["StaffID"].ToString();
                     }
                     reader.Close();
                     connection.Close();
@@ -168,13 +168,13 @@ namespace PABMS
                 try
                 {
                     connection.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT FullName, PhoneNumber FROM tbCustomer WHERE CustomerID = @CustomerID", connection);
-                    cmd.Parameters.AddWithValue("@CustomerID", selectedCusID);
+                    SqlCommand cmd = new SqlCommand("SELECT CustomerID, PhoneNumber FROM tbCustomer WHERE FullName = @FullName", connection);
+                    cmd.Parameters.AddWithValue("@FullName", selectedCusID);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        CusName.Text = reader["FullName"].ToString();
+                        CusName.Text = reader["CustomerID"].ToString();
                         CusPhone.Text = reader["PhoneNumber"].ToString();
                     }
                     reader.Close();

@@ -331,6 +331,9 @@ namespace PABMS
             }
         }
 
+        private void pbPhoto_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

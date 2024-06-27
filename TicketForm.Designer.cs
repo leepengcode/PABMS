@@ -92,7 +92,7 @@
             // 
             cmCusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             cmCusID.FormattingEnabled = true;
-            cmCusID.Location = new Point(218, 26);
+            cmCusID.Location = new Point(218, 79);
             cmCusID.Name = "cmCusID";
             cmCusID.Size = new Size(178, 37);
             cmCusID.TabIndex = 31;
@@ -111,7 +111,9 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(224, 224, 224);
             label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(24, 135);
             label5.Name = "label5";
             label5.Size = new Size(176, 29);
@@ -122,17 +124,19 @@
             // 
             CusName.BorderStyle = BorderStyle.FixedSingle;
             CusName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusName.Location = new Point(218, 80);
+            CusName.Location = new Point(218, 29);
             CusName.Multiline = true;
             CusName.Name = "CusName";
-            CusName.Size = new Size(231, 34);
+            CusName.Size = new Size(178, 34);
             CusName.TabIndex = 3;
             CusName.TextChanged += CusName_TextChanged;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(224, 224, 224);
             label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(24, 82);
             label3.Name = "label3";
             label3.Size = new Size(188, 29);
@@ -143,6 +147,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(24, 29);
             label2.Name = "label2";
             label2.Size = new Size(146, 29);
@@ -196,7 +201,9 @@
             // label6
             // 
             label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(224, 224, 224);
             label6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = Color.Black;
             label6.Location = new Point(22, 83);
             label6.Name = "label6";
             label6.Size = new Size(131, 29);
@@ -206,7 +213,9 @@
             // label7
             // 
             label7.AutoSize = true;
+            label7.BackColor = Color.FromArgb(224, 224, 224);
             label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
             label7.Location = new Point(22, 29);
             label7.Name = "label7";
             label7.Size = new Size(89, 29);
@@ -271,7 +280,9 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.BackColor = Color.FromArgb(224, 224, 224);
             label10.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.ForeColor = Color.Black;
             label10.Location = new Point(34, 118);
             label10.Name = "label10";
             label10.Size = new Size(69, 29);
@@ -281,7 +292,9 @@
             // label8
             // 
             label8.AutoSize = true;
+            label8.BackColor = Color.FromArgb(224, 224, 224);
             label8.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label8.ForeColor = Color.Black;
             label8.Location = new Point(34, 75);
             label8.Name = "label8";
             label8.Size = new Size(91, 29);
@@ -291,7 +304,9 @@
             // label9
             // 
             label9.AutoSize = true;
+            label9.BackColor = Color.FromArgb(224, 224, 224);
             label9.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.ForeColor = Color.Black;
             label9.Location = new Point(34, 27);
             label9.Name = "label9";
             label9.Size = new Size(83, 29);
@@ -400,8 +415,9 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.FromArgb(192, 192, 255);
-            btnSave.Location = new Point(185, 925);
+            btnSave.BackColor = Color.Lime;
+            btnSave.ForeColor = Color.Black;
+            btnSave.Location = new Point(213, 925);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(152, 51);
             btnSave.TabIndex = 21;
@@ -412,6 +428,7 @@
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.ActiveCaption;
+            btnSearch.ForeColor = Color.Black;
             btnSearch.Location = new Point(530, 925);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(152, 51);
@@ -423,7 +440,8 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(255, 192, 128);
-            button3.Location = new Point(855, 925);
+            button3.ForeColor = Color.Black;
+            button3.Location = new Point(841, 925);
             button3.Name = "button3";
             button3.Size = new Size(152, 51);
             button3.TabIndex = 23;
@@ -434,7 +452,8 @@
             // button4
             // 
             button4.BackColor = Color.FromArgb(192, 255, 255);
-            button4.Location = new Point(1159, 925);
+            button4.ForeColor = Color.Black;
+            button4.Location = new Point(1127, 925);
             button4.Name = "button4";
             button4.Size = new Size(152, 51);
             button4.TabIndex = 24;
@@ -473,18 +492,19 @@
             DataTicket.AllowUserToAddRows = false;
             DataTicket.AllowUserToDeleteRows = false;
             DataTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTicket.Location = new Point(149, 598);
+            DataTicket.Location = new Point(213, 598);
             DataTicket.Name = "DataTicket";
             DataTicket.ReadOnly = true;
             DataTicket.RowHeadersWidth = 51;
             DataTicket.RowTemplate.Height = 29;
-            DataTicket.Size = new Size(1214, 287);
+            DataTicket.Size = new Size(1066, 287);
             DataTicket.TabIndex = 28;
             // 
             // TicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(224, 224, 224);
             ClientSize = new Size(1597, 1060);
             Controls.Add(DataTicket);
             Controls.Add(dtpPurchas);
@@ -507,6 +527,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(btnSave);
+            ForeColor = Color.Black;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
             Name = "TicketForm";

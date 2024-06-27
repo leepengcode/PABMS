@@ -72,6 +72,7 @@
             dateDelivery = new DateTimePicker();
             txtPackageName = new TextBox();
             label19 = new Label();
+            button1 = new Button();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
@@ -125,7 +126,7 @@
             // 
             // btnSave
             // 
-            btnSave.BackColor = Color.FromArgb(192, 192, 255);
+            btnSave.BackColor = Color.DeepSkyBlue;
             btnSave.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             btnSave.Location = new Point(245, 904);
             btnSave.Name = "btnSave";
@@ -535,11 +536,23 @@
             label19.TabIndex = 30;
             label19.Text = "Package Name";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Aqua;
+            button1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(1200, 606);
+            button1.Name = "button1";
+            button1.Size = new Size(152, 56);
+            button1.TabIndex = 55;
+            button1.Text = "Print";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // PackageForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1510, 972);
+            Controls.Add(button1);
             Controls.Add(dateDelivery);
             Controls.Add(dateDeparture);
             Controls.Add(gridSearch);
@@ -592,28 +605,28 @@
         private Label label16;
         private Label label13;
         private Label label12;
-        
+
         private Label label11;
         private Label label1;
         private Panel panel3;
-        
+
         private Label label8;
-        
+
         private Label label9;
         private Panel panel2;
-        
+
         private Label label6;
-        
+
         private Label label7;
         private Panel panel1;
-        
+
         private Label label5;
-        
-        
+
+
         private Label label4;
-        
+
         private Label label3;
-        
+
         private Label label2;
         private Label label10;
         private Label label17;
@@ -645,5 +658,6 @@
         private DateTimePicker dateDelivery;
         private TextBox txtPackageName;
         private Label label19;
+        private Button button1;
     }
 }

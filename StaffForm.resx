@@ -18,7 +18,7 @@
     <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
     <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
     <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing"">Blue</data>
     <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
         <value>[base64 mime encoded serialized .NET Framework object]</value>
     </data>
@@ -120,6 +120,27 @@
   <metadata name="bindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnBrowsePhoto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAzdJREFUaEPtmUmoT1EcgJ95ypwksTCPURRRFkrIzgIRC2wMISmxIsXKtDClZCmz
+        bIxlKLFQxmRayJBkDpn5vpNb1Hvvf//X885R/6++xe+8e8773ffuPef8zq2qUOH/oxfOwNW4GTfgShyL
+        jTFpGuFsvIE/avEejsEk6YIXMEv2Me7Fjbj0l/5nbqM//4BbcBQmQzvMEryDk7ABVkdDXI/ZDesebInR
+        2Y0mdBnb2lACb2YALsFnaN+DGJXu+BW/4BAbyqQHvkRvZoINsZiPJnEgRMVYhdkjFo1DaBJzQlSM/ugY
+        90MUiYtoEiNDVAyn7Y/4HaO99HfRG+kXouK8QcdxBozCLTSBviEqznt0nDYhisBZNIG/Wak7oGO8C1Ek
+        nGlMYlqIijECHeNaiCLhRtAk1oWoGMvQMbaFKBLj0SROh6gYR9ExpocoEhPRJN5ike15U3yNjuEeLRpn
+        0CSWY00bxdqwzwp0jFM2xCKbfovsszLs6xg3QxSJfWgSFlRFmYuOYf0SjVloEg/Q4qlc7GNfx5hpQyzc
+        J+1H90luM6w18uK12dbE3bNjRecKmtDAEOVjMNrH9ywZrMdNam2I8uEiap/tIUqEYWhSVnudbCiB+6sX
+        aJ/RNqTEYTQx15aONtRAazyOXnvShtToik/RBGsrtKxdvMYVvacNKeJJSqkb8QTFazyoS5brWOpGshr9
+        YYgSJSt9B4WoejxC8hrPtJKkM1rlmWQ3G2rAQzwX0E/oTSWFi9tV9CaO2VAC91Ve62I43IbYuJJb2X1G
+        E/Ps1wPtUjg9Z6f2nlTuwqFYr1hATUarQh8Rk/mGngGXc5zjerIT7esYeh6nYBP8ZzTHhZjtVtVjnB1Y
+        28tdCmexrZi9X/oIF2MLrDOs4qw3/OaR/SIfi0XYHusKJ4EFmL1r+gStV4pUn3/QCo9gNrBHpPVxaj4O
+        f/9w5PbHXArRDM+hAz3HqVjfWGxlj5y5eFhRNpvQAVyB+9gQCad2czAXv3aVRW/0440ziieBsXHLYy5O
+        834xzs0a9C9wIkRp4JbfnPzknZtLaKd5IUoDczEnJ5zcvEI7pahVaC5chKobICVdnCtUqJCLqqqfJ5Yo
+        HZRf9NoAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>28</value>
   </metadata>

@@ -53,6 +53,7 @@
             txtPaymentID = new TextBox();
             label11 = new Label();
             label1 = new Label();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)gridSearch).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -314,11 +315,23 @@
             label1.TabIndex = 70;
             label1.Text = "Package Payment's Form";
             // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(1207, 604);
+            button1.Name = "button1";
+            button1.Size = new Size(152, 50);
+            button1.TabIndex = 85;
+            button1.Text = "Print";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // PaymentPackageForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1437, 1102);
+            Controls.Add(button1);
             Controls.Add(datePayment);
             Controls.Add(gridSearch);
             Controls.Add(label14);
@@ -376,5 +389,6 @@
         private DataGridView gridSearch;
         private Label label3;
         private ComboBox cmbPackageName;
+        private Button button1;
     }
 }
