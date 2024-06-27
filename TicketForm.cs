@@ -107,7 +107,7 @@ namespace PABMS
 
         private void FillComboSearchCusID()
         {
-            cmCusID.Items.Clear();
+            cmCusName.Items.Clear();
 
             try
             {
@@ -117,7 +117,7 @@ namespace PABMS
 
                 while (reader.Read())
                 {
-                    cmCusID.Items.Add(reader["FullName"].ToString());
+                    cmCusName.Items.Add(reader["FullName"].ToString());
                 }
                 reader.Close();
                 connection.Close();
@@ -159,20 +159,19 @@ namespace PABMS
 
         private void cmCusID_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmCusID.SelectedItem != null)
+            if (cmCusName.SelectedItem != null)
             {
-                int selectedCusID = Convert.ToInt32(cmCusID.SelectedItem.ToString());
-
+                string selectedCusName = Convert.ToString(cmCusName.SelectedItem.ToString());
                 try
                 {
                     connection.Open();
                     SqlCommand cmd = new SqlCommand("SELECT CustomerID, PhoneNumber FROM tbCustomer WHERE FullName = @FullName", connection);
-                    cmd.Parameters.AddWithValue("@FullName", selectedCusID);
+                    cmd.Parameters.AddWithValue("@FullName", selectedCusName);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        CusName.Text = reader["CustomerID"].ToString();
+                        CusID.Text = reader["CustomerID"].ToString();
                         CusPhone.Text = reader["PhoneNumber"].ToString();
                     }
                     reader.Close();
@@ -190,7 +189,7 @@ namespace PABMS
         {
 
 
-            int customerId = Convert.ToInt32(cmCusID.SelectedItem.ToString());
+            int customerId = Convert.ToInt32(cmCusName.SelectedItem.ToString());
             int staffId = Convert.ToInt32(cmStaffID.SelectedItem.ToString());
             int busId = Convert.ToInt32(cmBusID.SelectedItem.ToString());
             DateTime purchaseDate = dtpPurchas.Value;
@@ -231,7 +230,7 @@ namespace PABMS
 
         private void ClearForm()
         {
-            cmCusID.SelectedIndex = -1;
+            cmCusName.SelectedIndex = -1;
             cmStaffID.SelectedIndex = -1;
             cmBusID.SelectedIndex = -1;
             dtpPurchas.Value = DateTime.Now;
@@ -240,7 +239,7 @@ namespace PABMS
             txtDestination.Clear();
             BusN0.Clear();
             BusPrice.Clear();
-            CusName.Clear();
+            CusID.Clear();
             CusPhone.Clear();
             StaffName.Clear();
             txtSearch.Clear();
@@ -327,7 +326,7 @@ namespace PABMS
                     txtID.Text = row.Cells["TicketID"].Value.ToString();
                     dtpPurchas.Value = Convert.ToDateTime(row.Cells["PurchaseDate"].Value);
                     dtpDeparture.Value = Convert.ToDateTime(row.Cells["DepartureDate"].Value);
-                    cmCusID.Text = row.Cells["CustomerID"].Value.ToString();
+                    cmCusName.Text = row.Cells["CustomerID"].Value.ToString();
                     cmStaffID.Text = row.Cells["StaffID"].Value.ToString();
                     txtOrigin.Text = row.Cells["OriginName"].Value.ToString();
                     txtDestination.Text = row.Cells["DestinationName"].Value.ToString();
@@ -391,7 +390,7 @@ namespace PABMS
             }
 
             int ticketID = Convert.ToInt32(txtID.Text.Trim());
-            int customerID = Convert.ToInt32(cmCusID.SelectedItem?.ToString());
+            int customerID = Convert.ToInt32(cmCusName.SelectedItem?.ToString());
             int staffID = Convert.ToInt32(cmStaffID.SelectedItem?.ToString());
             int busID = Convert.ToInt32(cmBusID.SelectedItem?.ToString());
             DateTime purchaseDate = dtpPurchas.Value;

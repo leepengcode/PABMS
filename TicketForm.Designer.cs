@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            cmCusID = new ComboBox();
+            cmCusName = new ComboBox();
             CusPhone = new TextBox();
             label5 = new Label();
-            CusName = new TextBox();
+            CusID = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel2 = new Panel();
@@ -77,10 +77,10 @@
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(cmCusID);
+            panel1.Controls.Add(cmCusName);
             panel1.Controls.Add(CusPhone);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(CusName);
+            panel1.Controls.Add(CusID);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(124, 125);
@@ -88,15 +88,15 @@
             panel1.Size = new Size(465, 202);
             panel1.TabIndex = 0;
             // 
-            // cmCusID
+            // cmCusName
             // 
-            cmCusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cmCusID.FormattingEnabled = true;
-            cmCusID.Location = new Point(218, 79);
-            cmCusID.Name = "cmCusID";
-            cmCusID.Size = new Size(178, 37);
-            cmCusID.TabIndex = 31;
-            cmCusID.SelectedIndexChanged += cmCusID_SelectedIndexChanged;
+            cmCusName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmCusName.FormattingEnabled = true;
+            cmCusName.Location = new Point(218, 79);
+            cmCusName.Name = "cmCusName";
+            cmCusName.Size = new Size(178, 37);
+            cmCusName.TabIndex = 31;
+            cmCusName.SelectedIndexChanged += cmCusID_SelectedIndexChanged;
             // 
             // CusPhone
             // 
@@ -120,16 +120,16 @@
             label5.TabIndex = 7;
             label5.Text = "Phone Number";
             // 
-            // CusName
+            // CusID
             // 
-            CusName.BorderStyle = BorderStyle.FixedSingle;
-            CusName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusName.Location = new Point(218, 29);
-            CusName.Multiline = true;
-            CusName.Name = "CusName";
-            CusName.Size = new Size(178, 34);
-            CusName.TabIndex = 3;
-            CusName.TextChanged += CusName_TextChanged;
+            CusID.BorderStyle = BorderStyle.FixedSingle;
+            CusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            CusID.Location = new Point(218, 29);
+            CusID.Multiline = true;
+            CusID.Name = "CusID";
+            CusID.Size = new Size(178, 34);
+            CusID.TabIndex = 3;
+            CusID.TextChanged += CusName_TextChanged;
             // 
             // label3
             // 
@@ -551,7 +551,7 @@
         private Panel panel2;
         private Panel panel3;
         private Label label1;
-        private TextBox CusName;
+        private TextBox CusID;
         private Label label3;
         private Label label2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -585,7 +585,7 @@
         private ComboBox cmStaffID;
         private TextBox BusN0;
         private TextBox StaffName;
-        private ComboBox cmCusID;
+        private ComboBox cmCusName;
         private DataGridView DataTicket;
     }
 }
