@@ -60,7 +60,7 @@
             // DataBus
             // 
             DataBus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataBus.Location = new Point(220, 595);
+            DataBus.Location = new Point(315, 595);
             DataBus.Name = "DataBus";
             DataBus.RowHeadersWidth = 51;
             DataBus.RowTemplate.Height = 29;
@@ -71,7 +71,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(220, 544);
+            label14.Location = new Point(315, 544);
             label14.Name = "label14";
             label14.Size = new Size(89, 29);
             label14.TabIndex = 67;
@@ -81,7 +81,7 @@
             // 
             btnNew.BackColor = Color.FromArgb(192, 255, 255);
             btnNew.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNew.Location = new Point(1120, 921);
+            btnNew.Location = new Point(1215, 921);
             btnNew.Name = "btnNew";
             btnNew.Size = new Size(152, 51);
             btnNew.TabIndex = 66;
@@ -92,7 +92,7 @@
             // 
             btnUpdate.BackColor = Color.FromArgb(255, 192, 128);
             btnUpdate.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdate.Location = new Point(812, 921);
+            btnUpdate.Location = new Point(907, 921);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(152, 51);
             btnUpdate.TabIndex = 65;
@@ -103,7 +103,7 @@
             // 
             btnSearch.BackColor = SystemColors.ActiveCaption;
             btnSearch.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.Location = new Point(513, 921);
+            btnSearch.Location = new Point(608, 921);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(152, 51);
             btnSearch.TabIndex = 64;
@@ -114,7 +114,7 @@
             // 
             btnSave.BackColor = Color.FromArgb(192, 192, 255);
             btnSave.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSave.Location = new Point(216, 921);
+            btnSave.Location = new Point(311, 921);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(152, 51);
             btnSave.TabIndex = 63;
@@ -125,7 +125,7 @@
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(334, 544);
+            txtSearch.Location = new Point(429, 544);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
             txtSearch.Size = new Size(250, 34);
@@ -144,7 +144,7 @@
             panel1.Controls.Add(txtFullName);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label6);
-            panel1.Location = new Point(224, 317);
+            panel1.Location = new Point(319, 317);
             panel1.Name = "panel1";
             panel1.Size = new Size(1048, 189);
             panel1.TabIndex = 61;
@@ -248,7 +248,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(712, 171);
+            label2.Location = new Point(807, 171);
             label2.Name = "label2";
             label2.Size = new Size(162, 29);
             label2.TabIndex = 59;
@@ -258,7 +258,7 @@
             // 
             txtAmount.BorderStyle = BorderStyle.FixedSingle;
             txtAmount.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtAmount.Location = new Point(379, 233);
+            txtAmount.Location = new Point(474, 233);
             txtAmount.Multiline = true;
             txtAmount.Name = "txtAmount";
             txtAmount.Size = new Size(250, 34);
@@ -268,7 +268,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(224, 235);
+            label16.Location = new Point(319, 235);
             label16.Name = "label16";
             label16.Size = new Size(94, 29);
             label16.TabIndex = 57;
@@ -278,7 +278,7 @@
             // 
             txtPayID.BorderStyle = BorderStyle.FixedSingle;
             txtPayID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPayID.Location = new Point(379, 171);
+            txtPayID.Location = new Point(474, 171);
             txtPayID.Multiline = true;
             txtPayID.Name = "txtPayID";
             txtPayID.ReadOnly = true;
@@ -289,7 +289,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(220, 171);
+            label11.Location = new Point(315, 171);
             label11.Name = "label11";
             label11.Size = new Size(135, 29);
             label11.TabIndex = 55;
@@ -299,16 +299,16 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(659, 67);
+            label1.Location = new Point(712, 71);
             label1.Name = "label1";
-            label1.Size = new Size(241, 36);
+            label1.Size = new Size(335, 36);
             label1.TabIndex = 54;
-            label1.Text = "Payment's Form";
+            label1.Text = "Ticket Payment's Form";
             // 
             // dateTimePicker1
             // 
             dateTimePicker1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dateTimePicker1.Location = new Point(880, 166);
+            dateTimePicker1.Location = new Point(975, 166);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(392, 34);
             dateTimePicker1.TabIndex = 69;

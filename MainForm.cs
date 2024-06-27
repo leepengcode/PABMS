@@ -49,12 +49,12 @@ namespace PABMS
             loadForm(new PackageForm(connection));
         }
 
-        private void btnVehicle_Click(object sender, EventArgs e)
+        private void btnStaff_Click(object sender, EventArgs e)
         {
             loadForm(new StaffForm(connection));
         }
 
-        private void btnStaff_Click(object sender, EventArgs e)
+        private void btnBus_Click(object sender, EventArgs e)
         {
             loadForm(new BusForm(connection));
 
@@ -65,7 +65,7 @@ namespace PABMS
             loadForm(new UserForm(connection));
         }
 
-        private void btnPayment_Click(object sender, EventArgs e)
+        private void btnTruck_Click(object sender, EventArgs e)
         {
             loadForm(new TruckForm(connection));
         }
@@ -112,12 +112,12 @@ namespace PABMS
                 sideBar.Width -= 10;
 
                 btnDashboard.Text = removeChar(btnDashboard.Text);
-                btnStaff.Text = removeChar(btnStaff.Text);
+                btnBus.Text = removeChar(btnBus.Text);
                 btnUser.Text = removeChar(btnUser.Text);
                 btnPackage.Text = removeChar(btnPackage.Text);
-                btnVehicle.Text = removeChar(btnVehicle.Text);
+                btnStaff.Text = removeChar(btnStaff.Text);
                 btnTicket.Text = removeChar(btnTicket.Text);
-                btnPayment.Text = removeChar(btnPayment.Text);
+                btnTruck.Text = removeChar(btnTruck.Text);
                 btnCustomer.Text = removeChar(btnCustomer.Text);
                 btnPayTicket.Text = removeChar(btnPayTicket.Text);
                 btnPayPackage.Text = removeChar(btnPayPackage.Text);
@@ -136,12 +136,12 @@ namespace PABMS
                 if (sideBar.Width > 200)
                 {
                     btnDashboard.Text = "Dashboard";
-                    btnStaff.Text = "Staff";
+                    btnBus.Text = "Bus";
                     btnUser.Text = "User";
                     btnPackage.Text = "Bagage";
-                    btnVehicle.Text = "Vehicle";
+                    btnStaff.Text = "Staff";
                     btnTicket.Text = "Ticket";
-                    btnPayment.Text = "Payment";
+                    btnTruck.Text = "Payment";
                     btnCustomer.Text = "Customer";
                     btnPayPackage.Text = "Payment Package";
                     btnPayTicket.Text = "Payment Ticket";

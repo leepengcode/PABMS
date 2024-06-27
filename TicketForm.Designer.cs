@@ -85,14 +85,14 @@
             panel1.Controls.Add(label2);
             panel1.Location = new Point(124, 125);
             panel1.Name = "panel1";
-            panel1.Size = new Size(375, 202);
+            panel1.Size = new Size(465, 202);
             panel1.TabIndex = 0;
             // 
             // cmCusID
             // 
             cmCusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             cmCusID.FormattingEnabled = true;
-            cmCusID.Location = new Point(161, 29);
+            cmCusID.Location = new Point(218, 26);
             cmCusID.Name = "cmCusID";
             cmCusID.Size = new Size(178, 37);
             cmCusID.TabIndex = 31;
@@ -102,7 +102,7 @@
             // 
             CusPhone.BorderStyle = BorderStyle.FixedSingle;
             CusPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusPhone.Location = new Point(161, 125);
+            CusPhone.Location = new Point(218, 134);
             CusPhone.Multiline = true;
             CusPhone.Name = "CusPhone";
             CusPhone.Size = new Size(178, 34);
@@ -112,7 +112,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(24, 139);
+            label5.Location = new Point(24, 135);
             label5.Name = "label5";
             label5.Size = new Size(176, 29);
             label5.TabIndex = 7;
@@ -122,10 +122,10 @@
             // 
             CusName.BorderStyle = BorderStyle.FixedSingle;
             CusName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusName.Location = new Point(161, 71);
+            CusName.Location = new Point(218, 80);
             CusName.Multiline = true;
             CusName.Name = "CusName";
-            CusName.Size = new Size(178, 34);
+            CusName.Size = new Size(231, 34);
             CusName.TabIndex = 3;
             CusName.TextChanged += CusName_TextChanged;
             // 
@@ -133,7 +133,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(24, 85);
+            label3.Location = new Point(24, 82);
             label3.Name = "label3";
             label3.Size = new Size(188, 29);
             label3.TabIndex = 2;
@@ -143,7 +143,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(24, 37);
+            label2.Location = new Point(24, 29);
             label2.Name = "label2";
             label2.Size = new Size(146, 29);
             label2.TabIndex = 0;
@@ -158,7 +158,7 @@
             panel2.Controls.Add(label6);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(textBox9);
-            panel2.Location = new Point(545, 125);
+            panel2.Location = new Point(595, 125);
             panel2.Name = "panel2";
             panel2.Size = new Size(375, 202);
             panel2.TabIndex = 1;
@@ -167,7 +167,7 @@
             // 
             StaffName.BorderStyle = BorderStyle.FixedSingle;
             StaffName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            StaffName.Location = new Point(142, 72);
+            StaffName.Location = new Point(175, 80);
             StaffName.Multiline = true;
             StaffName.Name = "StaffName";
             StaffName.ReadOnly = true;
@@ -178,7 +178,7 @@
             // 
             cmStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             cmStaffID.FormattingEnabled = true;
-            cmStaffID.Location = new Point(142, 29);
+            cmStaffID.Location = new Point(175, 26);
             cmStaffID.Name = "cmStaffID";
             cmStaffID.Size = new Size(178, 37);
             cmStaffID.TabIndex = 30;
@@ -197,7 +197,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(32, 85);
+            label6.Location = new Point(22, 83);
             label6.Name = "label6";
             label6.Size = new Size(131, 29);
             label6.TabIndex = 6;
@@ -207,7 +207,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(32, 37);
+            label7.Location = new Point(22, 29);
             label7.Name = "label7";
             label7.Size = new Size(89, 29);
             label7.TabIndex = 4;
@@ -231,7 +231,7 @@
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(label9);
-            panel3.Location = new Point(1014, 125);
+            panel3.Location = new Point(976, 125);
             panel3.Name = "panel3";
             panel3.Size = new Size(375, 202);
             panel3.TabIndex = 1;
@@ -240,7 +240,7 @@
             // 
             BusN0.BorderStyle = BorderStyle.FixedSingle;
             BusN0.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            BusN0.Location = new Point(151, 72);
+            BusN0.Location = new Point(144, 70);
             BusN0.Multiline = true;
             BusN0.Name = "BusN0";
             BusN0.ReadOnly = true;
@@ -251,7 +251,7 @@
             // 
             cmBusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
             cmBusID.FormattingEnabled = true;
-            cmBusID.Location = new Point(151, 29);
+            cmBusID.Location = new Point(144, 19);
             cmBusID.Name = "cmBusID";
             cmBusID.Size = new Size(178, 37);
             cmBusID.TabIndex = 28;
@@ -261,7 +261,7 @@
             // 
             BusPrice.BorderStyle = BorderStyle.FixedSingle;
             BusPrice.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            BusPrice.Location = new Point(151, 125);
+            BusPrice.Location = new Point(144, 116);
             BusPrice.Multiline = true;
             BusPrice.Name = "BusPrice";
             BusPrice.ReadOnly = true;
@@ -272,7 +272,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(50, 140);
+            label10.Location = new Point(34, 118);
             label10.Name = "label10";
             label10.Size = new Size(69, 29);
             label10.TabIndex = 12;
@@ -282,7 +282,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(41, 85);
+            label8.Location = new Point(34, 75);
             label8.Name = "label8";
             label8.Size = new Size(91, 29);
             label8.TabIndex = 10;
@@ -292,7 +292,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(41, 37);
+            label9.Location = new Point(34, 27);
             label9.Name = "label9";
             label9.Size = new Size(83, 29);
             label9.TabIndex = 8;
@@ -302,7 +302,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(811, 60);
+            label1.Location = new Point(675, 58);
             label1.Name = "label1";
             label1.Size = new Size(204, 36);
             label1.TabIndex = 2;
@@ -315,14 +315,14 @@
             txtID.Location = new Point(297, 367);
             txtID.Multiline = true;
             txtID.Name = "txtID";
-            txtID.Size = new Size(241, 45);
+            txtID.Size = new Size(250, 34);
             txtID.TabIndex = 10;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(160, 381);
+            label11.Location = new Point(149, 369);
             label11.Name = "label11";
             label11.Size = new Size(108, 29);
             label11.TabIndex = 9;
@@ -332,7 +332,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(583, 381);
+            label12.Location = new Point(695, 372);
             label12.Name = "label12";
             label12.Size = new Size(156, 29);
             label12.TabIndex = 11;
@@ -342,7 +342,7 @@
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label13.Location = new Point(1011, 381);
+            label13.Location = new Point(695, 424);
             label13.Name = "label13";
             label13.Size = new Size(176, 29);
             label13.TabIndex = 13;
@@ -352,17 +352,17 @@
             // 
             txtDestination.BorderStyle = BorderStyle.FixedSingle;
             txtDestination.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDestination.Location = new Point(720, 437);
+            txtDestination.Location = new Point(297, 473);
             txtDestination.Multiline = true;
             txtDestination.Name = "txtDestination";
-            txtDestination.Size = new Size(241, 45);
+            txtDestination.Size = new Size(250, 34);
             txtDestination.TabIndex = 18;
             // 
             // label15
             // 
             label15.AutoSize = true;
             label15.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label15.Location = new Point(583, 451);
+            label15.Location = new Point(149, 478);
             label15.Name = "label15";
             label15.Size = new Size(133, 29);
             label15.TabIndex = 17;
@@ -372,17 +372,17 @@
             // 
             txtOrigin.BorderStyle = BorderStyle.FixedSingle;
             txtOrigin.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtOrigin.Location = new Point(297, 437);
+            txtOrigin.Location = new Point(297, 422);
             txtOrigin.Multiline = true;
             txtOrigin.Name = "txtOrigin";
-            txtOrigin.Size = new Size(241, 45);
+            txtOrigin.Size = new Size(250, 34);
             txtOrigin.TabIndex = 16;
             // 
             // label16
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(160, 451);
+            label16.Location = new Point(149, 425);
             label16.Name = "label16";
             label16.Size = new Size(79, 29);
             label16.TabIndex = 15;
@@ -392,16 +392,16 @@
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(297, 536);
+            txtSearch.Location = new Point(297, 539);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
-            txtSearch.Size = new Size(664, 47);
+            txtSearch.Size = new Size(250, 34);
             txtSearch.TabIndex = 19;
             // 
             // btnSave
             // 
             btnSave.BackColor = Color.FromArgb(192, 192, 255);
-            btnSave.Location = new Point(282, 925);
+            btnSave.Location = new Point(185, 925);
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(152, 51);
             btnSave.TabIndex = 21;
@@ -412,7 +412,7 @@
             // btnSearch
             // 
             btnSearch.BackColor = SystemColors.ActiveCaption;
-            btnSearch.Location = new Point(583, 925);
+            btnSearch.Location = new Point(530, 925);
             btnSearch.Name = "btnSearch";
             btnSearch.Size = new Size(152, 51);
             btnSearch.TabIndex = 22;
@@ -423,7 +423,7 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(255, 192, 128);
-            button3.Location = new Point(870, 925);
+            button3.Location = new Point(855, 925);
             button3.Name = "button3";
             button3.Size = new Size(152, 51);
             button3.TabIndex = 23;
@@ -446,7 +446,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(166, 548);
+            label14.Location = new Point(149, 541);
             label14.Name = "label14";
             label14.Size = new Size(89, 29);
             label14.TabIndex = 25;
@@ -455,17 +455,17 @@
             // dtpDeparture
             // 
             dtpDeparture.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpDeparture.Location = new Point(1139, 373);
+            dtpDeparture.Location = new Point(929, 422);
             dtpDeparture.Name = "dtpDeparture";
-            dtpDeparture.Size = new Size(250, 34);
+            dtpDeparture.Size = new Size(422, 34);
             dtpDeparture.TabIndex = 26;
             // 
             // dtpPurchas
             // 
             dtpPurchas.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpPurchas.Location = new Point(720, 373);
+            dtpPurchas.Location = new Point(928, 367);
             dtpPurchas.Name = "dtpPurchas";
-            dtpPurchas.Size = new Size(241, 34);
+            dtpPurchas.Size = new Size(423, 34);
             dtpPurchas.TabIndex = 27;
             // 
             // DataTicket
@@ -473,19 +473,19 @@
             DataTicket.AllowUserToAddRows = false;
             DataTicket.AllowUserToDeleteRows = false;
             DataTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTicket.Location = new Point(124, 598);
+            DataTicket.Location = new Point(149, 598);
             DataTicket.Name = "DataTicket";
             DataTicket.ReadOnly = true;
             DataTicket.RowHeadersWidth = 51;
             DataTicket.RowTemplate.Height = 29;
-            DataTicket.Size = new Size(1063, 321);
+            DataTicket.Size = new Size(1214, 287);
             DataTicket.TabIndex = 28;
             // 
             // TicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1430, 1060);
+            ClientSize = new Size(1597, 1060);
             Controls.Add(DataTicket);
             Controls.Add(dtpPurchas);
             Controls.Add(dtpDeparture);

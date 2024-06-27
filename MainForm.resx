@@ -178,7 +178,7 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnVehicle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnStaff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABOtJREFUaEPtmVeoHVUUhq81xpZoYi8EjaKgoiSKoIIoYkNBiZEkKARf8iIqvsRg
@@ -242,7 +242,7 @@
         HZRf9NoAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnStaff.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnBus.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAA3NJREFUaEPtmjmrFEEURp8K4hoomCgGGgqCmYGB4AIqoiaiub/CxBUxcAH9DYqY
@@ -263,7 +263,7 @@
         Dx0Ks+0AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnPayment.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnTruck.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAABMBJREFUeF7tm92rFVUYh7dlSWomKKmUVFKCGOlVapldSOBFEJiVBSF2mVo3pVjq

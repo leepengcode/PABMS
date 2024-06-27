@@ -41,11 +41,11 @@
             btnDashboard = new Button();
             btnUser = new Button();
             btnTicket = new Button();
-            btnVehicle = new Button();
+            btnStaff = new Button();
             btnPackage = new Button();
             btnCustomer = new Button();
-            btnStaff = new Button();
-            btnPayment = new Button();
+            btnBus = new Button();
+            btnTruck = new Button();
             btnPayPackage = new Button();
             btnPayTicket = new Button();
             sideBarTransition = new System.Windows.Forms.Timer(components);
@@ -148,11 +148,11 @@
             sideBar.Controls.Add(btnDashboard, 0, 0);
             sideBar.Controls.Add(btnUser, 0, 4);
             sideBar.Controls.Add(btnTicket, 0, 1);
-            sideBar.Controls.Add(btnVehicle, 0, 3);
+            sideBar.Controls.Add(btnStaff, 0, 3);
             sideBar.Controls.Add(btnPackage, 0, 2);
             sideBar.Controls.Add(btnCustomer, 0, 5);
-            sideBar.Controls.Add(btnStaff, 0, 6);
-            sideBar.Controls.Add(btnPayment, 0, 7);
+            sideBar.Controls.Add(btnBus, 0, 6);
+            sideBar.Controls.Add(btnTruck, 0, 7);
             sideBar.Controls.Add(btnPayPackage, 0, 9);
             sideBar.Controls.Add(btnPayTicket, 0, 8);
             sideBar.Dock = DockStyle.Left;
@@ -226,20 +226,20 @@
             btnTicket.UseVisualStyleBackColor = true;
             btnTicket.Click += btnTicket_Click;
             // 
-            // btnVehicle
+            // btnStaff
             // 
-            btnVehicle.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnVehicle.Image = (Image)resources.GetObject("btnVehicle.Image");
-            btnVehicle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnVehicle.Location = new Point(0, 228);
-            btnVehicle.Margin = new Padding(0, 3, 3, 3);
-            btnVehicle.Name = "btnVehicle";
-            btnVehicle.Padding = new Padding(11, 0, 0, 0);
-            btnVehicle.Size = new Size(315, 69);
-            btnVehicle.TabIndex = 10;
-            btnVehicle.Text = "Staff";
-            btnVehicle.UseVisualStyleBackColor = true;
-            btnVehicle.Click += btnVehicle_Click;
+            btnStaff.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnStaff.Image = (Image)resources.GetObject("btnStaff.Image");
+            btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
+            btnStaff.Location = new Point(0, 228);
+            btnStaff.Margin = new Padding(0, 3, 3, 3);
+            btnStaff.Name = "btnStaff";
+            btnStaff.Padding = new Padding(11, 0, 0, 0);
+            btnStaff.Size = new Size(315, 69);
+            btnStaff.TabIndex = 10;
+            btnStaff.Text = "Staff";
+            btnStaff.UseVisualStyleBackColor = true;
+            btnStaff.Click += btnStaff_Click;
             // 
             // btnPackage
             // 
@@ -271,35 +271,35 @@
             btnCustomer.UseVisualStyleBackColor = true;
             btnCustomer.Click += btnCustomer_Click;
             // 
-            // btnStaff
+            // btnBus
             // 
-            btnStaff.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnStaff.Image = (Image)resources.GetObject("btnStaff.Image");
-            btnStaff.ImageAlign = ContentAlignment.MiddleLeft;
-            btnStaff.Location = new Point(0, 453);
-            btnStaff.Margin = new Padding(0, 3, 3, 3);
-            btnStaff.Name = "btnStaff";
-            btnStaff.Padding = new Padding(11, 0, 0, 0);
-            btnStaff.Size = new Size(315, 69);
-            btnStaff.TabIndex = 7;
-            btnStaff.Text = "Bus";
-            btnStaff.UseVisualStyleBackColor = true;
-            btnStaff.Click += btnStaff_Click;
+            btnBus.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBus.Image = (Image)resources.GetObject("btnBus.Image");
+            btnBus.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBus.Location = new Point(0, 453);
+            btnBus.Margin = new Padding(0, 3, 3, 3);
+            btnBus.Name = "btnBus";
+            btnBus.Padding = new Padding(11, 0, 0, 0);
+            btnBus.Size = new Size(315, 69);
+            btnBus.TabIndex = 7;
+            btnBus.Text = "Bus";
+            btnBus.UseVisualStyleBackColor = true;
+            btnBus.Click += btnBus_Click;
             // 
-            // btnPayment
+            // btnTruck
             // 
-            btnPayment.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnPayment.Image = (Image)resources.GetObject("btnPayment.Image");
-            btnPayment.ImageAlign = ContentAlignment.MiddleLeft;
-            btnPayment.Location = new Point(0, 528);
-            btnPayment.Margin = new Padding(0, 3, 3, 3);
-            btnPayment.Name = "btnPayment";
-            btnPayment.Padding = new Padding(11, 0, 0, 0);
-            btnPayment.Size = new Size(315, 69);
-            btnPayment.TabIndex = 5;
-            btnPayment.Text = "Truck";
-            btnPayment.UseVisualStyleBackColor = true;
-            btnPayment.Click += btnPayment_Click;
+            btnTruck.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnTruck.Image = (Image)resources.GetObject("btnTruck.Image");
+            btnTruck.ImageAlign = ContentAlignment.MiddleLeft;
+            btnTruck.Location = new Point(0, 528);
+            btnTruck.Margin = new Padding(0, 3, 3, 3);
+            btnTruck.Name = "btnTruck";
+            btnTruck.Padding = new Padding(11, 0, 0, 0);
+            btnTruck.Size = new Size(315, 69);
+            btnTruck.TabIndex = 5;
+            btnTruck.Text = "Truck";
+            btnTruck.UseVisualStyleBackColor = true;
+            btnTruck.Click += btnTruck_Click;
             // 
             // btnPayPackage
             // 
@@ -366,12 +366,12 @@
         private Button btnMenu;
         private Button btnExit;
         private Button btnDashboard;
-        private Button btnStaff;
+        private Button btnBus;
         private Button btnUser;
         private Button btnPackage;
-        private Button btnVehicle;
+        private Button btnStaff;
         private Button btnTicket;
-        private Button btnPayment;
+        private Button btnTruck;
         private Button btnPayTicket;
         private Button btnPayPackage;
         private Button btnCustomer;

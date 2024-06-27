@@ -57,7 +57,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(545, 75);
+            label1.Location = new Point(697, 79);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(174, 36);
@@ -68,7 +68,7 @@
             // 
             txtPrice.BorderStyle = BorderStyle.FixedSingle;
             txtPrice.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPrice.Location = new Point(307, 259);
+            txtPrice.Location = new Point(459, 263);
             txtPrice.Margin = new Padding(5, 4, 5, 4);
             txtPrice.Multiline = true;
             txtPrice.Name = "txtPrice";
@@ -79,7 +79,7 @@
             // 
             label16.AutoSize = true;
             label16.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label16.Location = new Point(156, 264);
+            label16.Location = new Point(308, 268);
             label16.Margin = new Padding(5, 0, 5, 0);
             label16.Name = "label16";
             label16.Size = new Size(141, 29);
@@ -90,7 +90,7 @@
             // 
             txtBusID.BorderStyle = BorderStyle.FixedSingle;
             txtBusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBusID.Location = new Point(307, 204);
+            txtBusID.Location = new Point(459, 208);
             txtBusID.Margin = new Padding(5, 4, 5, 4);
             txtBusID.Multiline = true;
             txtBusID.Name = "txtBusID";
@@ -102,7 +102,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(156, 209);
+            label11.Location = new Point(308, 213);
             label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
             label11.Size = new Size(83, 29);
@@ -113,7 +113,7 @@
             // 
             txtBusNo.BorderStyle = BorderStyle.FixedSingle;
             txtBusNo.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBusNo.Location = new Point(877, 204);
+            txtBusNo.Location = new Point(1029, 208);
             txtBusNo.Margin = new Padding(5, 4, 5, 4);
             txtBusNo.Multiline = true;
             txtBusNo.Name = "txtBusNo";
@@ -124,7 +124,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(702, 209);
+            label2.Location = new Point(854, 213);
             label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
             label2.Size = new Size(147, 29);
@@ -140,7 +140,7 @@
             panel1.Controls.Add(txtFullName);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label6);
-            panel1.Location = new Point(156, 326);
+            panel1.Location = new Point(308, 330);
             panel1.Margin = new Padding(5, 4, 5, 4);
             panel1.Name = "panel1";
             panel1.Size = new Size(971, 207);
@@ -214,7 +214,7 @@
             // 
             label14.AutoSize = true;
             label14.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(153, 559);
+            label14.Location = new Point(305, 563);
             label14.Margin = new Padding(5, 0, 5, 0);
             label14.Name = "label14";
             label14.Size = new Size(89, 29);
@@ -225,10 +225,10 @@
             // 
             btnNew.BackColor = Color.FromArgb(192, 255, 255);
             btnNew.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnNew.Location = new Point(1693, 1299);
+            btnNew.Location = new Point(1116, 934);
             btnNew.Margin = new Padding(5, 4, 5, 4);
             btnNew.Name = "btnNew";
-            btnNew.Size = new Size(266, 72);
+            btnNew.Size = new Size(163, 50);
             btnNew.TabIndex = 51;
             btnNew.Text = "NEW";
             btnNew.UseVisualStyleBackColor = false;
@@ -238,10 +238,10 @@
             // 
             btnUpdate.BackColor = Color.FromArgb(255, 192, 128);
             btnUpdate.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnUpdate.Location = new Point(1146, 1299);
+            btnUpdate.Location = new Point(830, 934);
             btnUpdate.Margin = new Padding(5, 4, 5, 4);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(266, 72);
+            btnUpdate.Size = new Size(198, 50);
             btnUpdate.TabIndex = 50;
             btnUpdate.Text = "UPDATE";
             btnUpdate.UseVisualStyleBackColor = false;
@@ -251,10 +251,10 @@
             // 
             btnSearch.BackColor = SystemColors.ActiveCaption;
             btnSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSearch.Location = new Point(581, 1299);
+            btnSearch.Location = new Point(585, 934);
             btnSearch.Margin = new Padding(5, 4, 5, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(266, 72);
+            btnSearch.Size = new Size(177, 50);
             btnSearch.TabIndex = 49;
             btnSearch.Text = "SEARCH";
             btnSearch.UseVisualStyleBackColor = false;
@@ -264,10 +264,10 @@
             // 
             btnSave.BackColor = Color.FromArgb(192, 192, 255);
             btnSave.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSave.Location = new Point(87, 1299);
+            btnSave.Location = new Point(308, 934);
             btnSave.Margin = new Padding(5, 4, 5, 4);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(266, 72);
+            btnSave.Size = new Size(182, 50);
             btnSave.TabIndex = 48;
             btnSave.Text = "SAVE";
             btnSave.UseVisualStyleBackColor = false;
@@ -277,7 +277,7 @@
             // 
             txtSearch.BorderStyle = BorderStyle.FixedSingle;
             txtSearch.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtSearch.Location = new Point(281, 557);
+            txtSearch.Location = new Point(433, 561);
             txtSearch.Margin = new Padding(5, 4, 5, 4);
             txtSearch.Multiline = true;
             txtSearch.Name = "txtSearch";
@@ -287,12 +287,12 @@
             // DataBus
             // 
             DataBus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataBus.Location = new Point(153, 619);
+            DataBus.Location = new Point(305, 623);
             DataBus.Margin = new Padding(5, 4, 5, 4);
             DataBus.Name = "DataBus";
             DataBus.RowHeadersWidth = 51;
             DataBus.RowTemplate.Height = 29;
-            DataBus.Size = new Size(971, 349);
+            DataBus.Size = new Size(971, 277);
             DataBus.TabIndex = 53;
             // 
             // BusForm
