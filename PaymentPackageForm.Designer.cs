@@ -317,11 +317,11 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.White;
+            button1.BackColor = Color.Aqua;
             button1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            button1.Location = new Point(1207, 604);
+            button1.Location = new Point(1207, 599);
             button1.Name = "button1";
-            button1.Size = new Size(152, 50);
+            button1.Size = new Size(152, 56);
             button1.TabIndex = 85;
             button1.Text = "Print";
             button1.UseVisualStyleBackColor = false;

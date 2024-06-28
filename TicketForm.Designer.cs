@@ -68,7 +68,6 @@
             dtpDeparture = new DateTimePicker();
             dtpPurchas = new DateTimePicker();
             DataTicket = new DataGridView();
-            button1 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -501,25 +500,12 @@
             DataTicket.Size = new Size(1066, 287);
             DataTicket.TabIndex = 28;
             // 
-            // button1
-            // 
-            button1.BackColor = Color.White;
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(1127, 541);
-            button1.Name = "button1";
-            button1.Size = new Size(152, 51);
-            button1.TabIndex = 29;
-            button1.Text = "Print";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // TicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
             ClientSize = new Size(1597, 1060);
-            Controls.Add(button1);
             Controls.Add(DataTicket);
             Controls.Add(dtpPurchas);
             Controls.Add(dtpDeparture);
@@ -601,6 +587,5 @@
         private TextBox StaffID;
         private ComboBox cmCusName;
         private DataGridView DataTicket;
-        private Button button1;
     }
 }
