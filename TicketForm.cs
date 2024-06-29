@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection;
 
 namespace PABMS
 {
@@ -20,14 +21,18 @@ namespace PABMS
 
         private void TicketForm_Load(object sender, EventArgs e)
         {
-            FillComboSearchBusID();
-            FillComboSearchStaffID();
-            FillComboSearchCusID();
-            LoadTicketData();
+            FillComboBusID();
+            FillComboStaffID();
+            FillComboCusID();
+            /*LoadTicketData();
             LoadLatestTicketID();
-            DataTicket.CellClick += DataTicket_CellClick;
+            gridTicket.CellClick += DataTicket_CellClick;*/
+
+            //fillDataTableAllColumns();
+            fillDataTableTicketColumns();
+            gridTicket.DataSource = dataTable;
         }
-        private void FillComboSearchBusID()
+        private void FillComboBusID()
         {
             cmbBusNumber.Items.Clear();
 
@@ -51,7 +56,7 @@ namespace PABMS
 
         }
 
-        private void FillComboSearchStaffID()
+        private void FillComboStaffID()
         {
             cmStaffName.Items.Clear();
 
@@ -75,7 +80,7 @@ namespace PABMS
 
         }
 
-        private void FillComboSearchCusID()
+        private void FillComboCusID()
         {
             cmCusName.Items.Clear();
 
@@ -113,8 +118,8 @@ namespace PABMS
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        CusID.Text = reader["CustomerID"].ToString();
-                        CusPhone.Text = reader["PhoneNumber"].ToString();
+                        txtCustomerID.Text = reader["CustomerID"].ToString();
+                        txtCusPhone.Text = reader["PhoneNumber"].ToString();
                     }
                     reader.Close();
                     connection.Close();
@@ -127,109 +132,12 @@ namespace PABMS
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-
-            int customerId = Convert.ToInt32(cmCusName.SelectedItem.ToString());
-            int staffId = Convert.ToInt32(cmStaffName.SelectedItem.ToString());
-            int busId = Convert.ToInt32(cmbBusNumber.SelectedItem.ToString());
-            DateTime purchaseDate = dtpPurchas.Value;
-            DateTime departureDate = dtpDeparture.Value;
-            string originName = txtOrigin.Text.Trim();
-            string destinationName = txtDestination.Text.Trim();
-
-            try
-            {
-                connection.Open();
-                string query = "INSERT INTO tbTicket (PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID) " +
-                                "VALUES (@PurchaseDate, @DepartureDate, @CustomerID, @StaffID, @OriginName, @DestinationName, @BusID)";
-
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
-                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
-                    cmd.Parameters.AddWithValue("@CustomerID", customerId);
-                    cmd.Parameters.AddWithValue("@StaffID", staffId);
-                    cmd.Parameters.AddWithValue("@OriginName", originName);
-                    cmd.Parameters.AddWithValue("@DestinationName", destinationName);
-                    cmd.Parameters.AddWithValue("@BusID", busId);
-
-                    cmd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Ticket added successfully.");
-                LoadTicketData();
-                LoadLatestTicketID();
-                ClearForm();
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while saving the ticket: " + ex.Message);
-            }
-
-        }
-
-        private void ClearForm()
-        {
-            cmCusName.SelectedIndex = -1;
-            cmStaffName.SelectedIndex = -1;
-            cmbBusNumber.SelectedIndex = -1;
-            dtpPurchas.Value = DateTime.Now;
-            dtpDeparture.Value = DateTime.Now;
-            txtOrigin.Clear();
-            txtDestination.Clear();
-            txtBusID.Clear();
-            txtTicketPrice.Clear();
-            CusID.Clear();
-            CusPhone.Clear();
-            StaffID.Clear();
-            txtSearch.Clear();
-            LoadTicketData();
-            LoadLatestTicketID();
-        }
-
-        private void LoadTicketData()
-        {
-            dataTable = new DataTable();
-            dataAdapter = new SqlDataAdapter();
-
-            string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID FROM tbTicket";
-
-            try
-            {
-                connection.Open();
-                dataAdapter.SelectCommand = new SqlCommand(query, connection);
-                dataAdapter.Fill(dataTable);
-
-                // Bind data to DataGridView
-                DataTicket.DataSource = dataTable;
-
-                // Optionally, set DataGridView column headers if not automatically set
-                DataTicket.Columns["TicketID"].HeaderText = "Ticket ID";
-                DataTicket.Columns["PurchaseDate"].HeaderText = "Purchase Date";
-                DataTicket.Columns["DepartureDate"].HeaderText = "Departure Date";
-                DataTicket.Columns["CustomerID"].HeaderText = "Customer ID";
-                DataTicket.Columns["StaffID"].HeaderText = "Staff ID";
-                DataTicket.Columns["OriginName"].HeaderText = "Origin";
-                DataTicket.Columns["DestinationName"].HeaderText = "Destination";
-                DataTicket.Columns["BusID"].HeaderText = "Bus ID";
-
-                connection.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
-            }
-
-        }
 
         private void LoadLatestTicketID()
         {
             int latestTicketID = GetLatestTicketID();
-            txtID.Text = (latestTicketID + 1).ToString();
+            txtTicketID.Text = (latestTicketID + 1).ToString();
         }
-
         private int GetLatestTicketID()
         {
             int latestTicketID = 1;
@@ -258,21 +166,31 @@ namespace PABMS
             return latestTicketID;
         }
 
-        private void DataTicket_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void gridTicket_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = DataTicket.Rows[e.RowIndex];
+                fillDataTableAllColumns();
+                DataRow row;
+                row = dataTable.Rows[e.RowIndex];
                 if (row != null)
                 {
-                    txtID.Text = row.Cells["TicketID"].Value.ToString();
-                    dtpPurchas.Value = Convert.ToDateTime(row.Cells["PurchaseDate"].Value);
-                    dtpDeparture.Value = Convert.ToDateTime(row.Cells["DepartureDate"].Value);
-                    cmCusName.Text = row.Cells["CustomerID"].Value.ToString();
-                    cmStaffName.Text = row.Cells["StaffID"].Value.ToString();
-                    txtOrigin.Text = row.Cells["OriginName"].Value.ToString();
-                    txtDestination.Text = row.Cells["DestinationName"].Value.ToString();
-                    cmbBusNumber.Text = row.Cells["BusID"].Value.ToString();
+                    txtTicketID.Text = row["TicketID"].ToString();
+                    dtpPurchase.Value = Convert.ToDateTime(row["PurchaseDate"]);
+                    dtpDeparture.Value = Convert.ToDateTime(row["DepartureDate"]);
+                    txtOrigin.Text = row["OriginName"].ToString();
+                    txtDestination.Text = row["DestinationName"].ToString();
+
+                    txtCustomerID.Text = row["CustomerID"].ToString();
+                    cmCusName.Text = row["CustomerName"].ToString();
+                    txtCusPhone.Text = row["CustomerPhone"].ToString();
+
+                    StaffID.Text = row["StaffID"].ToString();
+                    cmStaffName.Text = row["StaffID"].ToString();
+
+                    txtBusID.Text = row["BusID"].ToString();
+                    cmbBusNumber.Text = row["BusNumber"].ToString();
+                    txtTicketPrice.Text = row["TicketPrice"].ToString();
                 }
                 else
                 {
@@ -280,104 +198,47 @@ namespace PABMS
                 }
             }
         }
-
-        private void CusName_TextChanged(object sender, EventArgs e)
+        // get all data for grid with all connected foreign keys
+        private void fillDataTableAllColumns()
         {
-            // Event handler for text change in customer name
-        }
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            int searchID;
-            if (!int.TryParse(txtSearch.Text.Trim(), out searchID))
-            {
-                MessageBox.Show("Please enter a valid Ticket ID for searching.");
-                return;
-            }
-
-            string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID " +
-                           "FROM tbTicket WHERE TicketID = @TicketID";
-
-            try
-            {
-                connection.Open(); // error here
-                dataAdapter.SelectCommand = new SqlCommand(query, connection);
-                dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
-                dataTable.Clear(); // Clear previous data
-                dataAdapter.Fill(dataTable);
-
-                // Bind data to DataGridView
-                DataTicket.DataSource = dataTable;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
-            }
-
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            ClearForm();
-        }
-
-
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtID.Text.Trim()))
-            {
-                MessageBox.Show("Please select a ticket to update.");
-                return;
-            }
-
-            int ticketID = Convert.ToInt32(txtID.Text.Trim());
-            int customerID = Convert.ToInt32(cmCusName.SelectedItem?.ToString());
-            int staffID = Convert.ToInt32(cmStaffName.SelectedItem?.ToString());
-            int busID = Convert.ToInt32(cmbBusNumber.SelectedItem?.ToString());
-            DateTime purchaseDate = dtpPurchas.Value;
-            DateTime departureDate = dtpDeparture.Value;
-            string origin = txtOrigin.Text.Trim();
-            string destination = txtDestination.Text.Trim();
-
-            if (customerID == 0 || staffID == 0 || busID == 0)
-            {
-                MessageBox.Show("Please select a valid customer, staff, and bus.");
-                return;
-            }
-
+            dataTable = new DataTable();
+            string query = @"SELECT t.TicketID, t.PurchaseDate, t.DepartureDate, t.OriginName, t.DestinationName, +
+                c.CustomerID, c.FullName as CustomerName, c.PhoneNumber as CustomerPhone, +
+                s.StaffID, s.FullName as StaffName,
+                b.BusID, b.BusNumber, b.TicketPrice
+                FROM tbTicket t
+                INNER JOIN tbCustomer c ON t.CustomerID = c.CustomerID
+                INNER JOIN tbStaff s ON t.StaffID = s.StaffID
+                INNER JOIN tbBus b ON t.BusID = b.BusID
+            ";
             try
             {
                 connection.Open();
-                string query = "UPDATE tbTicket SET PurchaseDate = @PurchaseDate, DepartureDate = @DepartureDate, " +
-                                "CustomerID = @CustomerID, StaffID = @StaffID, OriginName = @OriginName, " +
-                                "DestinationName = @DestinationName, BusID = @BusID " +
-                                "WHERE TicketID = @TicketID";
-
-                using (SqlCommand cmd = new SqlCommand(query, connection))
-                {
-                    cmd.Parameters.AddWithValue("@TicketID", ticketID);
-                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
-                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
-                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
-                    cmd.Parameters.AddWithValue("@StaffID", staffID);
-                    cmd.Parameters.AddWithValue("@OriginName", origin);
-                    cmd.Parameters.AddWithValue("@DestinationName", destination);
-                    cmd.Parameters.AddWithValue("@BusID", busID);
-
-                    cmd.ExecuteNonQuery();
-                }
-                MessageBox.Show("Ticket updated successfully.");
-                ClearForm();
-                LoadTicketData();
+                dataAdapter.SelectCommand = new SqlCommand(query, connection);
+                dataAdapter.Fill(dataTable);
+                connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("An error occurred: " + ex.Message);
+                MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
             }
-
         }
-
+        private void fillDataTableTicketColumns()
+        {
+            dataTable = new DataTable();
+            string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID FROM tbTicket";
+            try
+            {
+                connection.Open();
+                dataAdapter.SelectCommand = new SqlCommand(query, connection);
+                dataAdapter.Fill(dataTable);
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading ticket data: " + ex.Message);
+            }
+        }
         private void cmbStaffName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmStaffName.SelectedItem != null)
@@ -432,6 +293,153 @@ namespace PABMS
                 }
 
             }
+        }
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            int searchID;
+            if (!int.TryParse(txtSearch.Text.Trim(), out searchID))
+            {
+                MessageBox.Show("Please enter a valid Ticket ID for searching.");
+                return;
+            }
+
+            string query = "SELECT TicketID, PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID " +
+                           "FROM tbTicket WHERE TicketID = @TicketID";
+
+            try
+            {
+                connection.Open(); // error here
+                dataAdapter.SelectCommand = new SqlCommand(query, connection);
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
+                dataTable.Clear(); // Clear previous data
+                dataAdapter.Fill(dataTable);
+
+                // Bind data to DataGridView
+                gridTicket.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while searching for the ticket: " + ex.Message);
+            }
+
+        }
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+
+            int customerId = Convert.ToInt32(cmCusName.SelectedItem.ToString());
+            int staffId = Convert.ToInt32(cmStaffName.SelectedItem.ToString());
+            int busId = Convert.ToInt32(cmbBusNumber.SelectedItem.ToString());
+            DateTime purchaseDate = dtpPurchase.Value;
+            DateTime departureDate = dtpDeparture.Value;
+            string originName = txtOrigin.Text.Trim();
+            string destinationName = txtDestination.Text.Trim();
+
+            try
+            {
+                connection.Open();
+                string query = "INSERT INTO tbTicket (PurchaseDate, DepartureDate, CustomerID, StaffID, OriginName, DestinationName, BusID) " +
+                                "VALUES (@PurchaseDate, @DepartureDate, @CustomerID, @StaffID, @OriginName, @DestinationName, @BusID)";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
+                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerId);
+                    cmd.Parameters.AddWithValue("@StaffID", staffId);
+                    cmd.Parameters.AddWithValue("@OriginName", originName);
+                    cmd.Parameters.AddWithValue("@DestinationName", destinationName);
+                    cmd.Parameters.AddWithValue("@BusID", busId);
+
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Ticket added successfully.");
+                //LoadTicketData();
+                LoadLatestTicketID();
+                ClearForm();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving the ticket: " + ex.Message);
+            }
+
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTicketID.Text.Trim()))
+            {
+                MessageBox.Show("Please select a ticket to update.");
+                return;
+            }
+
+            int ticketID = Convert.ToInt32(txtTicketID.Text.Trim());
+            int customerID = Convert.ToInt32(cmCusName.SelectedItem?.ToString());
+            int staffID = Convert.ToInt32(cmStaffName.SelectedItem?.ToString());
+            int busID = Convert.ToInt32(cmbBusNumber.SelectedItem?.ToString());
+            DateTime purchaseDate = dtpPurchase.Value;
+            DateTime departureDate = dtpDeparture.Value;
+            string origin = txtOrigin.Text.Trim();
+            string destination = txtDestination.Text.Trim();
+
+            if (customerID == 0 || staffID == 0 || busID == 0)
+            {
+                MessageBox.Show("Please select a valid customer, staff, and bus.");
+                return;
+            }
+
+            try
+            {
+                connection.Open();
+                string query = "UPDATE tbTicket SET PurchaseDate = @PurchaseDate, DepartureDate = @DepartureDate, " +
+                                "CustomerID = @CustomerID, StaffID = @StaffID, OriginName = @OriginName, " +
+                                "DestinationName = @DestinationName, BusID = @BusID " +
+                                "WHERE TicketID = @TicketID";
+
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@TicketID", ticketID);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", purchaseDate);
+                    cmd.Parameters.AddWithValue("@DepartureDate", departureDate);
+                    cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                    cmd.Parameters.AddWithValue("@StaffID", staffID);
+                    cmd.Parameters.AddWithValue("@OriginName", origin);
+                    cmd.Parameters.AddWithValue("@DestinationName", destination);
+                    cmd.Parameters.AddWithValue("@BusID", busID);
+
+                    cmd.ExecuteNonQuery();
+                }
+                MessageBox.Show("Ticket updated successfully.");
+                ClearForm();
+                //LoadTicketData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
+
+        private void ClearForm()
+        {
+            cmCusName.SelectedIndex = -1;
+            cmStaffName.SelectedIndex = -1;
+            cmbBusNumber.SelectedIndex = -1;
+            dtpPurchase.Value = DateTime.Now;
+            dtpDeparture.Value = DateTime.Now;
+            txtOrigin.Clear();
+            txtDestination.Clear();
+            txtBusID.Clear();
+            txtTicketPrice.Clear();
+            txtCustomerID.Clear();
+            txtCusPhone.Clear();
+            StaffID.Clear();
+            txtSearch.Clear();
+            //LoadTicketData();
+            //LoadLatestTicketID();
+        }
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            ClearForm();
         }
     }
 }

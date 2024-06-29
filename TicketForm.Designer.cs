@@ -30,9 +30,9 @@
         {
             panel1 = new Panel();
             cmCusName = new ComboBox();
-            CusPhone = new TextBox();
+            txtCusPhone = new TextBox();
             label5 = new Label();
-            CusID = new TextBox();
+            txtCustomerID = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel2 = new Panel();
@@ -51,7 +51,7 @@
             label9 = new Label();
             label1 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            txtID = new TextBox();
+            txtTicketID = new TextBox();
             label11 = new Label();
             label12 = new Label();
             label13 = new Label();
@@ -62,25 +62,25 @@
             txtSearch = new TextBox();
             btnSave = new Button();
             btnSearch = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnUpdate = new Button();
+            btnNew = new Button();
             label14 = new Label();
             dtpDeparture = new DateTimePicker();
-            dtpPurchas = new DateTimePicker();
-            DataTicket = new DataGridView();
+            dtpPurchase = new DateTimePicker();
+            gridTicket = new DataGridView();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)DataTicket).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gridTicket).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(cmCusName);
-            panel1.Controls.Add(CusPhone);
+            panel1.Controls.Add(txtCusPhone);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(CusID);
+            panel1.Controls.Add(txtCustomerID);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Location = new Point(124, 125);
@@ -98,15 +98,15 @@
             cmCusName.TabIndex = 31;
             cmCusName.SelectedIndexChanged += cmCusID_SelectedIndexChanged;
             // 
-            // CusPhone
+            // txtCusPhone
             // 
-            CusPhone.BorderStyle = BorderStyle.FixedSingle;
-            CusPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusPhone.Location = new Point(218, 134);
-            CusPhone.Multiline = true;
-            CusPhone.Name = "CusPhone";
-            CusPhone.Size = new Size(178, 34);
-            CusPhone.TabIndex = 8;
+            txtCusPhone.BorderStyle = BorderStyle.FixedSingle;
+            txtCusPhone.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCusPhone.Location = new Point(218, 134);
+            txtCusPhone.Multiline = true;
+            txtCusPhone.Name = "txtCusPhone";
+            txtCusPhone.Size = new Size(178, 34);
+            txtCusPhone.TabIndex = 8;
             // 
             // label5
             // 
@@ -120,16 +120,15 @@
             label5.TabIndex = 7;
             label5.Text = "Phone Number";
             // 
-            // CusID
+            // txtCustomerID
             // 
-            CusID.BorderStyle = BorderStyle.FixedSingle;
-            CusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            CusID.Location = new Point(218, 29);
-            CusID.Multiline = true;
-            CusID.Name = "CusID";
-            CusID.Size = new Size(178, 34);
-            CusID.TabIndex = 3;
-            CusID.TextChanged += CusName_TextChanged;
+            txtCustomerID.BorderStyle = BorderStyle.FixedSingle;
+            txtCustomerID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCustomerID.Location = new Point(218, 29);
+            txtCustomerID.Multiline = true;
+            txtCustomerID.Name = "txtCustomerID";
+            txtCustomerID.Size = new Size(178, 34);
+            txtCustomerID.TabIndex = 3;
             // 
             // label3
             // 
@@ -323,15 +322,15 @@
             label1.TabIndex = 2;
             label1.Text = "Ticket's Form";
             // 
-            // txtID
+            // txtTicketID
             // 
-            txtID.BorderStyle = BorderStyle.FixedSingle;
-            txtID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtID.Location = new Point(297, 367);
-            txtID.Multiline = true;
-            txtID.Name = "txtID";
-            txtID.Size = new Size(250, 34);
-            txtID.TabIndex = 10;
+            txtTicketID.BorderStyle = BorderStyle.FixedSingle;
+            txtTicketID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTicketID.Location = new Point(297, 367);
+            txtTicketID.Multiline = true;
+            txtTicketID.Name = "txtTicketID";
+            txtTicketID.Size = new Size(250, 34);
+            txtTicketID.TabIndex = 10;
             // 
             // label11
             // 
@@ -437,29 +436,29 @@
             btnSearch.UseVisualStyleBackColor = false;
             btnSearch.Click += btnSearch_Click;
             // 
-            // button3
+            // btnUpdate
             // 
-            button3.BackColor = Color.FromArgb(255, 192, 128);
-            button3.ForeColor = Color.Black;
-            button3.Location = new Point(841, 925);
-            button3.Name = "button3";
-            button3.Size = new Size(152, 51);
-            button3.TabIndex = 23;
-            button3.Text = "UPDATE";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            btnUpdate.BackColor = Color.FromArgb(255, 192, 128);
+            btnUpdate.ForeColor = Color.Black;
+            btnUpdate.Location = new Point(841, 925);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(152, 51);
+            btnUpdate.TabIndex = 23;
+            btnUpdate.Text = "UPDATE";
+            btnUpdate.UseVisualStyleBackColor = false;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // button4
+            // btnNew
             // 
-            button4.BackColor = Color.FromArgb(192, 255, 255);
-            button4.ForeColor = Color.Black;
-            button4.Location = new Point(1127, 925);
-            button4.Name = "button4";
-            button4.Size = new Size(152, 51);
-            button4.TabIndex = 24;
-            button4.Text = "NEW";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            btnNew.BackColor = Color.FromArgb(192, 255, 255);
+            btnNew.ForeColor = Color.Black;
+            btnNew.Location = new Point(1127, 925);
+            btnNew.Name = "btnNew";
+            btnNew.Size = new Size(152, 51);
+            btnNew.TabIndex = 24;
+            btnNew.Text = "NEW";
+            btnNew.UseVisualStyleBackColor = false;
+            btnNew.Click += btnNew_Click;
             // 
             // label14
             // 
@@ -479,26 +478,27 @@
             dtpDeparture.Size = new Size(422, 34);
             dtpDeparture.TabIndex = 26;
             // 
-            // dtpPurchas
+            // dtpPurchase
             // 
-            dtpPurchas.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dtpPurchas.Location = new Point(928, 367);
-            dtpPurchas.Name = "dtpPurchas";
-            dtpPurchas.Size = new Size(423, 34);
-            dtpPurchas.TabIndex = 27;
+            dtpPurchase.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dtpPurchase.Location = new Point(928, 367);
+            dtpPurchase.Name = "dtpPurchase";
+            dtpPurchase.Size = new Size(423, 34);
+            dtpPurchase.TabIndex = 27;
             // 
-            // DataTicket
+            // gridTicket
             // 
-            DataTicket.AllowUserToAddRows = false;
-            DataTicket.AllowUserToDeleteRows = false;
-            DataTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTicket.Location = new Point(213, 598);
-            DataTicket.Name = "DataTicket";
-            DataTicket.ReadOnly = true;
-            DataTicket.RowHeadersWidth = 51;
-            DataTicket.RowTemplate.Height = 29;
-            DataTicket.Size = new Size(1066, 287);
-            DataTicket.TabIndex = 28;
+            gridTicket.AllowUserToAddRows = false;
+            gridTicket.AllowUserToDeleteRows = false;
+            gridTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridTicket.Location = new Point(213, 598);
+            gridTicket.Name = "gridTicket";
+            gridTicket.ReadOnly = true;
+            gridTicket.RowHeadersWidth = 51;
+            gridTicket.RowTemplate.Height = 29;
+            gridTicket.Size = new Size(1066, 287);
+            gridTicket.TabIndex = 28;
+            gridTicket.CellClick += gridTicket_CellClick;
             // 
             // TicketForm
             // 
@@ -506,12 +506,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
             ClientSize = new Size(1597, 1060);
-            Controls.Add(DataTicket);
-            Controls.Add(dtpPurchas);
+            Controls.Add(gridTicket);
+            Controls.Add(dtpPurchase);
             Controls.Add(dtpDeparture);
             Controls.Add(label14);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnNew);
+            Controls.Add(btnUpdate);
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Controls.Add(txtDestination);
@@ -520,7 +520,7 @@
             Controls.Add(label16);
             Controls.Add(label13);
             Controls.Add(label12);
-            Controls.Add(txtID);
+            Controls.Add(txtTicketID);
             Controls.Add(label11);
             Controls.Add(label1);
             Controls.Add(panel3);
@@ -540,7 +540,7 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)DataTicket).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gridTicket).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -551,11 +551,11 @@
         private Panel panel2;
         private Panel panel3;
         private Label label1;
-        private TextBox CusID;
+        private TextBox txtCustomerID;
         private Label label3;
         private Label label2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private TextBox CusPhone;
+        private TextBox txtCusPhone;
         private Label label5;
         private Label label6;
         private Label label7;
@@ -565,7 +565,7 @@
         private Label label9;
         private TextBox textBox10;
         private TextBox textBox9;
-        private TextBox txtID;
+        private TextBox txtTicketID;
         private Label label11;
         private Label label12;
         private Label label13;
@@ -576,16 +576,16 @@
         private TextBox txtSearch;
         private Button btnSave;
         private Button btnSearch;
-        private Button button3;
-        private Button button4;
+        private Button btnUpdate;
+        private Button btnNew;
         private Label label14;
         private DateTimePicker dtpDeparture;
-        private DateTimePicker dtpPurchas;
+        private DateTimePicker dtpPurchase;
         private ComboBox cmbBusNumber;
         private ComboBox cmStaffName;
         private TextBox txtBusID;
         private TextBox StaffID;
         private ComboBox cmCusName;
-        private DataGridView DataTicket;
+        private DataGridView gridTicket;
     }
 }
