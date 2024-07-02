@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataBus = new DataGridView();
+            gridPaymentTicket = new DataGridView();
             label14 = new Label();
             btnNew = new Button();
             btnUpdate = new Button();
@@ -38,34 +38,35 @@
             panel1 = new Panel();
             textBox1 = new TextBox();
             label4 = new Label();
-            comboBox1 = new ComboBox();
-            textBox2 = new TextBox();
+            cmbCusName = new ComboBox();
+            txtCusID = new TextBox();
             label7 = new Label();
             label8 = new Label();
-            cmDriver = new ComboBox();
+            txtTicketID = new TextBox();
             txtFullName = new TextBox();
             label3 = new Label();
             label6 = new Label();
             label2 = new Label();
             txtAmount = new TextBox();
             label16 = new Label();
-            txtPayID = new TextBox();
+            txtPaymentTicketID = new TextBox();
             label11 = new Label();
             label1 = new Label();
             dateTimePicker1 = new DateTimePicker();
-            ((System.ComponentModel.ISupportInitialize)DataBus).BeginInit();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)gridPaymentTicket).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // DataBus
+            // gridPaymentTicket
             // 
-            DataBus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataBus.Location = new Point(315, 595);
-            DataBus.Name = "DataBus";
-            DataBus.RowHeadersWidth = 51;
-            DataBus.RowTemplate.Height = 29;
-            DataBus.Size = new Size(1052, 291);
-            DataBus.TabIndex = 68;
+            gridPaymentTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gridPaymentTicket.Location = new Point(315, 595);
+            gridPaymentTicket.Name = "gridPaymentTicket";
+            gridPaymentTicket.RowHeadersWidth = 51;
+            gridPaymentTicket.RowTemplate.Height = 29;
+            gridPaymentTicket.Size = new Size(1052, 291);
+            gridPaymentTicket.TabIndex = 68;
             // 
             // label14
             // 
@@ -136,11 +137,11 @@
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(textBox1);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(comboBox1);
-            panel1.Controls.Add(textBox2);
+            panel1.Controls.Add(cmbCusName);
+            panel1.Controls.Add(txtCusID);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(cmDriver);
+            panel1.Controls.Add(txtTicketID);
             panel1.Controls.Add(txtFullName);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label6);
@@ -162,29 +163,31 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(528, 123);
+            label4.Location = new Point(529, 123);
             label4.Name = "label4";
-            label4.Size = new Size(121, 29);
+            label4.Size = new Size(159, 29);
             label4.TabIndex = 60;
-            label4.Text = "Ticket Qty";
+            label4.Text = "Customer Tel";
             // 
-            // comboBox1
+            // cmbCusName
             // 
-            comboBox1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(733, 26);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(250, 37);
-            comboBox1.TabIndex = 59;
+            cmbCusName.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbCusName.FormattingEnabled = true;
+            cmbCusName.Location = new Point(733, 72);
+            cmbCusName.Name = "cmbCusName";
+            cmbCusName.Size = new Size(250, 37);
+            cmbCusName.TabIndex = 59;
             // 
-            // textBox2
+            // txtCusID
             // 
-            textBox2.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(733, 74);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(250, 34);
-            textBox2.TabIndex = 57;
+            txtCusID.BorderStyle = BorderStyle.FixedSingle;
+            txtCusID.Enabled = false;
+            txtCusID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtCusID.Location = new Point(733, 26);
+            txtCusID.Multiline = true;
+            txtCusID.Name = "txtCusID";
+            txtCusID.Size = new Size(250, 34);
+            txtCusID.TabIndex = 57;
             // 
             // label7
             // 
@@ -206,14 +209,16 @@
             label8.TabIndex = 55;
             label8.Text = "Customer ID";
             // 
-            // cmDriver
+            // txtTicketID
             // 
-            cmDriver.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            cmDriver.FormattingEnabled = true;
-            cmDriver.Location = new Point(207, 29);
-            cmDriver.Name = "cmDriver";
-            cmDriver.Size = new Size(250, 37);
-            cmDriver.TabIndex = 53;
+            txtTicketID.BorderStyle = BorderStyle.FixedSingle;
+            txtTicketID.Enabled = false;
+            txtTicketID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTicketID.Location = new Point(207, 26);
+            txtTicketID.Multiline = true;
+            txtTicketID.Name = "txtTicketID";
+            txtTicketID.Size = new Size(250, 34);
+            txtTicketID.TabIndex = 3;
             // 
             // txtFullName
             // 
@@ -274,16 +279,18 @@
             label16.TabIndex = 57;
             label16.Text = "Amount";
             // 
-            // txtPayID
+            // txtPaymentTicketID
             // 
-            txtPayID.BorderStyle = BorderStyle.FixedSingle;
-            txtPayID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPayID.Location = new Point(474, 171);
-            txtPayID.Multiline = true;
-            txtPayID.Name = "txtPayID";
-            txtPayID.ReadOnly = true;
-            txtPayID.Size = new Size(250, 34);
-            txtPayID.TabIndex = 56;
+            txtPaymentTicketID.BackColor = SystemColors.Window;
+            txtPaymentTicketID.BorderStyle = BorderStyle.FixedSingle;
+            txtPaymentTicketID.Enabled = false;
+            txtPaymentTicketID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPaymentTicketID.Location = new Point(474, 171);
+            txtPaymentTicketID.Multiline = true;
+            txtPaymentTicketID.Name = "txtPaymentTicketID";
+            txtPaymentTicketID.ReadOnly = true;
+            txtPaymentTicketID.Size = new Size(250, 34);
+            txtPaymentTicketID.TabIndex = 56;
             // 
             // label11
             // 
@@ -313,13 +320,25 @@
             dateTimePicker1.Size = new Size(392, 34);
             dateTimePicker1.TabIndex = 69;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.Aqua;
+            button1.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            button1.Location = new Point(1215, 530);
+            button1.Name = "button1";
+            button1.Size = new Size(152, 56);
+            button1.TabIndex = 86;
+            button1.Text = "Print";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // PaymentTicketForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1406, 1007);
+            Controls.Add(button1);
             Controls.Add(dateTimePicker1);
-            Controls.Add(DataBus);
+            Controls.Add(gridPaymentTicket);
             Controls.Add(label14);
             Controls.Add(btnNew);
             Controls.Add(btnUpdate);
@@ -330,14 +349,15 @@
             Controls.Add(label2);
             Controls.Add(txtAmount);
             Controls.Add(label16);
-            Controls.Add(txtPayID);
+            Controls.Add(txtPaymentTicketID);
             Controls.Add(label11);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PaymentTicketForm";
             Text = "PaymentForm";
             WindowState = FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)DataBus).EndInit();
+            Load += PaymentTicketForm_Load;
+            ((System.ComponentModel.ISupportInitialize)gridPaymentTicket).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -346,7 +366,7 @@
 
         #endregion
 
-        private DataGridView DataBus;
+        private DataGridView gridPaymentTicket;
         private Label label14;
         private Button btnNew;
         private Button btnUpdate;
@@ -362,15 +382,17 @@
         private Label label2;
         private TextBox txtAmount;
         private Label label16;
-        private TextBox txtPayID;
+        private TextBox txtPaymentTicketID;
         private Label label11;
         private Label label1;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox1;
         private Label label4;
-        private ComboBox comboBox1;
-        private TextBox textBox2;
+        private ComboBox cmbCusName;
+        private TextBox txtCusID;
         private Label label7;
         private Label label8;
+        private TextBox txtTicketID;
+        private Button button1;
     }
 }

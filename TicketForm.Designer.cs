@@ -36,7 +36,7 @@
             label3 = new Label();
             label2 = new Label();
             panel2 = new Panel();
-            StaffID = new TextBox();
+            txtStaffID = new TextBox();
             cmStaffName = new ComboBox();
             textBox10 = new TextBox();
             label6 = new Label();
@@ -127,6 +127,7 @@
             txtCustomerID.Location = new Point(218, 29);
             txtCustomerID.Multiline = true;
             txtCustomerID.Name = "txtCustomerID";
+            txtCustomerID.ReadOnly = true;
             txtCustomerID.Size = new Size(178, 34);
             txtCustomerID.TabIndex = 3;
             // 
@@ -156,7 +157,7 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
-            panel2.Controls.Add(StaffID);
+            panel2.Controls.Add(txtStaffID);
             panel2.Controls.Add(cmStaffName);
             panel2.Controls.Add(textBox10);
             panel2.Controls.Add(label6);
@@ -167,16 +168,16 @@
             panel2.Size = new Size(375, 202);
             panel2.TabIndex = 1;
             // 
-            // StaffID
+            // txtStaffID
             // 
-            StaffID.BorderStyle = BorderStyle.FixedSingle;
-            StaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            StaffID.Location = new Point(175, 29);
-            StaffID.Multiline = true;
-            StaffID.Name = "StaffID";
-            StaffID.ReadOnly = true;
-            StaffID.Size = new Size(178, 34);
-            StaffID.TabIndex = 30;
+            txtStaffID.BorderStyle = BorderStyle.FixedSingle;
+            txtStaffID.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            txtStaffID.Location = new Point(175, 29);
+            txtStaffID.Multiline = true;
+            txtStaffID.Name = "txtStaffID";
+            txtStaffID.ReadOnly = true;
+            txtStaffID.Size = new Size(178, 34);
+            txtStaffID.TabIndex = 30;
             // 
             // cmStaffName
             // 
@@ -329,6 +330,7 @@
             txtTicketID.Location = new Point(297, 367);
             txtTicketID.Multiline = true;
             txtTicketID.Name = "txtTicketID";
+            txtTicketID.ReadOnly = true;
             txtTicketID.Size = new Size(250, 34);
             txtTicketID.TabIndex = 10;
             // 
@@ -491,12 +493,12 @@
             gridTicket.AllowUserToAddRows = false;
             gridTicket.AllowUserToDeleteRows = false;
             gridTicket.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridTicket.Location = new Point(213, 598);
+            gridTicket.Location = new Point(124, 598);
             gridTicket.Name = "gridTicket";
             gridTicket.ReadOnly = true;
             gridTicket.RowHeadersWidth = 51;
             gridTicket.RowTemplate.Height = 29;
-            gridTicket.Size = new Size(1066, 287);
+            gridTicket.Size = new Size(1227, 287);
             gridTicket.TabIndex = 28;
             gridTicket.CellClick += gridTicket_CellClick;
             // 
@@ -584,7 +586,7 @@
         private ComboBox cmbBusNumber;
         private ComboBox cmStaffName;
         private TextBox txtBusID;
-        private TextBox StaffID;
+        private TextBox txtStaffID;
         private ComboBox cmCusName;
         private DataGridView gridTicket;
     }
