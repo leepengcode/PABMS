@@ -51,11 +51,11 @@
             // DataCus
             // 
             DataCus.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataCus.Location = new Point(287, 475);
+            DataCus.Location = new Point(402, 475);
             DataCus.Name = "DataCus";
             DataCus.RowHeadersWidth = 51;
             DataCus.RowTemplate.Height = 29;
-            DataCus.Size = new Size(1064, 261);
+            DataCus.Size = new Size(825, 261);
             DataCus.TabIndex = 68;
             // 
             // label14

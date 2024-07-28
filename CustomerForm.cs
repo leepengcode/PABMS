@@ -329,7 +329,7 @@ namespace PABMS
 
             void ClearForm()
             {
-              
+
                 txtFullName.Text = string.Empty;
                 rbMale.Checked = false;
                 txtSearch.Text = "";

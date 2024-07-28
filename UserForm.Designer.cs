@@ -71,7 +71,6 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(250, 34);
             txtPassword.TabIndex = 39;
-            
             // 
             // label6
             // 
@@ -82,7 +81,6 @@
             label6.Size = new Size(120, 29);
             label6.TabIndex = 38;
             label6.Text = "Password";
-            
             // 
             // txtUsername
             // 
@@ -93,7 +91,6 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(250, 34);
             txtUsername.TabIndex = 37;
-            
             // 
             // label3
             // 
@@ -104,7 +101,6 @@
             label3.Size = new Size(124, 29);
             label3.TabIndex = 36;
             label3.Text = "Username";
-            
             // 
             // txtStaffID
             // 
@@ -116,7 +112,6 @@
             txtStaffID.Name = "txtStaffID";
             txtStaffID.Size = new Size(250, 34);
             txtStaffID.TabIndex = 41;
-            
             // 
             // label2
             // 
@@ -127,7 +122,6 @@
             label2.Size = new Size(89, 29);
             label2.TabIndex = 40;
             label2.Text = "Staff ID";
-            
             // 
             // label14
             // 
@@ -138,7 +132,6 @@
             label14.Size = new Size(89, 29);
             label14.TabIndex = 52;
             label14.Text = "Search";
-            
             // 
             // btnNew
             // 
@@ -200,12 +193,12 @@
             gridSearch.AllowUserToAddRows = false;
             gridSearch.AllowUserToDeleteRows = false;
             gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gridSearch.Location = new Point(302, 527);
+            gridSearch.Location = new Point(425, 527);
             gridSearch.Name = "gridSearch";
             gridSearch.ReadOnly = true;
             gridSearch.RowHeadersWidth = 51;
             gridSearch.RowTemplate.Height = 29;
-            gridSearch.Size = new Size(1004, 188);
+            gridSearch.Size = new Size(580, 188);
             gridSearch.TabIndex = 53;
             gridSearch.CellClick += gridSearch_CellClick;
             // 
@@ -221,7 +214,6 @@
             txtUserID.ReadOnly = true;
             txtUserID.Size = new Size(250, 34);
             txtUserID.TabIndex = 36;
-            
             // 
             // label4
             // 
@@ -233,7 +225,6 @@
             label4.Size = new Size(93, 29);
             label4.TabIndex = 36;
             label4.Text = "User ID";
-            
             // 
             // txtStaffName
             // 
@@ -244,7 +235,6 @@
             txtStaffName.Name = "txtStaffName";
             txtStaffName.Size = new Size(250, 34);
             txtStaffName.TabIndex = 41;
-            
             // 
             // txtStaffTel
             // 
@@ -255,7 +245,6 @@
             txtStaffTel.Name = "txtStaffTel";
             txtStaffTel.Size = new Size(250, 34);
             txtStaffTel.TabIndex = 41;
-            
             // 
             // label5
             // 
@@ -266,7 +255,6 @@
             label5.Size = new Size(131, 29);
             label5.TabIndex = 40;
             label5.Text = "Staff Name";
-            
             // 
             // label7
             // 
@@ -277,7 +265,6 @@
             label7.Size = new Size(102, 29);
             label7.TabIndex = 40;
             label7.Text = "Staff Tel";
-            
             // 
             // btnSearchStaff
             // 
