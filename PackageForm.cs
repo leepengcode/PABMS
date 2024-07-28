@@ -8,11 +8,6 @@ namespace PABMS
 {
     public partial class PackageForm : Form
     {
-        //string connectionString = "Data Source=LAPTOP-2O9AK3I7\\SQLISADE5;Initial Catalog=ISAD;Integrated Security=True;";
-        //string connectionString = @"Data Source=ASUS-EXPERTBOOK\SQLEXPRESS;Initial Catalog=ISADE5G5;Integrated Security=True;";
-
-
-
         SqlDataAdapter adapter = new SqlDataAdapter();
         DataTable table = new DataTable();
         SqlConnection connection;
@@ -20,13 +15,17 @@ namespace PABMS
         public PackageForm(SqlConnection connection)
         {
             this.connection = connection;
+            // if connection not open then open it
+            if (connection.State.Equals(ConnectionState.Closed))
+            {
+                this.connection.Open();
+            }
             InitializeComponent();
             // Attach event handlers
-            btnSearch.Click += BtnSearch_Click;
+            btnSearch.Click += btnSearch_Click;
             gridSearch.SelectionChanged += GridSearch_SelectionChanged;
             showPackages();
         }
-
 
         private void showPackages()
         {
@@ -65,19 +64,6 @@ namespace PABMS
                 table = new DataTable();
                 adapter.Fill(table);
                 gridSearch.DataSource = table;
-            }
-        }
-
-
-        private void BtnSearch_Click(object sender, EventArgs e)
-        {
-            if (int.TryParse(txtSearch.Text, out int packageId))
-            {
-                SearchTickets(packageId);
-            }
-            else
-            {
-                MessageBox.Show("Please enter a valid Package ID.");
             }
         }
 
@@ -160,6 +146,49 @@ namespace PABMS
         }
 
         // btnSave Click Event Handler
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string insertQuery = @"
+        INSERT INTO tbPackage (PackageName, PackagePrice, DeliveryDate, DepartureDate, ReceiverContactInformation, OriginName, DestinationName, CustomerID, StaffID, TruckID)
+        VALUES (@PackageName, @PackagePrice, @DeliveryDate, @DepartureDate, @ReceiverContact, @Origin, @Destination, @CustomerID, @StaffID, @TruckID)";
+
+            //using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(insertQuery, connection))
+            {
+                command.Parameters.AddWithValue("@PackageName", txtPackageName.Text);
+                command.Parameters.AddWithValue("@PackagePrice", decimal.Parse(txtPackagePrice.Text));
+                command.Parameters.AddWithValue("@DeliveryDate", DateTime.Parse(dateDelivery.Value.ToString()));
+                command.Parameters.AddWithValue("@DepartureDate", DateTime.Parse(dateDeparture.Value.ToString()));
+                command.Parameters.AddWithValue("@ReceiverContact", txtReciverContact.Text);
+                command.Parameters.AddWithValue("@Origin", txtOrigin.Text);
+                command.Parameters.AddWithValue("@Destination", txtDestination.Text);
+                command.Parameters.AddWithValue("@CustomerID", int.Parse(txtCustomerID.Text));
+                command.Parameters.AddWithValue("@StaffID", int.Parse(txtStaffID.Text));
+                command.Parameters.AddWithValue("@TruckID", int.Parse(txtTruckID.Text));
+
+                //connection.Open();
+                int result = command.ExecuteNonQuery();
+                if (result > 0)
+                    MessageBox.Show("Data inserted successfully.");
+
+                else
+                    MessageBox.Show("Data insertion failed.");
+                //connection.Close();
+            }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (int.TryParse(txtSearch.Text, out int packageId))
+            {
+                SearchTickets(packageId);
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid Package ID.");
+            }
+        }
+
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             string updateQuery = @"
@@ -182,7 +211,7 @@ namespace PABMS
                 command.Parameters.AddWithValue("@TruckID", int.Parse(txtTruckID.Text));
                 command.Parameters.AddWithValue("@PackageID", int.Parse(txtPackageID.Text)); // Assuming txtPackageID is your textbox for PackageID
 
-                connection.Open();
+                //connection.Open();
                 int result = command.ExecuteNonQuery();
 
                 if (result > 0)
@@ -194,38 +223,6 @@ namespace PABMS
             }
         }
 
-        // btnUpdate Click Event Handler
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string insertQuery = @"
-        INSERT INTO tbPackage (PackageName, PackagePrice, DeliveryDate, DepartureDate, ReceiverContactInformation, OriginName, DestinationName, CustomerID, StaffID, TruckID)
-        VALUES (@PackageName, @PackagePrice, @DeliveryDate, @DepartureDate, @ReceiverContact, @Origin, @Destination, @CustomerID, @StaffID, @TruckID)";
-
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(insertQuery, connection))
-            {
-                command.Parameters.AddWithValue("@PackageName", txtPackageName.Text);
-                command.Parameters.AddWithValue("@PackagePrice", decimal.Parse(txtPackagePrice.Text));
-                command.Parameters.AddWithValue("@DeliveryDate", DateTime.Parse(dateDelivery.Value.ToString()));
-                command.Parameters.AddWithValue("@DepartureDate", DateTime.Parse(dateDeparture.Value.ToString()));
-                command.Parameters.AddWithValue("@ReceiverContact", txtReciverContact.Text);
-                command.Parameters.AddWithValue("@Origin", txtOrigin.Text);
-                command.Parameters.AddWithValue("@Destination", txtDestination.Text);
-                command.Parameters.AddWithValue("@CustomerID", int.Parse(txtCustomerID.Text));
-                command.Parameters.AddWithValue("@StaffID", int.Parse(txtStaffID.Text));
-                command.Parameters.AddWithValue("@TruckID", int.Parse(txtTruckID.Text));
-
-                connection.Open();
-                int result = command.ExecuteNonQuery();
-                if (result > 0)
-                    MessageBox.Show("Data inserted successfully.");
-
-                else
-                    MessageBox.Show("Data insertion failed.");
-            }
-        }
-
-        // btnNew Click Event Handler
         private void btnNew_Click(object sender, EventArgs e)
         {
             // make every txt blank

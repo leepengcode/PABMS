@@ -17,6 +17,10 @@ namespace PABMS
             dataAdapter = new SqlDataAdapter();
             dataTable = new DataTable();
             this.connection = connection;
+            if (!connection.State.Equals(ConnectionState.Closed))
+            {
+                this.connection.Open();
+            }
         }
 
         private void TicketForm_Load(object sender, EventArgs e)
@@ -24,9 +28,9 @@ namespace PABMS
             FillComboBusID();
             FillComboStaffID();
             FillComboCusID();
-            /*LoadTicketData();
+            //GetLatestTicketID();
             LoadLatestTicketID();
-            gridTicket.CellClick += DataTicket_CellClick;*/
+            //gridTicket.CellClick += DataTicket_CellClick;
 
             //fillDataTableAllColumns();
             fillDataTableTicketColumns();
@@ -185,7 +189,7 @@ namespace PABMS
                     cmCusName.Text = row["CustomerName"].ToString();
                     txtCusPhone.Text = row["CustomerPhone"].ToString();
 
-                    StaffID.Text = row["StaffID"].ToString();
+                    txtStaffID.Text = row["StaffID"].ToString();
                     cmStaffName.Text = row["StaffID"].ToString();
 
                     txtBusID.Text = row["BusID"].ToString();
@@ -254,7 +258,7 @@ namespace PABMS
                     SqlDataReader reader = cmd.ExecuteReader();
                     if (reader.Read())
                     {
-                        StaffID.Text = reader["StaffID"].ToString();
+                        txtStaffID.Text = reader["StaffID"].ToString();
                     }
                     reader.Close();
                     connection.Close();
@@ -311,11 +315,12 @@ namespace PABMS
                 connection.Open(); // error here
                 dataAdapter.SelectCommand = new SqlCommand(query, connection);
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@TicketID", searchID);
-                dataTable.Clear(); // Clear previous data
+                dataTable = new DataTable();
                 dataAdapter.Fill(dataTable);
 
-                // Bind data to DataGridView
                 gridTicket.DataSource = dataTable;
+
+                connection.Close();
             }
             catch (Exception ex)
             {
@@ -327,9 +332,9 @@ namespace PABMS
         {
 
 
-            int customerId = Convert.ToInt32(cmCusName.SelectedItem.ToString());
-            int staffId = Convert.ToInt32(cmStaffName.SelectedItem.ToString());
-            int busId = Convert.ToInt32(cmbBusNumber.SelectedItem.ToString());
+            string customerId = txtCustomerID.Text;
+            string staffId = txtStaffID.Text;
+            string busId = txtBusID.Text;
             DateTime purchaseDate = dtpPurchase.Value;
             DateTime departureDate = dtpDeparture.Value;
             string originName = txtOrigin.Text.Trim();
@@ -354,10 +359,13 @@ namespace PABMS
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Ticket added successfully.");
-                //LoadTicketData();
+                connection.Close();
+
+                fillDataTableTicketColumns();
+                gridTicket.DataSource = dataTable;
+
                 LoadLatestTicketID();
                 ClearForm();
-                connection.Close();
             }
             catch (Exception ex)
             {
@@ -374,15 +382,15 @@ namespace PABMS
             }
 
             int ticketID = Convert.ToInt32(txtTicketID.Text.Trim());
-            int customerID = Convert.ToInt32(cmCusName.SelectedItem?.ToString());
-            int staffID = Convert.ToInt32(cmStaffName.SelectedItem?.ToString());
-            int busID = Convert.ToInt32(cmbBusNumber.SelectedItem?.ToString());
+            string customerID = txtCustomerID.Text;
+            string staffID = txtStaffID.Text;
+            string busID = txtBusID.Text;
             DateTime purchaseDate = dtpPurchase.Value;
             DateTime departureDate = dtpDeparture.Value;
             string origin = txtOrigin.Text.Trim();
             string destination = txtDestination.Text.Trim();
 
-            if (customerID == 0 || staffID == 0 || busID == 0)
+            if (customerID == "" || staffID == "" || busID == "")
             {
                 MessageBox.Show("Please select a valid customer, staff, and bus.");
                 return;
@@ -410,7 +418,13 @@ namespace PABMS
                     cmd.ExecuteNonQuery();
                 }
                 MessageBox.Show("Ticket updated successfully.");
+                connection.Close();
+
                 ClearForm();
+                LoadLatestTicketID();
+
+                fillDataTableTicketColumns();
+                gridTicket.DataSource = dataTable;
                 //LoadTicketData();
             }
             catch (Exception ex)
@@ -432,7 +446,7 @@ namespace PABMS
             txtTicketPrice.Clear();
             txtCustomerID.Clear();
             txtCusPhone.Clear();
-            StaffID.Clear();
+            txtStaffID.Clear();
             txtSearch.Clear();
             //LoadTicketData();
             //LoadLatestTicketID();
@@ -440,6 +454,8 @@ namespace PABMS
         private void btnNew_Click(object sender, EventArgs e)
         {
             ClearForm();
+            GetLatestTicketID();
+            LoadLatestTicketID();
         }
     }
 }

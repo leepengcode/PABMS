@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             datePayment = new DateTimePicker();
             gridSearch = new DataGridView();
             label14 = new Label();
@@ -70,11 +72,21 @@
             // 
             gridSearch.AllowUserToAddRows = false;
             gridSearch.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            gridSearch.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             gridSearch.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             gridSearch.Location = new Point(306, 661);
             gridSearch.Name = "gridSearch";
             gridSearch.ReadOnly = true;
             gridSearch.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            gridSearch.RowsDefaultCellStyle = dataGridViewCellStyle2;
             gridSearch.RowTemplate.Height = 29;
             gridSearch.Size = new Size(1053, 255);
             gridSearch.TabIndex = 83;

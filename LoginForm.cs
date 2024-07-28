@@ -64,19 +64,25 @@ namespace PABMS
         {
             for (int i = 0; i < users.Count; i++)
             {
+                if (txtUsername.Text.Equals(""))
+                {
+                    MessageBox.Show("Please fill in username!");
+                    return;
+                } else if (txtPassword.Text.Equals(""))
+                {
+                    MessageBox.Show("Please fill in password!");
+                    return;
+                }
                 if (txtUsername.Text == users[i].Username && txtPassword.Text == users[i].Password)
                 {
                     user = users[i];
                     isLogin = true;
-
-                    
-
-                    //MainForm mainForm = new MainForm();
-                    //mainForm.Show();
-
                     this.Hide();
-                    //this.Dispose();
                     break;
+                } else
+                {
+                    MessageBox.Show("Invalid username or password!");
+                    return;
                 }
             }
         }
